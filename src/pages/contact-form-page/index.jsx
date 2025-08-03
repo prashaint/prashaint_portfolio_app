@@ -96,7 +96,7 @@ const ContactFormPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center">
             <p className="text-sm text-muted-foreground">
-              © {new Date()?.getFullYear()} Portfolio Pro. All rights reserved.
+              © {new Date()?.getFullYear()} Prashaint Mishra. All rights reserved.
             </p>
           </div>
         </div>

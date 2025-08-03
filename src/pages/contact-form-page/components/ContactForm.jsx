@@ -19,13 +19,13 @@ const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const projectTypeOptions = [
-    { value: 'web-development', label: 'Web Development' },
-    { value: 'mobile-app', label: 'Mobile Application' },
-    { value: 'ui-ux-design', label: 'UI/UX Design' },
+    { value: 'ML Based Data Pipeline', label: 'ML Based Data Pipeline' },
+    { value: 'ETL Pipeline', label: 'ETL Pipeline' },
+    { value: 'AI Based App', label: 'AI Based App' },
     { value: 'e-commerce', label: 'E-commerce Solution' },
     { value: 'consulting', label: 'Technical Consulting' },
-    { value: 'maintenance', label: 'Website Maintenance' },
-    { value: 'other', label: 'Other' }
+    { value: 'Data Product Support', label: 'Data Product Support' },
+    { value: 'Other', label: 'Other' }
   ];
 
   const budgetOptions = [
@@ -92,6 +92,8 @@ const ContactForm = () => {
     
     if (!validateForm()) {
       return;
+    // email the form data to the server or an email service
+    
     }
 
     setIsSubmitting(true);

@@ -7,28 +7,28 @@ const ContactInfo = () => {
     {
       icon: 'Mail',
       label: 'Email',
-      value: 'hello@portfoliopro.com',
-      href: 'mailto:hello@portfoliopro.com',
+      value: 'prashaint.kumar.mishra@gmail.com',
+      href: 'mailto:prashaint.kumar.mishra@gmail.com',
       description: 'Best for project inquiries'
     },
     {
       icon: 'Phone',
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
-      description: 'Available Mon-Fri, 9AM-6PM EST'
+      value: '+91 8484093319',
+      href: 'tel:8484093319',
+      description: 'Available Mon-Fri, 9AM-6PM IST'
     },
     {
       icon: 'Linkedin',
       label: 'LinkedIn',
-      value: 'linkedin.com/in/portfoliopro',
-      href: 'https://linkedin.com/in/portfoliopro',
+      value: 'linkedin.com/in/prashaint',
+      href: 'https://www.linkedin.com/in/prashaint',
       description: 'Professional networking'
     },
     {
       icon: 'MapPin',
       label: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Pune, India',
       href: null,
       description: 'Available for local meetings'
     }
@@ -142,8 +142,8 @@ const ContactInfo = () => {
             onClick={() => {
               // Mock resume download
               const link = document.createElement('a');
-              link.href = '#';
-              link.download = 'Portfolio_Pro_Resume.pdf';
+              link.href = '/assets/resume/Prashaint_Kumar_Mishra_Mar25.pdf';
+              link.download = 'Prashaint_Kumar_Mishra_Mar25.pdf';
               link?.click();
             }}
           >
@@ -165,7 +165,7 @@ const ContactInfo = () => {
             fullWidth
             iconName="MessageCircle"
             iconPosition="left"
-            onClick={() => window.open('https://wa.me/15551234567', '_blank')}
+            onClick={() => window.open('https://wa.me/918484093319', '_blank')}
           >
             WhatsApp Chat
           </Button>
@@ -178,7 +178,7 @@ const ContactInfo = () => {
             Location
           </h3>
           <p className="text-sm text-muted-foreground">
-            Available for local meetings in San Francisco Bay Area
+            Available for in-person meetings in Pune, India
           </p>
         </div>
         <div className="h-48 bg-muted">
@@ -186,9 +186,9 @@ const ContactInfo = () => {
             width="100%"
             height="100%"
             loading="lazy"
-            title="San Francisco Location"
+            title="Pune Location"
             referrerPolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=37.7749,-122.4194&z=12&output=embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121059.04711156077!2d73.78056543154419!3d18.524598599502376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1754242681417!5m2!1sen!2sin"
             className="border-0"
           />
         </div>

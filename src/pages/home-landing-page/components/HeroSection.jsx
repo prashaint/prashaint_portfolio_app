@@ -15,8 +15,8 @@ const HeroSection = () => {
   const handleDownloadResume = () => {
     // Mock resume download
     const link = document.createElement('a');
-    link.href = '/assets/resume/john-doe-resume.pdf';
-    link.download = 'John_Doe_Resume.pdf';
+    link.href = '/assets/resume/Prashaint_Kumar_Mishra_Mar25.pdf';
+    link.download = 'Prashaint_Kumar_Mishra_Mar25.pdf';
     link?.click();
   };
 
