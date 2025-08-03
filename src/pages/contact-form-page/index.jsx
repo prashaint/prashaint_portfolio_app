@@ -13,14 +13,14 @@ const ContactFormPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Contact - Portfolio Pro | Let's Work Together</title>
+        <title>Contact - Prashaint Mishra | Let's Work Together</title>
         <meta 
           name="description" 
-          content="Get in touch with Portfolio Pro for your next web development, mobile app, or digital solution project. Quick response guaranteed within 24 hours." 
+          content="Get in touch with Prashaint Mishra for your next Data pipeline development, Data Products, or ML pipeline project. Quick response guaranteed within 24 hours." 
         />
-        <meta name="keywords" content="contact, web development, mobile app, digital solutions, portfolio, freelancer" />
-        <meta property="og:title" content="Contact - Portfolio Pro | Let's Work Together" />
-        <meta property="og:description" content="Ready to bring your project to life? Contact Portfolio Pro for professional web development and digital solutions." />
+        <meta name="keywords" content="contact, Data Driven development, System Design, Cloud Application Development, portfolio, freelancer" />
+        <meta property="og:title" content="Contact - Prashaint Mishra | Let's Work Together" />
+        <meta property="og:description" content="Ready to bring your project to life? Contact Prashaint Mishra for professional web development and digital solutions." />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="/contact-form-page" />
       </Helmet>

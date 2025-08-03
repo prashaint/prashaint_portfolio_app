@@ -6,10 +6,10 @@ import Icon from '../../../components/AppIcon';
 
 const HeroSection = () => {
   const socialLinks = [
-    { name: 'LinkedIn', icon: 'Linkedin', url: 'https://linkedin.com/in/johndoe' },
-    { name: 'GitHub', icon: 'Github', url: 'https://github.com/johndoe' },
-    { name: 'Twitter', icon: 'Twitter', url: 'https://twitter.com/johndoe' },
-    { name: 'Dribbble', icon: 'Dribbble', url: 'https://dribbble.com/johndoe' }
+    { name: 'LinkedIn', icon: 'Linkedin', url: 'https://www.linkedin.com/in/prashaint' },
+    { name: 'GitHub', icon: 'Github', url: 'https://github.com/prashaint' },
+    { name: 'Twitter', icon: 'Twitter', url: 'https://x.com/prashaint44903' },
+    { name: 'Instagram', icon: 'Instagram', url: 'https://www.instagram.com/prashaint/?hl=en' }
   ];
 
   const handleDownloadResume = () => {
@@ -35,15 +35,14 @@ const HeroSection = () => {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight">
                 Hi, I'm{' '}
                 <span className="text-primary bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  John Doe
+                  Prashaint Kumar Mishra
                 </span>
               </h1>
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium text-muted-foreground mb-6">
-                Full-Stack Developer & UI/UX Designer
+                AVP - Senior Data Engineer, Barclays
               </h2>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                I craft exceptional digital experiences through innovative web applications and user-centered design. 
-                With 5+ years of experience, I transform complex problems into elegant, scalable solutions that drive business growth.
+                Seasoned Senior Data Engineer with 13+ years of hands-on experience architecting and leading complex machine learning–driven data pipeline projects across diverse domains. Expert in designing and implementing robust, scalable, and efficient end-to-end data engineering solutions—from ingestion and transformation to model deployment and monitoring. Adept at navigating technical challenges with precision, optimizing performance, and ensuring data integrity across distributed systems. Passionate about leveraging cutting-edge technologies to drive innovation and deliver impactful results.
               </p>
             </div>
 
@@ -103,8 +102,8 @@ const HeroSection = () => {
               {/* Main Image Container */}
               <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] overflow-hidden rounded-2xl shadow-soft-hover">
                 <Image
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face"
-                  alt="John Doe - Full-Stack Developer"
+                  src="assets/images/prashaint_profile2.jpg"
+                  alt="Prashaint Mishra - Senior Data Engineer"
                   className="w-full h-full object-cover"
                 />
                 

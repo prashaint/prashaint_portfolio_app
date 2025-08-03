@@ -4,13 +4,13 @@ import Button from '../../../components/ui/Button';
 
 const PersonalInfo = () => {
   const personalData = {
-    name: "Alex Johnson",
-    title: "Full Stack Developer & UI/UX Designer",
-    location: "San Francisco, CA",
-    email: "alex.johnson@email.com",
-    phone: "+1 (555) 123-4567",
-    bio: `I'm a passionate full stack developer with over 6 years of experience creating digital solutions that bridge the gap between design and functionality. My journey began with a Computer Science degree from Stanford University, where I discovered my love for both coding and user experience design.\n\nI specialize in React, Node.js, and modern web technologies, with a keen eye for creating intuitive user interfaces. My approach combines technical expertise with creative problem-solving, ensuring that every project not only functions flawlessly but also provides an exceptional user experience.\n\nWhen I'm not coding, you'll find me exploring the latest design trends, contributing to open-source projects, or hiking the beautiful trails around the Bay Area. I believe in continuous learning and staying ahead of the curve in this ever-evolving tech landscape.`,
-    profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    name: "Prashaint Mishra",
+    title: "Senior Data Engineer, Barclays",
+    location: "Pune, MH, India",
+    email: "prashaint.kumar.mishra@gmail.com",
+    phone: "+91 8484093319",
+    bio: `I'm Senior Data Engineer with over 13 years of experience. I have designed, developed and maintained complex data pipelines for ML projects. My journey began with a MCA degree from BIT Mesra Ranchi, where I discovered my love for both coding and Data Engineering.\n\nI specialize in PySpark, Python, and modern Data Engineering technologies, with a keen eye for creating complext and scalable data pipelines. My approach combines technical expertise with creative problem-solving, ensuring that every project not only functions flawlessly but also provides an exceptional user experience.\n\nWhen I'm not coding, you'll find me exploring the latest design trends, contributing to open-source projects, or hiking the beautiful trails around the Bay Area. I believe in continuous learning and staying ahead of the curve in this ever-evolving tech landscape.`,
+    profileImage: "assets/images/prashaint.jpg",
     resumeUrl: "/assets/resume/alex-johnson-resume.pdf"
   };
 
@@ -18,7 +18,7 @@ const PersonalInfo = () => {
     // Mock download functionality
     const link = document.createElement('a');
     link.href = personalData?.resumeUrl;
-    link.download = 'Alex-Johnson-Resume.pdf';
+    link.download = 'prashaint-mishra-v2.pdf';
     document.body?.appendChild(link);
     link?.click();
     document.body?.removeChild(link);
@@ -85,11 +85,11 @@ const PersonalInfo = () => {
         {/* Quick Stats */}
         <div className="grid grid-cols-2 gap-4 pt-6 border-t border-border">
           <div className="text-center p-4 bg-muted rounded-lg">
-            <div className="text-2xl font-bold text-primary">6+</div>
+            <div className="text-2xl font-bold text-primary">13+</div>
             <div className="text-sm text-muted-foreground">Years Experience</div>
           </div>
           <div className="text-center p-4 bg-muted rounded-lg">
-            <div className="text-2xl font-bold text-primary">50+</div>
+            <div className="text-2xl font-bold text-primary">20+</div>
             <div className="text-sm text-muted-foreground">Projects Completed</div>
           </div>
         </div>

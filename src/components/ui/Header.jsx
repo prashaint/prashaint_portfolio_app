@@ -61,9 +61,9 @@ const Header = () => {
               className="flex items-center space-x-2 text-xl font-semibold text-foreground hover:text-primary transition-colors duration-200"
             >
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">PP</span>
+                <span className="text-primary-foreground font-bold text-sm">PM</span>
               </div>
-              <span className="hidden sm:block">Portfolio Pro</span>
+              <span className="hidden sm:block">Prashaint Mishra</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -117,9 +117,9 @@ const Header = () => {
                 onClick={closeMobileMenu}
               >
                 <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-xs">PP</span>
+                  <span className="text-primary-foreground font-bold text-xs">PM</span>
                 </div>
-                <span>Portfolio Pro</span>
+                <span>Prashaint Mishra</span>
               </Link>
               
               <Button

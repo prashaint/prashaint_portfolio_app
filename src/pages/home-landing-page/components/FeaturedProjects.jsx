@@ -52,8 +52,8 @@ const FeaturedProjects = () => {
             Featured Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover some of my recent work that showcases my expertise in modern web development, 
-            user experience design, and innovative problem-solving.
+            Discover some of my recent project work that showcases my expertise in modern Data Engineering development, 
+            Scalable and Robust Pipeline  design, and innovative problem-solving.
           </p>
         </div>
 

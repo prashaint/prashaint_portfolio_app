@@ -49,22 +49,22 @@ const CertificationsSection = () => {
   const education = [
     {
       id: 1,
-      degree: "Master of Science in Computer Science",
-      institution: "Stanford University",
-      location: "Stanford, CA",
-      period: "2016 - 2018",
-      gpa: "3.8/4.0",
-      specialization: "Human-Computer Interaction",
+      degree: "Master of Computer Applications (MCA)",
+      institution: "Birla Institute of Technology, Mesra",
+      location: "Ranchi, India",
+      period: "2008 - 2011",
+      gpa: "8.14/10.0",
+      specialization: "Computer Science and Applications",
       logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=100&h=100&fit=crop"
     },
     {
       id: 2,
-      degree: "Bachelor of Science in Software Engineering",
-      institution: "University of California, Berkeley",
-      location: "Berkeley, CA",
-      period: "2012 - 2016",
-      gpa: "3.7/4.0",
-      specialization: "Web Technologies",
+      degree: "Bachelor of Computer Applications (BCA)",
+      institution: "Birla Institute of Technology, Mesra",
+      location: "Ranchi, India",
+      period: "2005 - 2008",
+      gpa: "7.15/10.0",
+      specialization: "Computer Science and Applications",
       logo: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=100&h=100&fit=crop"
     }
   ];

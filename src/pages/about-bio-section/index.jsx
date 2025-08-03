@@ -45,10 +45,10 @@ const AboutBioSection = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>About Me - Alex Johnson | Full Stack Developer & UI/UX Designer</title>
-        <meta name="description" content="Learn about Alex Johnson, a passionate full stack developer with 6+ years of experience in React, Node.js, and modern web technologies. Discover my skills, education, and personal interests." />
-        <meta name="keywords" content="Alex Johnson, Full Stack Developer, UI/UX Designer, React Developer, Web Developer, Portfolio" />
-        <meta property="og:title" content="About Me - Alex Johnson | Full Stack Developer" />
+        <title>About Me - Prashaint Mishra | Senior Data Engineer</title>
+        <meta name="description" content="Learn about Prashaint Mishra, a passionate full stack developer with 13+ years of experience in React, Node.js, and modern web technologies. Discover my skills, education, and personal interests." />
+        <meta name="keywords" content="Prashaint Mishra, Full Stack Developer, UI/UX Designer, React Developer, Web Developer, Portfolio" />
+        <meta property="og:title" content="About Me - Prashaint Mishra | Senior Data Engineer" />
         <meta property="og:description" content="Passionate full stack developer specializing in React, Node.js, and user experience design. Based in San Francisco with 6+ years of experience." />
         <meta property="og:type" content="profile" />
       </Helmet>

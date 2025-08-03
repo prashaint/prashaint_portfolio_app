@@ -4,24 +4,24 @@ import Icon from '../../../components/AppIcon';
 const SkillsOverview = () => {
   const skillCategories = [
     {
-      title: "Frontend Development",
+      title: "Data Pipeline Development",
       icon: "Monitor",
       skills: [
-        { name: "React", level: 95 },
-        { name: "JavaScript", level: 90 },
-        { name: "TypeScript", level: 85 },
-        { name: "CSS/SCSS", level: 88 },
-        { name: "Tailwind CSS", level: 92 }
+        { name: "OOP & Python", level: 95 },
+        { name: "Spark Architecture", level: 90 },
+        { name: "PySpark", level: 95 },
+        { name: "SQL", level: 85 },
+        { name: "Linux Shell Scripting", level: 92 }
       ],
       color: "text-blue-500"
     },
     {
-      title: "Backend Development",
+      title: "Pipeline Testing and Orchestration",
       icon: "Server",
       skills: [
-        { name: "Node.js", level: 88 },
-        { name: "Python", level: 82 },
-        { name: "Express.js", level: 85 },
+        { name: "Pytest", level: 90 },
+        { name: "Airflow", level: 80 },
+        { name: "Great Expectation", level: 85 },
         { name: "MongoDB", level: 80 },
         { name: "PostgreSQL", level: 78 }
       ],
@@ -31,8 +31,8 @@ const SkillsOverview = () => {
       title: "Design & Tools",
       icon: "Palette",
       skills: [
-        { name: "Figma", level: 90 },
-        { name: "Adobe XD", level: 85 },
+        { name: "VSCode", level: 90 },
+        { name: "Pycharm", level: 85 },
         { name: "Git", level: 92 },
         { name: "Docker", level: 75 },
         { name: "AWS", level: 70 }

@@ -78,12 +78,12 @@ const PersonalInterests = () => {
   ];
 
   const funFacts = [
-    "☕ I\'ve visited over 50 coffee shops in the Bay Area",
-    "🏔️ Hiked to the summit of Mount Whitney (14,505 ft)",
-    "📚 Read 24 tech books in 2023",
-    "🎯 Contributed to 15+ open source projects",
+    "☕ I\'ve visited over 50 coffee shops in Pune",
+    "🏔️ Hiked to all the forts around Pune",
+    "📚 Read 24 tech books in 2025",
+    "🎯 Contributed to 5+ open source projects",
     "🌱 Growing my own herbs for cooking",
-    "📸 Photography portfolio has 10K+ views on Instagram"
+    "📸 Photography portfolio has 1K+ views on Instagram"
   ];
 
   return (

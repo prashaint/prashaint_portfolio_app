@@ -9,16 +9,16 @@ import ContactCTA from './components/ContactCTA';
 const HomeLandingPage = () => {
   useEffect(() => {
     // Set page title
-    document.title = 'John Doe - Full-Stack Developer & UI/UX Designer';
+    document.title = 'Prashaint Mishra - AVP - Senior Data Engineer';
     
     // Add meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription?.setAttribute('content', 'Professional portfolio of John Doe - Full-Stack Developer and UI/UX Designer. Explore my projects, skills, and experience in modern web development.');
+      metaDescription?.setAttribute('content', 'Professional portfolio of Prashaint Mishra - AVP - Senior Data Engineer. Explore my projects, skills, and experience in modern and complex Data Pipelines.');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'description';
-      meta.content = 'Professional portfolio of John Doe - Full-Stack Developer and UI/UX Designer. Explore my projects, skills, and experience in modern web development.';
+      meta.content = 'Professional portfolio of Prashaint Mishra - AVP - Senior Data Engineer. Explore my projects, skills, and experience in modern and complex Data Pipelines.';
       document.getElementsByTagName('head')?.[0]?.appendChild(meta);
     }
 
@@ -46,7 +46,7 @@ const HomeLandingPage = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-center md:text-left">
               <p className="text-muted-foreground text-sm">
-                © {new Date()?.getFullYear()} John Doe. All rights reserved.
+                © {new Date()?.getFullYear()} Prashaint Mishra. All rights reserved.
               </p>
             </div>
             <div className="text-center md:text-right">

@@ -12,7 +12,7 @@ const AboutPreview = () => {
       icon: "CheckCircle"
     },
     {
-      number: "5+",
+      number: "13+",
       label: "Years Experience",
       icon: "Calendar"
     },
@@ -29,8 +29,8 @@ const AboutPreview = () => {
   ];
 
   const highlights = [
-    "Full-stack development with modern frameworks",
-    "User-centered design and responsive interfaces",
+    "Senior Data Engineer with expertiese on modern and complex Data Pipelines development",
+    "End-to-end data solutions from ingestion to visualization",
     "Performance optimization and scalable architecture",
     "Agile development and team collaboration"
   ];
@@ -104,8 +104,8 @@ const AboutPreview = () => {
               <div className="relative w-full max-w-md mx-auto">
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-soft-hover">
                   <Image
-                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&h=500&fit=crop&crop=face"
-                    alt="John Doe working on a project"
+                    src="assets/images/prashaint.jpg"
+                    alt="Prashaint Mishra working on a project"
                     className="w-full h-full object-cover"
                   />
                 </div>

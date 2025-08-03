@@ -9,21 +9,21 @@ const ContactCTA = () => {
       icon: "Mail",
       title: "Email Me",
       description: "Drop me a line anytime",
-      value: "john.doe@email.com",
-      action: "mailto:john.doe@email.com"
+      value: "prashaint.kumar.mishra@gmail.com",
+      action: "mailto:prashaint.kumar.mishra@gmail.com"
     },
     {
       icon: "Phone",
       title: "Call Me",
       description: "Let\'s have a conversation",
-      value: "+1 (555) 123-4567",
-      action: "tel:+15551234567"
+      value: "+91 8484093319",
+      action: "tel:+918484093319"
     },
     {
       icon: "MapPin",
       title: "Location",
-      description: "Based in San Francisco",
-      value: "San Francisco, CA",
+      description: "Based in Pune, India",
+      value: "Pune, MH, India",
       action: null
     }
   ];
