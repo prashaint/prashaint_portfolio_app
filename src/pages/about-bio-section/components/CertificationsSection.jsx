@@ -6,9 +6,9 @@ const CertificationsSection = () => {
   const certifications = [
     {
       id: 1,
-      title: "AWS Certified Solutions Architect",
+      title: "AWS Certified Solutions Architect - Associate",
       issuer: "Amazon Web Services",
-      date: "2023",
+      date: "2024",
       credentialId: "AWS-CSA-2023-001",
       logo: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=100&h=100&fit=crop",
       status: "Active",
@@ -16,23 +16,23 @@ const CertificationsSection = () => {
     },
     {
       id: 2,
-      title: "Google UX Design Professional Certificate",
-      issuer: "Google",
-      date: "2022",
+      title: "Databricks Certified Data Engineer Associate",
+      issuer: "Databricks",
+      date: "2025",
       credentialId: "GOOGLE-UX-2022-045",
       logo: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=100&h=100&fit=crop",
       status: "Active",
-      validUntil: "Lifetime"
+      validUntil: "2027"
     },
     {
       id: 3,
-      title: "Meta Front-End Developer Certificate",
-      issuer: "Meta",
-      date: "2023",
+      title: "AWS Certified AI Practitioner",
+      issuer: "Amazon Web Services",
+      date: "2025",
       credentialId: "META-FE-2023-078",
       logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop",
       status: "Active",
-      validUntil: "Lifetime"
+      validUntil: "2027"
     },
     {
       id: 4,

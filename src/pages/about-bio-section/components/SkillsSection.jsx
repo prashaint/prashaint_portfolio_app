@@ -9,26 +9,28 @@ const SkillsSection = () => {
       title: "Technical Skills",
       icon: "Code",
       skills: [
-        { name: "React.js", level: 95, category: "Frontend" },
-        { name: "Node.js", level: 90, category: "Backend" },
-        { name: "JavaScript/TypeScript", level: 95, category: "Language" },
-        { name: "Python", level: 85, category: "Language" },
+        { name: "PySpark", level: 95, category: "Backend" },
+        { name: "Python", level: 90, category: "Language" },
+        { name: "JavaScript", level: 95, category: "Language" },
+        { name: "Scala", level: 85, category: "Language" },
         { name: "MongoDB", level: 80, category: "Database" },
         { name: "PostgreSQL", level: 85, category: "Database" },
         { name: "AWS", level: 75, category: "Cloud" },
-        { name: "Docker", level: 80, category: "DevOps" }
+        { name: "Docker", level: 80, category: "DevOps" },
+        { name: "Airflow", level: 80, category: "DevOps" },
+        { name: "Databricks", level: 80, category: "Cloud" }
       ]
     },
     design: {
       title: "Design Skills",
       icon: "Palette",
       skills: [
-        { name: "UI/UX Design", level: 90, category: "Design" },
-        { name: "Figma", level: 95, category: "Tool" },
+        { name: "Data Driven Design", level: 90, category: "Design" },
+        { name: "Django", level: 95, category: "Tool" },
         { name: "Adobe Creative Suite", level: 80, category: "Tool" },
-        { name: "Prototyping", level: 85, category: "Process" },
-        { name: "User Research", level: 75, category: "Research" },
-        { name: "Wireframing", level: 90, category: "Process" }
+        { name: "VScode", level: 85, category: "Tool" },
+        { name: "Pycharm", level: 75, category: "Tool" },
+        { name: "JIRA", level: 90, category: "Process" }
       ]
     },
     soft: {
