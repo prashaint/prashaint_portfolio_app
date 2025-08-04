@@ -1,0 +1,25 @@
+# Simple Debian-based Development Dockerfile (Recommended)
+FROM node:18
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Clear npm cache and install dependencies
+RUN npm cache clean --force && \
+    rm -rf node_modules package-lock.json && \
+    npm install
+
+# Copy source code
+COPY . .
+
+# Expose development port
+EXPOSE 5173
+
+# Set environment
+ENV NODE_ENV=development
+
+# Start development server
+CMD ["npm", "run", "start"]
