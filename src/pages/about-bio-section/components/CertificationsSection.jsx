@@ -10,7 +10,7 @@ const CertificationsSection = () => {
       issuer: "Amazon Web Services",
       date: "2024",
       credentialId: "AWS-CSA-2023-001",
-      logo: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=100&h=100&fit=crop",
+      logo: "https://media.licdn.com/dms/image/v2/D4E0BAQFqdm1TZ-RZKQ/company-logo_100_100/B4EZgOay6gHEAY-/0/1752588562343/amazon_web_services_logo?e=1756944000&v=beta&t=TXvqBOpOtVd7hid3OgFrPOBLixYS2HsJDjMm6EM4BsI",
       status: "Active",
       validUntil: "2026"
     },
@@ -20,7 +20,7 @@ const CertificationsSection = () => {
       issuer: "Databricks",
       date: "2025",
       credentialId: "GOOGLE-UX-2022-045",
-      logo: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=100&h=100&fit=crop",
+      logo: "https://media.licdn.com/dms/image/v2/D560BAQFPIRKiPVETuw/company-logo_100_100/company-logo_100_100/0/1697215766274?e=1756944000&v=beta&t=4vyNwhFczmyfA0JGYOdFgYtL9JrCIrPw2V5D7JtXcLY",
       status: "Active",
       validUntil: "2027"
     },
@@ -30,7 +30,7 @@ const CertificationsSection = () => {
       issuer: "Amazon Web Services",
       date: "2025",
       credentialId: "META-FE-2023-078",
-      logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop",
+      logo: "https://media.licdn.com/dms/image/v2/D4E0BAQFqdm1TZ-RZKQ/company-logo_100_100/B4EZgOay6gHEAY-/0/1752588562343/amazon_web_services_logo?e=1756944000&v=beta&t=TXvqBOpOtVd7hid3OgFrPOBLixYS2HsJDjMm6EM4BsI",
       status: "Active",
       validUntil: "2027"
     },
