@@ -16,16 +16,6 @@ const CertificationsSection = () => {
     },
     {
       id: 2,
-      title: "Databricks Certified Data Engineer Associate",
-      issuer: "Databricks",
-      date: "2025",
-      credentialId: "GOOGLE-UX-2022-045",
-      logo: "https://media.licdn.com/dms/image/v2/D560BAQFPIRKiPVETuw/company-logo_100_100/company-logo_100_100/0/1697215766274?e=1756944000&v=beta&t=4vyNwhFczmyfA0JGYOdFgYtL9JrCIrPw2V5D7JtXcLY",
-      status: "Active",
-      validUntil: "2027"
-    },
-    {
-      id: 3,
       title: "AWS Certified AI Practitioner",
       issuer: "Amazon Web Services",
       date: "2025",
@@ -35,15 +25,35 @@ const CertificationsSection = () => {
       validUntil: "2027"
     },
     {
-      id: 4,
-      title: "Certified Scrum Master (CSM)",
-      issuer: "Scrum Alliance",
-      date: "2022",
-      credentialId: "CSM-2022-1234",
-      logo: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=100&h=100&fit=crop",
+      id: 3,
+      title: "Databricks Certified Data Engineer Associate",
+      issuer: "Databricks",
+      date: "2025",
+      credentialId: "155614829",
+      logo: "https://media.licdn.com/dms/image/v2/D560BAQFPIRKiPVETuw/company-logo_100_100/company-logo_100_100/0/1697215766274?e=1756944000&v=beta&t=4vyNwhFczmyfA0JGYOdFgYtL9JrCIrPw2V5D7JtXcLY",
       status: "Active",
-      validUntil: "2024"
-    }
+      validUntil: "2027"
+    },
+    {
+      id: 4,
+      title: "Databricks Certified Associate Developer for Apache Spark 3.0",
+      issuer: "Databricks",
+      date: "2022",
+      credentialId: "62859947",
+      logo: "https://media.licdn.com/dms/image/v2/D560BAQFPIRKiPVETuw/company-logo_100_100/company-logo_100_100/0/1697215766274?e=1756944000&v=beta&t=4vyNwhFczmyfA0JGYOdFgYtL9JrCIrPw2V5D7JtXcLY",
+      status: "Active",
+      validUntil: "2027"
+    },
+    {
+      id: 5,
+      title: "Academy Accreditation - Databricks Lakehouse Fundamentals",
+      issuer: "Databricks",
+      date: "2022",
+      credentialId: "58972200",
+      logo: "https://media.licdn.com/dms/image/v2/D560BAQFPIRKiPVETuw/company-logo_100_100/company-logo_100_100/0/1697215766274?e=1756944000&v=beta&t=4vyNwhFczmyfA0JGYOdFgYtL9JrCIrPw2V5D7JtXcLY",
+      status: "Active",
+      validUntil: "2027"
+    },
   ];
 
   const education = [
