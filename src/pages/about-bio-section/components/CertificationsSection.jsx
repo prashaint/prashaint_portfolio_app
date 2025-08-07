@@ -6,44 +6,54 @@ const CertificationsSection = () => {
   const certifications = [
     {
       id: 1,
-      title: "AWS Certified Solutions Architect",
+      title: "AWS Certified Solutions Architect - Associate",
       issuer: "Amazon Web Services",
-      date: "2023",
+      date: "2024",
       credentialId: "AWS-CSA-2023-001",
-      logo: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=100&h=100&fit=crop",
+      logo: "https://media.licdn.com/dms/image/v2/D4E0BAQFqdm1TZ-RZKQ/company-logo_100_100/B4EZgOay6gHEAY-/0/1752588562343/amazon_web_services_logo?e=1756944000&v=beta&t=TXvqBOpOtVd7hid3OgFrPOBLixYS2HsJDjMm6EM4BsI",
       status: "Active",
       validUntil: "2026"
     },
     {
       id: 2,
-      title: "Google UX Design Professional Certificate",
-      issuer: "Google",
-      date: "2022",
-      credentialId: "GOOGLE-UX-2022-045",
-      logo: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=100&h=100&fit=crop",
+      title: "AWS Certified AI Practitioner",
+      issuer: "Amazon Web Services",
+      date: "2025",
+      credentialId: "META-FE-2023-078",
+      logo: "https://media.licdn.com/dms/image/v2/D4E0BAQFqdm1TZ-RZKQ/company-logo_100_100/B4EZgOay6gHEAY-/0/1752588562343/amazon_web_services_logo?e=1756944000&v=beta&t=TXvqBOpOtVd7hid3OgFrPOBLixYS2HsJDjMm6EM4BsI",
       status: "Active",
-      validUntil: "Lifetime"
+      validUntil: "2027"
     },
     {
       id: 3,
-      title: "Meta Front-End Developer Certificate",
-      issuer: "Meta",
-      date: "2023",
-      credentialId: "META-FE-2023-078",
-      logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop",
+      title: "Databricks Certified Data Engineer Associate",
+      issuer: "Databricks",
+      date: "2025",
+      credentialId: "155614829",
+      logo: "https://media.licdn.com/dms/image/v2/D560BAQFPIRKiPVETuw/company-logo_100_100/company-logo_100_100/0/1697215766274?e=1756944000&v=beta&t=4vyNwhFczmyfA0JGYOdFgYtL9JrCIrPw2V5D7JtXcLY",
       status: "Active",
-      validUntil: "Lifetime"
+      validUntil: "2027"
     },
     {
       id: 4,
-      title: "Certified Scrum Master (CSM)",
-      issuer: "Scrum Alliance",
+      title: "Databricks Certified Associate Developer for Apache Spark 3.0",
+      issuer: "Databricks",
       date: "2022",
-      credentialId: "CSM-2022-1234",
-      logo: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=100&h=100&fit=crop",
+      credentialId: "62859947",
+      logo: "https://media.licdn.com/dms/image/v2/D560BAQFPIRKiPVETuw/company-logo_100_100/company-logo_100_100/0/1697215766274?e=1756944000&v=beta&t=4vyNwhFczmyfA0JGYOdFgYtL9JrCIrPw2V5D7JtXcLY",
       status: "Active",
-      validUntil: "2024"
-    }
+      validUntil: "2027"
+    },
+    {
+      id: 5,
+      title: "Academy Accreditation - Databricks Lakehouse Fundamentals",
+      issuer: "Databricks",
+      date: "2022",
+      credentialId: "58972200",
+      logo: "https://media.licdn.com/dms/image/v2/D560BAQFPIRKiPVETuw/company-logo_100_100/company-logo_100_100/0/1697215766274?e=1756944000&v=beta&t=4vyNwhFczmyfA0JGYOdFgYtL9JrCIrPw2V5D7JtXcLY",
+      status: "Active",
+      validUntil: "2027"
+    },
   ];
 
   const education = [

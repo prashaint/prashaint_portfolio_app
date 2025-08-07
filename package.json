@@ -2,6 +2,10 @@
   "name": "prashaint_portfolio_app",
   "version": "0.1.0",
   "private": true,
+  "description": "Prashant's Portfolio Application",
+  "author": "Prashant",
+  "license": "MIT",
+  "homepage": "https://prashaintmishra.in",
   "rocketCritical": {
     "dependencies": [
       "@dhiwise/component-tagger",
@@ -58,7 +62,9 @@
   "scripts": {
     "start": "vite",
     "build": "vite build --sourcemap",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy --prod --dir=dist"
   },
   "eslintConfig": {
     "extends": [

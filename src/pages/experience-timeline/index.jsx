@@ -21,80 +21,99 @@ const ExperienceTimeline = () => {
   const experienceData = [
     {
       id: 1,
-      role: "Senior Full Stack Developer",
-      company: "TechCorp Solutions",
-      location: "San Francisco, CA",
-      duration: "2 years 3 months",
+      role: "AVP",
+      company: "Barclays PLC",
+      location: "Pune, India",
+      duration: "2 years 7 months",
       type: "Full-time",
-      industry: "technology",
-      roleType: "fullstack",
-      year: "2024",
-      companyLogo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=100&h=100&fit=crop&crop=center",
-      summary: "Led development of enterprise-level web applications using React, Node.js, and cloud technologies. Managed a team of 5 developers and collaborated with cross-functional teams to deliver high-quality software solutions.",
-      technologies: ["React", "Node.js", "TypeScript", "AWS", "Docker", "PostgreSQL", "GraphQL"],
+      industry: "Technology",
+      roleType: "Senior Data Engineer",
+      year: "2023",
+      companyLogo: "https://media.licdn.com/dms/image/v2/C4E0BAQFAXc9z0Go7Uw/company-logo_100_100/company-logo_100_100/0/1663677974291/barclays_bank_logo?e=1756944000&v=beta&t=upHeeom86S-4ZgQZeIk7ZujBR83YtKFT5CqyOwhyTzM",
+      summary: "Led development of enterprise-level data pipelines using cloud technologies. Managed a team of 5 developers and collaborated with cross-functional teams to deliver high-quality software solutions.",
+      technologies: ["PySpark", "Airflow", "Unix", "AWS", "Docker", "MySQL", "Git"],
       achievements: [
-        "Architected and implemented a microservices-based e-commerce platform serving 100K+ users",
-        "Reduced application load time by 40% through performance optimization and code splitting",
+        "Led the migration from legacy SAS application to PySpark application which reduced the execution time of jobs from 10Hrs+ to 2 Hours and enhanced the overall performance by 80%.",
+        "Led a team of Data Engineers and designed complex data pipelines for ML Models designed to prevent credit card related frauds.",
         "Mentored 3 junior developers and established coding standards for the team",
-        "Led migration from monolithic to microservices architecture, improving system scalability"
+        "Analyzed and remediated the DQ gaps present in existing data curation process which elevated the performance by 60% in order to get better ML scores."
+      ],
+      projectsCount: 4
+    },
+        {
+      id: 2,
+      role: "Senior Developer - BA4",
+      company: "Barclays PLC",
+      location: "Pune, India",
+      duration: "1 years 7 months",
+      type: "Full-time",
+      industry: "Technology",
+      roleType: "Data Engineer",
+      year: "2021",
+      companyLogo: "https://media.licdn.com/dms/image/v2/C4E0BAQFAXc9z0Go7Uw/company-logo_100_100/company-logo_100_100/0/1663677974291/barclays_bank_logo?e=1756944000&v=beta&t=upHeeom86S-4ZgQZeIk7ZujBR83YtKFT5CqyOwhyTzM",
+      summary: "Led development of enterprise-level data pipelines using cloud technologies. Managed a team of 5 developers and collaborated with cross-functional teams to deliver high-quality software solutions.",
+      technologies: ["PySpark", "Airflow", "Unix", "AWS", "Docker", "MySQL", "Git"],
+      achievements: [
+        "Developed the PySpark framework to automate the existing process which improved the performance in terms of execution and resource usage to 70% and data quality improved to 90%.",
+        "Optimized the pipeline workflow for existing ML models to reduce the execution time by 40% and improved the overall performance of the application.",
+        "Mentored 4 junior developers and established coding standards for the team",
+        "Analyzed and remediated the DQ gaps present in existing data curation process which elevated the performance by 60% in order to get better ML scores."
+      ],
+      projectsCount: 2
+    },
+    {
+      id: 3,
+      role: "Manager",
+      company: "Citibank",
+      location: "Pune, India",
+      duration: "2 year 10 months",
+      type: "Full-time",
+      industry: "Technology",
+      roleType: "Data Engineer",
+      year: "2019",
+      companyLogo: "https://media.licdn.com/dms/image/v2/D4E0BAQFgF4xtqyXBcg/company-logo_100_100/company-logo_100_100/0/1719257286385/citi_logo?e=1756944000&v=beta&t=ee7uUteB29B87B4SLf0OEhhE3YPsA6Q6cMi1laQPtHY",
+      summary: "Designed and developed the Ingestion framework which is used to fetch data from multiple sources performs sanity checks along with basic transformations in order to store the data into staging layer and allows downstream applications to pull the data for analytics, it has reduced resource and infra cost by 20%.",
+      technologies: ["Scala", "Spark", "Hbase", "Hive", "Oracle", "Git", "Unix"],
+      achievements: [
+        "Implemented Igestion framework to ingest and load 100+ source data files into Hbase and Hive tables with 99% data quality.",
+        "Optimized the existing data processing pipeline to reduce the execution time by 30% and improved the overall performance of the application.",
+        "Mentored 5 junior developers and established coding standards for the team"
+      ],
+      projectsCount: 5
+    },
+    {
+      id: 4,
+      role: "Assitant Manager",
+      company: "Citibank",
+      location: "Pune, India",
+      duration: "2 year 9 months",
+      type: "Full-time",
+      industry: "Technology",
+      roleType: "Data Engineer",
+      year: "2016",
+      companyLogo: "https://media.licdn.com/dms/image/v2/D4E0BAQFgF4xtqyXBcg/company-logo_100_100/company-logo_100_100/0/1719257286385/citi_logo?e=1756944000&v=beta&t=ee7uUteB29B87B4SLf0OEhhE3YPsA6Q6cMi1laQPtHY",
+      summary: "Designed and developed the Ingestion framework which is used to fetch data from multiple sources performs sanity checks along with basic transformations in order to store the data into staging layer and allows downstream applications to pull the data for analytics, it has reduced resource and infra cost by 20%.",
+      technologies: ["Scala", "Spark", "Hbase", "Hive", "Oracle", "Git", "Unix"],
+      achievements: [
+        "Implemented Igestion framework to ingest and load 100+ source data files into Hbase and Hive tables with 99% data quality.",
+        "Optimized the existing data processing pipeline to reduce the execution time by 30% and improved the overall performance of the application.",
+        "Mentored 5 junior developers and established coding standards for the team"
       ],
       projectsCount: 8
     },
     {
-      id: 2,
-      role: "Frontend Developer",
-      company: "Digital Innovations Inc",
-      location: "New York, NY",
-      duration: "1 year 8 months",
+      id: 5,
+      role: "Associate - Projects",
+      company: "Cognizant",
+      location: "Pune, India",
+      duration: "1 year 7 months",
       type: "Full-time",
-      industry: "technology",
-      roleType: "frontend",
-      year: "2022",
-      companyLogo: "https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=100&h=100&fit=crop&crop=center",
-      summary: "Specialized in creating responsive and accessible user interfaces using modern frontend technologies. Collaborated with UX/UI designers to implement pixel-perfect designs and ensure optimal user experience.",
-      technologies: ["React", "Vue.js", "JavaScript", "CSS3", "Sass", "Webpack", "Jest"],
-      achievements: [
-        "Developed and maintained 15+ responsive web applications with 99.9% uptime",
-        "Implemented automated testing suite, increasing code coverage from 60% to 95%",
-        "Optimized bundle size by 35% using code splitting and lazy loading techniques",
-        "Created reusable component library used across 5 different projects"
-      ],
-      projectsCount: 12
-    },
-    {
-      id: 3,
-      role: "Mobile App Developer",
-      company: "AppVenture Studios",
-      location: "Austin, TX",
-      duration: "2 years 1 month",
-      type: "Contract",
-      industry: "technology",
-      roleType: "mobile",
-      year: "2021",
-      companyLogo: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=100&h=100&fit=crop&crop=center",
-      summary: "Developed cross-platform mobile applications using React Native and Flutter. Worked closely with product managers and designers to create intuitive mobile experiences for iOS and Android platforms.",
-      technologies: ["React Native", "Flutter", "Dart", "Firebase", "Redux", "SQLite", "Push Notifications"],
-      achievements: [
-        "Built and launched 6 mobile apps with combined 500K+ downloads",
-        "Integrated payment gateways and analytics tracking for better user insights",
-        "Implemented offline-first architecture for improved app performance",
-        "Reduced app crash rate from 2.1% to 0.3% through comprehensive testing"
-      ],
-      projectsCount: 6
-    },
-    {
-      id: 4,
-      role: "Backend Developer",
-      company: "DataFlow Systems",
-      location: "Seattle, WA",
-      duration: "1 year 6 months",
-      type: "Full-time",
-      industry: "finance",
-      roleType: "backend",
-      year: "2020",
-      companyLogo: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=100&h=100&fit=crop&crop=center",
-      summary: "Focused on building scalable backend systems and APIs for financial applications. Implemented secure data processing pipelines and worked with large datasets to provide real-time analytics.",
-      technologies: ["Python", "Django", "PostgreSQL", "Redis", "Celery", "Docker", "Kubernetes"],
+      industry: "Technology",
+      roleType: "Ab-Initio Developer",
+      year: "2014",
+      companyLogo: "https://media.licdn.com/dms/image/v2/D4E0BAQHjkUYrDIUKYA/company-logo_100_100/company-logo_100_100/0/1719839886088/cognizant_logo?e=1756944000&v=beta&t=ekipSJ4q4w4gvKahEydAdpK0fZWsN1iafho1eNCBg_U",
+      summary: "Developed ETL Ab-Initio workflows as per project requirements and supported end-to-end delivery of the tasks till prod deployment and L3 support post Go-Live which reduced the total batch execution time by 30%.",
+      technologies: ["Ab-Initio", "Linux", "Oracle", "Shell-Scripting", "TWS", "Unix"],
       achievements: [
         "Designed and implemented RESTful APIs handling 1M+ requests per day",
         "Built real-time data processing pipeline reducing latency by 60%",
@@ -103,48 +122,28 @@ const ExperienceTimeline = () => {
       ],
       projectsCount: 4
     },
-    {
-      id: 5,
-      role: "DevOps Engineer",
-      company: "CloudTech Solutions",
-      location: "Denver, CO",
-      duration: "1 year 3 months",
-      type: "Full-time",
-      industry: "technology",
-      roleType: "devops",
-      year: "2019",
-      companyLogo: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=100&h=100&fit=crop&crop=center",
-      summary: "Managed cloud infrastructure and implemented CI/CD pipelines to streamline development workflows. Focused on automation, monitoring, and ensuring high availability of production systems.",
-      technologies: ["AWS", "Terraform", "Jenkins", "Docker", "Kubernetes", "Ansible", "Prometheus"],
-      achievements: [
-        "Automated deployment process reducing release time from 4 hours to 15 minutes",
-        "Implemented monitoring and alerting system improving incident response time by 70%",
-        "Managed multi-region AWS infrastructure serving 2M+ users globally",
-        "Reduced infrastructure costs by 30% through resource optimization"
-      ],
-      projectsCount: 3
-    },
-    {
+        {
       id: 6,
-      role: "Junior Web Developer",
-      company: "StartupHub",
-      location: "Portland, OR",
-      duration: "1 year 2 months",
+      role: "Senior Systems Engineer",
+      company: "Infosys",
+      location: "Pune, India",
+      duration: "3 year 4 months",
       type: "Full-time",
-      industry: "technology",
-      roleType: "frontend",
-      year: "2018",
-      companyLogo: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=100&h=100&fit=crop&crop=center",
-      summary: "Started my professional journey as a junior developer, learning modern web development practices and contributing to various client projects. Gained experience in both frontend and backend technologies.",
-      technologies: ["HTML5", "CSS3", "JavaScript", "jQuery", "PHP", "MySQL", "Bootstrap"],
+      industry: "Technology",
+      roleType: "Ab-Initio Developer",
+      year: "2011",
+      companyLogo: "https://media.licdn.com/dms/image/v2/D560BAQEv67uGFge5Sw/company-logo_100_100/B56ZfEsEVpHoAU-/0/1751351576332/infosys_logo?e=1756944000&v=beta&t=g45HfaxJNW2chLi8pYoqEZ7FvLAbhkyneVwYdciBg3k",
+      summary: "Developed ETL Ab-Initio workflows as per project requirements and supported end-to-end delivery of the tasks till prod deployment and L3 support post Go-Live which reduced the total batch execution time by 30%.",
+      technologies: ["Ab-Initio", "Linux", "Oracle", "Shell-Scripting", "TWS", "Unix"],
       achievements: [
-        "Contributed to 10+ client websites with focus on responsive design",
-        "Learned and implemented modern JavaScript frameworks and libraries",
-        "Collaborated with senior developers to maintain code quality standards",
-        "Participated in code reviews and agile development processes"
+        "Designed and implemented RESTful APIs handling 1M+ requests per day",
+        "Built real-time data processing pipeline reducing latency by 60%",
+        "Implemented comprehensive security measures including OAuth2 and JWT",
+        "Optimized database queries resulting in 45% improvement in response times"
       ],
-      projectsCount: 10
-    }
+      projectsCount: 4
+    },
+    
   ];
 
   // Filter experiences based on current filters
