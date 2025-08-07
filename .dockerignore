@@ -1,19 +1,37 @@
+# .dockerignore - Prevents unnecessary files from being copied to Docker context
+
 # Dependencies
 node_modules
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Package lock files (let Docker generate them)
+# Package lock files (let Docker generate fresh ones)
 package-lock.json
+yarn.lock
 
 # Build outputs
 dist
 build
+.next
 
-# Environment files
+# Development files
+.git
+.gitignore
+README.md
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.development
+.env.test
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
 
 # Logs
 logs
@@ -27,37 +45,35 @@ pids
 
 # Coverage directory used by tools like istanbul
 coverage
-*.lcov
+.nyc_output
 
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
+# ESLint cache
+.eslintcache
 
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Optional npm cache directory
+.npm
 
-# Git
-.git
-.gitignore
+# Optional REPL history
+.node_repl_history
 
-# Docker
-Dockerfile*
-docker-compose*
-.dockerignore
+# Output of 'npm pack'
+*.tgz
 
-# README and docs
-README.md
+# Yarn Integrity file
+.yarn-integrity
+
+# CI/CD files
+.gitlab-ci.yml
+.github
+
+# Documentation
+docs/
 *.md
 
-# Test files
-__tests__
-*.test.js
-*.spec.js
+# Docker files
+Dockerfile*
+docker-compose*
+
+# Temporary files
+tmp/
+temp/
