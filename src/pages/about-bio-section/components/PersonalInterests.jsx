@@ -22,9 +22,9 @@ const PersonalInterests = () => {
     },
     {
       id: 3,
-      title: "Open Source",
-      description: "Contributing to React ecosystem projects and helping the developer community grow",
-      icon: "Github",
+      title: "Content Creation",
+      description: "I love sharing my knowledge through blogs and tutorials on data engineering topics",
+      icon: "Youtube",
       image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=300&h=200&fit=crop",
       level: "Active Contributor"
     },
@@ -51,6 +51,14 @@ const PersonalInterests = () => {
       icon: "ChefHat",
       image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=200&fit=crop",
       level: "Home Chef"
+    },
+      {
+      id: 7,
+      title: "Learing Music",
+      description: "Learning to play the guitar and exploring music production",
+      icon: "Music",
+      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=200&fit=crop",
+      level: "Beginner"
     }
   ];
 
