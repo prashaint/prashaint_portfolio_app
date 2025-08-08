@@ -115,10 +115,10 @@ const SkillsSection = () => {
         </h3>
         <div className="flex flex-wrap justify-center gap-2">
           {[
-            "React", "Vue.js", "Angular", "Node.js", "Express", "FastAPI",
-            "MongoDB", "PostgreSQL", "Redis", "AWS", "Docker", "Kubernetes",
-            "Git", "CI/CD", "Jest", "Cypress", "Figma", "Adobe XD",
-            "Tailwind CSS", "SASS", "GraphQL", "REST APIs", "Microservices"
+            "ML", "Databricks", "Azure", "AWS", "Pyspark", "Spark",
+            "Python", "PostgreSQL", "React", "Node.js", "Docker", "Kubernetes",
+            "Git", "CI/CD", "GitLab", "SQL", "Figma", "Adobe XD",
+            "Tailwind CSS", "SASS", "GraphQL", "REST APIs", "FastAPI", "Django"
           ]?.map((tech, index) => (
             <span
               key={index}
