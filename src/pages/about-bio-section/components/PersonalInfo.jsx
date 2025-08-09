@@ -41,15 +41,15 @@ const PersonalInfo = () => {
           </div>
         </div>
         
-        {/* Contact Info */}
+        {/* Contact Info - Using sans-serif for UI elements */}
         <div className="text-center lg:text-left space-y-2">
-          <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground font-sans">
             {personalData?.name}
           </h1>
-          <p className="text-lg text-primary font-medium">
+          <p className="text-lg text-primary font-medium font-sans">
             {personalData?.title}
           </p>
-          <p className="text-muted-foreground flex items-center justify-center lg:justify-start space-x-2">
+          <p className="text-muted-foreground flex items-center justify-center lg:justify-start space-x-2 font-claude">
             <span>📍</span>
             <span>{personalData?.location}</span>
           </p>
@@ -62,20 +62,21 @@ const PersonalInfo = () => {
           onClick={handleDownloadResume}
           iconName="Download"
           iconPosition="left"
-          className="w-full sm:w-auto"
+          className="w-full sm:w-auto font-sans"
         >
           Download Resume
         </Button>
       </div>
-      {/* Bio Section */}
+      
+      {/* Bio Section - Using Claude.ai serif font for reading content */}
       <div className="space-y-6">
         <div>
-          <h2 className="text-xl md:text-2xl font-semibold text-foreground mb-4">
+          <h2 className="text-xl md:text-2xl font-semibold text-foreground mb-4 font-sans">
             About Me
           </h2>
-          <div className="prose prose-gray max-w-none">
+          <div className="prose-claude">
             {personalData?.bio?.split('\n\n')?.map((paragraph, index) => (
-              <p key={index} className="text-muted-foreground leading-relaxed mb-4 last:mb-0">
+              <p key={index} className="text-muted-foreground leading-relaxed mb-4 last:mb-0 font-claude-ui">
                 {paragraph}
               </p>
             ))}
@@ -85,12 +86,12 @@ const PersonalInfo = () => {
         {/* Quick Stats */}
         <div className="grid grid-cols-2 gap-4 pt-6 border-t border-border">
           <div className="text-center p-4 bg-muted rounded-lg">
-            <div className="text-2xl font-bold text-primary">13+</div>
-            <div className="text-sm text-muted-foreground">Years Experience</div>
+            <div className="text-2xl font-bold text-primary font-sans">13+</div>
+            <div className="text-sm text-muted-foreground font-claude">Years Experience</div>
           </div>
           <div className="text-center p-4 bg-muted rounded-lg">
-            <div className="text-2xl font-bold text-primary">20+</div>
-            <div className="text-sm text-muted-foreground">Projects Completed</div>
+            <div className="text-2xl font-bold text-primary font-sans">20+</div>
+            <div className="text-sm text-muted-foreground font-claude">Projects Completed</div>
           </div>
         </div>
       </div>

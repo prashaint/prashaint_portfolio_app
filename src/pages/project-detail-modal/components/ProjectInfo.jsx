@@ -15,14 +15,14 @@ const ProjectInfo = ({ project }) => {
 
   return (
     <div className="space-y-6">
-      {/* Project Title and Status */}
+      {/* Project Title and Status - Headers use sans-serif */}
       <div className="space-y-2">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground font-sans">
             {project?.title}
           </h1>
           {project?.status && (
-            <span className={`px-3 py-1 text-sm font-medium rounded-full ${
+            <span className={`px-3 py-1 text-sm font-medium rounded-full font-sans ${
               project?.status === 'completed' 
                 ? 'bg-success/10 text-success' 
                 : project?.status === 'in-progress' ?'bg-warning/10 text-warning'
@@ -33,20 +33,22 @@ const ProjectInfo = ({ project }) => {
           )}
         </div>
         {project?.subtitle && (
-          <p className="text-lg text-muted-foreground">{project?.subtitle}</p>
+          <p className="text-lg text-muted-foreground font-claude-ui">{project?.subtitle}</p>
         )}
       </div>
-      {/* Project Description */}
+      
+      {/* Project Description - Main content uses Claude serif font */}
       {project?.description && (
         <div className="space-y-2">
-          <h2 className="text-lg font-semibold text-foreground">Overview</h2>
-          <p className="text-foreground leading-relaxed">{project?.description}</p>
+          <h2 className="text-lg font-semibold text-foreground font-sans">Overview</h2>
+          <p className="text-foreground leading-relaxed font-claude-ui">{project?.description}</p>
         </div>
       )}
-      {/* Project Details Grid */}
+      
+      {/* Project Details Grid - Labels sans, content serif */}
       {infoItems?.length > 0 && (
         <div className="space-y-2">
-          <h2 className="text-lg font-semibold text-foreground">Project Details</h2>
+          <h2 className="text-lg font-semibold text-foreground font-sans">Project Details</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {infoItems?.map((item, index) => (
               <div key={index} className="flex items-center space-x-3 p-3 bg-muted rounded-lg">
@@ -54,23 +56,24 @@ const ProjectInfo = ({ project }) => {
                   <Icon name={item?.icon} size={16} className="text-primary" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-muted-foreground">{item?.label}</p>
-                  <p className="text-foreground truncate">{item?.value}</p>
+                  <p className="text-sm font-medium text-muted-foreground font-sans">{item?.label}</p>
+                  <p className="text-foreground truncate font-claude">{item?.value}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
       )}
-      {/* Technologies */}
+      
+      {/* Technologies - UI elements use sans-serif */}
       {project?.technologies && project?.technologies?.length > 0 && (
         <div className="space-y-2">
-          <h2 className="text-lg font-semibold text-foreground">Technologies Used</h2>
+          <h2 className="text-lg font-semibold text-foreground font-sans">Technologies Used</h2>
           <div className="flex flex-wrap gap-2">
             {project?.technologies?.map((tech, index) => (
               <span
                 key={index}
-                className="px-3 py-1 text-sm font-medium bg-primary/10 text-primary rounded-full"
+                className="px-3 py-1 text-sm font-medium bg-primary/10 text-primary rounded-full font-sans"
               >
                 {tech}
               </span>
@@ -78,29 +81,32 @@ const ProjectInfo = ({ project }) => {
           </div>
         </div>
       )}
-      {/* Challenges */}
+      
+      {/* Challenges - Long-form content uses Claude serif */}
       {project?.challenges && (
         <div className="space-y-2">
-          <h2 className="text-lg font-semibold text-foreground">Challenges & Solutions</h2>
-          <p className="text-foreground leading-relaxed">{project?.challenges}</p>
+          <h2 className="text-lg font-semibold text-foreground font-sans">Challenges & Solutions</h2>
+          <p className="text-foreground leading-relaxed font-claude-ui">{project?.challenges}</p>
         </div>
       )}
-      {/* Results */}
+      
+      {/* Results - Long-form content uses Claude serif */}
       {project?.results && (
         <div className="space-y-2">
-          <h2 className="text-lg font-semibold text-foreground">Results & Impact</h2>
-          <p className="text-foreground leading-relaxed">{project?.results}</p>
+          <h2 className="text-lg font-semibold text-foreground font-sans">Results & Impact</h2>
+          <p className="text-foreground leading-relaxed font-claude-ui">{project?.results}</p>
         </div>
       )}
-      {/* Key Features */}
+      
+      {/* Key Features - Mixed: headers sans, content serif */}
       {project?.features && project?.features?.length > 0 && (
         <div className="space-y-2">
-          <h2 className="text-lg font-semibold text-foreground">Key Features</h2>
+          <h2 className="text-lg font-semibold text-foreground font-sans">Key Features</h2>
           <ul className="space-y-2">
             {project?.features?.map((feature, index) => (
               <li key={index} className="flex items-start space-x-2">
                 <Icon name="Check" size={16} className="text-success mt-0.5 flex-shrink-0" />
-                <span className="text-foreground">{feature}</span>
+                <span className="text-foreground font-claude">{feature}</span>
               </li>
             ))}
           </ul>
