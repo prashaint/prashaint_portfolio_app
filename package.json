@@ -95,5 +95,13 @@
     "tailwindcss": "3.4.6",
     "vite": "5.0.0",
     "vite-tsconfig-paths": "3.6.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prashaint/portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prashaint/portfolio/issues"
+  },
+  "documentation": "https://github.com/prashaint/portfolio/tree/main/docs"
 }
