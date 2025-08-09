@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Icon from '../AppIcon';
 import Button from './Button';
+import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -82,23 +83,31 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={toggleMobileMenu}
-              aria-label="Toggle mobile menu"
-            >
-              <Icon 
-                name={isMobileMenuOpen ? 'X' : 'Menu'} 
-                size={24} 
-                className="transition-transform duration-200"
-              />
-            </Button>
+            {/* Desktop Actions */}
+            <div className="hidden md:flex items-center space-x-2">
+              <ThemeToggle />
+            </div>
+
+            {/* Mobile Actions */}
+            <div className="flex items-center space-x-2 md:hidden">
+              <ThemeToggle />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleMobileMenu}
+                aria-label="Toggle mobile menu"
+              >
+                <Icon 
+                  name={isMobileMenuOpen ? 'X' : 'Menu'} 
+                  size={24} 
+                  className="transition-transform duration-200"
+                />
+              </Button>
+            </div>
           </div>
         </div>
       </header>
+      
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
