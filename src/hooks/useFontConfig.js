@@ -26,7 +26,6 @@ const FONT_PRESETS = {
 
 export const useFontConfig = () => {
   const [currentPreset, setCurrentPreset] = useState('claude');
-  const [customFonts, setCustomFonts] = useState({});
 
   useEffect(() => {
     // Load saved font preference from localStorage
@@ -61,8 +60,6 @@ export const useFontConfig = () => {
     presets: FONT_PRESETS,
     currentPreset,
     changePreset,
-    getCurrentFonts,
-    customFonts,
-    setCustomFonts
+    getCurrentFonts
   };
 };

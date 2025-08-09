@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Icon from '../AppIcon';
 import Button from './Button';
-import ThemeToggle from './ThemeToggle';
+import SettingsMenu from '../SettingsMenu'; // Use the unified settings menu
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -59,7 +59,7 @@ const Header = () => {
             {/* Logo */}
             <Link 
               to="/home-landing-page" 
-              className="flex items-center space-x-2 text-xl font-semibold text-foreground hover:text-primary transition-colors duration-200"
+              className="flex items-center space-x-2 text-xl font-semibold text-foreground hover:text-primary transition-colors duration-200 font-sans"
             >
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-sm">PM</span>
@@ -73,7 +73,7 @@ const Header = () => {
                 <Link
                   key={item?.path}
                   to={item?.path}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ease-out hover:bg-muted ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ease-out hover:bg-muted font-sans ${
                     isActivePath(item?.path)
                       ? 'text-primary bg-muted' :'text-muted-foreground hover:text-foreground'
                   }`}
@@ -83,27 +83,25 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* Desktop Actions */}
+            {/* Desktop Actions - Only Settings Menu */}
             <div className="hidden md:flex items-center space-x-2">
-              <ThemeToggle />
+              <SettingsMenu />
             </div>
 
-            {/* Mobile Actions */}
-            <div className="flex items-center space-x-2 md:hidden">
-              <ThemeToggle />
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={toggleMobileMenu}
-                aria-label="Toggle mobile menu"
-              >
-                <Icon 
-                  name={isMobileMenuOpen ? 'X' : 'Menu'} 
-                  size={24} 
-                  className="transition-transform duration-200"
-                />
-              </Button>
-            </div>
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle mobile menu"
+            >
+              <Icon 
+                name={isMobileMenuOpen ? 'X' : 'Menu'} 
+                size={24} 
+                className="transition-transform duration-200"
+              />
+            </Button>
           </div>
         </div>
       </header>
@@ -122,7 +120,7 @@ const Header = () => {
             <div className="flex items-center justify-between p-4 border-b border-border">
               <Link 
                 to="/home-landing-page" 
-                className="flex items-center space-x-2 text-lg font-semibold text-foreground"
+                className="flex items-center space-x-2 text-lg font-semibold text-foreground font-sans"
                 onClick={closeMobileMenu}
               >
                 <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center">
@@ -131,14 +129,19 @@ const Header = () => {
                 <span>Prashaint Mishra</span>
               </Link>
               
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={closeMobileMenu}
-                aria-label="Close mobile menu"
-              >
-                <Icon name="X" size={24} />
-              </Button>
+              <div className="flex items-center space-x-2">
+                {/* Mobile Settings Menu */}
+                <SettingsMenu />
+                
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={closeMobileMenu}
+                  aria-label="Close mobile menu"
+                >
+                  <Icon name="X" size={24} />
+                </Button>
+              </div>
             </div>
             
             <nav className="p-4">
@@ -148,7 +151,7 @@ const Header = () => {
                     <Link
                       to={item?.path}
                       onClick={closeMobileMenu}
-                      className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ease-out hover:bg-muted ${
+                      className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ease-out hover:bg-muted font-sans ${
                         isActivePath(item?.path)
                           ? 'text-primary bg-muted' :'text-muted-foreground hover:text-foreground'
                       }`}
@@ -160,6 +163,16 @@ const Header = () => {
                 ))}
               </ul>
             </nav>
+
+            {/* Mobile Footer Info */}
+            <div className="absolute bottom-4 left-4 right-4">
+              <div className="bg-muted/50 rounded-lg p-4">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-muted-foreground font-claude">Claude.ai Font Style</span>
+                  <Icon name="Check" size={14} className="text-success" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
