@@ -8,14 +8,14 @@ const ContactCTA = () => {
     {
       icon: "Mail",
       title: "Email Me",
-      description: "Drop me a line anytime",
+      description: "Send a connection request",
       value: "prashaint.kumar.mishra@gmail.com",
       action: "mailto:prashaint.kumar.mishra@gmail.com"
     },
     {
       icon: "Phone",
       title: "Call Me",
-      description: "Let\'s have a conversation",
+      description: "Let's have a friendly chat",
       value: "+91 8484093319",
       action: "tel:+918484093319"
     },
@@ -35,12 +35,22 @@ const ContactCTA = () => {
           {/* Header */}
           <div className="mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Let's Work Together
+              Let's Connect & Learn Together
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Ready to bring your ideas to life? I'm always excited to collaborate on new projects 
-              and help businesses achieve their digital goals.
+              Ready to explore technology, share knowledge, and build meaningful connections? I'm always excited to 
+              connect with fellow enthusiasts and learn from each other's experiences.
             </p>
+          </div>
+
+          {/* Disclaimer Banner */}
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-12 max-w-2xl mx-auto">
+            <div className="flex items-center justify-center space-x-2">
+              <Icon name="Info" size={20} className="text-amber-600" />
+              <p className="text-sm text-amber-700 font-medium">
+                This platform is for knowledge sharing and networking only - no paid work or commercial activities
+              </p>
+            </div>
           </div>
 
           {/* Contact Methods */}
@@ -81,11 +91,11 @@ const ContactCTA = () => {
               <Button 
                 variant="default" 
                 size="lg"
-                iconName="Send"
+                iconName="UserPlus"
                 iconPosition="left"
                 className="w-full sm:w-auto"
               >
-                Start a Project
+                Connect & Learn
               </Button>
             </Link>
             <Link to="/portfolio-gallery">
@@ -106,15 +116,15 @@ const ContactCTA = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm text-muted-foreground">
               <div className="flex items-center space-x-2">
                 <Icon name="Clock" size={16} />
-                <span>Usually responds within 24 hours</span>
+                <span>Usually responds within 48 hours</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Icon name="Globe" size={16} />
-                <span>Available for remote work worldwide</span>
+                <span>Open to global connections</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Icon name="Coffee" size={16} />
-                <span>Always up for a coffee chat</span>
+                <span>Always up for a learning chat</span>
               </div>
             </div>
           </div>

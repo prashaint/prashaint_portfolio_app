@@ -115,7 +115,7 @@ const HeroSection = () => {
               <div className="absolute -bottom-6 -right-6 bg-card border border-border rounded-lg p-4 shadow-soft-hover">
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-success rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium text-foreground">Available for work</span>
+                  <span className="text-sm font-medium text-foreground">Available to explore the world</span>
                 </div>
               </div>
             </div>

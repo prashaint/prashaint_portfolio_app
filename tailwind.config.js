@@ -17,6 +17,9 @@ export default {
       },
     },
     extend: {
+      screens: {
+        'xs': '475px', // Added extra small breakpoint for better mobile control
+      },
       colors: {
         border: "var(--color-border)", // slate-200
         input: "var(--color-input)", // white
@@ -70,28 +73,8 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        // Claude.ai font stack for serif text (body content)
-        serif: [
-          'ui-serif', 
-          'Georgia', 
-          'Cambria', 
-          '"Times New Roman"', 
-          'Times', 
-          'serif'
-        ],
-        // Keep sans-serif for UI elements and headings
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        // Monospace for code
-        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
-        // Add claude-ui specifically for main content areas
-        'claude-ui': [
-          'ui-serif', 
-          'Georgia', 
-          'Cambria', 
-          '"Times New Roman"', 
-          'Times', 
-          'serif'
-        ],
+        mono: ['JetBrains Mono', 'monospace'],
       },
       keyframes: {
         "accordion-down": {

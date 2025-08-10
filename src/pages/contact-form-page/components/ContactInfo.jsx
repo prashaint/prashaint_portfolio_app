@@ -9,14 +9,14 @@ const ContactInfo = () => {
       label: 'Email',
       value: 'prashaint.kumar.mishra@gmail.com',
       href: 'mailto:prashaint.kumar.mishra@gmail.com',
-      description: 'Best for project inquiries'
+      description: 'Best for connection requests'
     },
     {
       icon: 'Phone',
       label: 'Phone',
       value: '+91 8484093319',
       href: 'tel:8484093319',
-      description: 'Available Mon-Fri, 9AM-6PM IST'
+      description: 'Available for friendly chats'
     },
     {
       icon: 'Linkedin',
@@ -30,20 +30,20 @@ const ContactInfo = () => {
       label: 'Location',
       value: 'Pune, India',
       href: null,
-      description: 'Available for local meetings'
+      description: 'Available for local meetups'
     }
   ];
 
-  const workingHours = [
-    { day: 'Monday - Friday', hours: '9:00 AM - 6:00 PM' },
-    { day: 'Saturday', hours: '10:00 AM - 2:00 PM' },
-    { day: 'Sunday', hours: 'Closed' }
+  const explorationTime = [
+    { day: 'Monday - Friday', hours: 'After work hours' },
+    { day: 'Saturday', hours: 'Full Day (10:00 AM - 7:00 PM)' },
+    { day: 'Sunday', hours: 'Full Day (10:00 AM - 7:00 PM)' }
   ];
 
   const responseTime = {
-    email: '< 24 hours',
-    phone: 'Same day',
-    linkedin: '< 48 hours'
+    email: '< 48 hours',
+    phone: 'Within 2-3 days',
+    linkedin: '< 24 hours'
   };
 
   return (
@@ -85,13 +85,17 @@ const ContactInfo = () => {
           ))}
         </div>
       </div>
-      {/* Working Hours */}
+
+      {/* Time to Explore World */}
       <div className="bg-card rounded-lg border border-border p-6">
         <h3 className="text-lg font-semibold text-foreground mb-4">
-          Working Hours
+          Time to Explore World
         </h3>
+        <p className="text-sm text-muted-foreground mb-4">
+          Best times to connect for learning, discussions, and knowledge sharing
+        </p>
         <div className="space-y-3">
-          {workingHours?.map((schedule, index) => (
+          {explorationTime?.map((schedule, index) => (
             <div key={index} className="flex justify-between items-center">
               <span className="text-sm text-muted-foreground">{schedule?.day}</span>
               <span className="text-sm font-medium text-foreground">{schedule?.hours}</span>
@@ -99,6 +103,7 @@ const ContactInfo = () => {
           ))}
         </div>
       </div>
+
       {/* Response Time */}
       <div className="bg-card rounded-lg border border-border p-6">
         <h3 className="text-lg font-semibold text-foreground mb-4">
@@ -128,6 +133,7 @@ const ContactInfo = () => {
           </div>
         </div>
       </div>
+
       {/* Quick Actions */}
       <div className="bg-card rounded-lg border border-border p-6">
         <h3 className="text-lg font-semibold text-foreground mb-4">
@@ -140,7 +146,7 @@ const ContactInfo = () => {
             iconName="Download"
             iconPosition="left"
             onClick={() => {
-              // Mock resume download
+              // Resume download
               const link = document.createElement('a');
               link.href = '/assets/resume/Prashaint_Kumar_Mishra_Mar25.pdf';
               link.download = 'Prashaint_Kumar_Mishra_Mar25.pdf';
@@ -157,7 +163,7 @@ const ContactInfo = () => {
             iconPosition="left"
             onClick={() => window.open('https://calendly.com/portfoliopro', '_blank')}
           >
-            Schedule Meeting
+            Schedule Casual Chat
           </Button>
           
           <Button
@@ -171,6 +177,36 @@ const ContactInfo = () => {
           </Button>
         </div>
       </div>
+
+      {/* Learning & Sharing Info */}
+      <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg border border-border p-6">
+        <h3 className="text-lg font-semibold text-foreground mb-4">
+          What We Can Explore Together
+        </h3>
+        <div className="space-y-3 text-sm text-muted-foreground">
+          <div className="flex items-center space-x-2">
+            <Icon name="BookOpen" size={16} className="text-primary" />
+            <span>Knowledge sharing sessions</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Icon name="Users" size={16} className="text-primary" />
+            <span>Mentorship and career guidance</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Icon name="Code" size={16} className="text-primary" />
+            <span>Open source collaboration</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Icon name="Coffee" size={16} className="text-primary" />
+            <span>Casual tech discussions</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Icon name="Lightbulb" size={16} className="text-primary" />
+            <span>Learning new technologies together</span>
+          </div>
+        </div>
+      </div>
+
       {/* Location Map */}
       <div className="bg-card rounded-lg border border-border overflow-hidden">
         <div className="p-4 border-b border-border">
@@ -178,7 +214,7 @@ const ContactInfo = () => {
             Location
           </h3>
           <p className="text-sm text-muted-foreground">
-            Available for in-person meetings in Pune, India
+            Available for in-person meetups and coffee chats in Pune, India
           </p>
         </div>
         <div className="h-48 bg-muted">

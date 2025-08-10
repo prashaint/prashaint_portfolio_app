@@ -13,14 +13,14 @@ const ContactFormPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Contact - Prashaint Mishra | Let's Work Together</title>
+        <title>Connect & Learn - Prashaint Mishra | Let's Explore Together</title>
         <meta 
           name="description" 
-          content="Get in touch with Prashaint Mishra for your next Data pipeline development, Data Products, or ML pipeline project. Quick response guaranteed within 24 hours." 
+          content="Connect with Prashaint Mishra to explore data engineering, machine learning, and technology together. Join for knowledge sharing, mentoring, and learning opportunities." 
         />
-        <meta name="keywords" content="contact, Data Driven development, System Design, Cloud Application Development, portfolio, freelancer" />
-        <meta property="og:title" content="Contact - Prashaint Mishra | Let's Work Together" />
-        <meta property="og:description" content="Ready to bring your project to life? Contact Prashaint Mishra for professional web development and digital solutions." />
+        <meta name="keywords" content="connect, Data Engineering, learning, mentorship, knowledge sharing, technology discussions, networking" />
+        <meta property="og:title" content="Connect & Learn - Prashaint Mishra | Let's Explore Together" />
+        <meta property="og:description" content="Ready to explore technology and learn together? Connect with Prashaint Mishra for knowledge sharing and meaningful professional relationships." />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="/contact-form-page" />
       </Helmet>
@@ -50,41 +50,51 @@ const ContactFormPage = () => {
             <div className="space-y-6">
               <div>
                 <h3 className="text-sm font-medium text-foreground mb-2">
-                  What's your typical project timeline?
+                  What kind of connections are you looking for?
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  Project timelines vary based on complexity and scope. Simple websites typically take 2-4 weeks, 
-                  while complex web applications can take 2-6 months. I'll provide a detailed timeline after our initial consultation.
+                  I'm interested in connecting with fellow tech enthusiasts, students, professionals, and anyone passionate about learning. 
+                  Whether you're starting your career or are an experienced professional, I'd love to share knowledge and learn from each other.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-sm font-medium text-foreground mb-2">
-                  Do you work with international clients?
+                  Do you offer mentorship?
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  Absolutely! I work with clients worldwide and am comfortable with different time zones. 
-                  Most communication happens via email and video calls, making location irrelevant.
+                  Absolutely! I'm passionate about helping others grow in their careers. I can provide guidance on data engineering, 
+                  career development, technology choices, and industry best practices based on my 13+ years of experience.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-sm font-medium text-foreground mb-2">
-                  What information should I include in my project inquiry?
+                  What topics can we discuss?
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  Please include your project goals, target audience, preferred timeline, budget range, 
-                  and any specific features or requirements. The more details you provide, the better I can assist you.
+                  We can explore data engineering, machine learning, cloud technologies, career growth, technology trends, 
+                  open source projects, and much more. I'm always eager to learn about new technologies and share experiences.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-sm font-medium text-foreground mb-2">
-                  Do you provide ongoing support after project completion?
+                  Is this platform for paid work or consultations?
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  Yes! I offer various support packages including bug fixes, content updates, security monitoring, 
-                  and feature enhancements. We can discuss the best support plan for your needs.
+                  No, this platform is strictly for knowledge sharing, networking, and learning purposes. I do not accept 
+                  any paid work or consultations through this website. All interactions are focused on mutual learning and growth.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-medium text-foreground mb-2">
+                  How do you prefer to connect?
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  I enjoy various forms of connection - from casual coffee chats (if you're in Pune), video calls, 
+                  knowledge sharing sessions, collaborative learning projects, or simply exchanging ideas through messages.
                 </p>
               </div>
             </div>
@@ -97,6 +107,9 @@ const ContactFormPage = () => {
           <div className="text-center">
             <p className="text-sm text-muted-foreground">
               © {new Date()?.getFullYear()} Prashaint Mishra. All rights reserved.
+            </p>
+            <p className="text-xs text-muted-foreground mt-2">
+              This platform is for educational and networking purposes only. No commercial activities are conducted here.
             </p>
           </div>
         </div>
