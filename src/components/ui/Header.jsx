@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Icon from '../AppIcon';
 import Button from './Button';
-import SettingsMenu from '../SettingsMenu'; // Use the unified settings menu
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
 
   const navigationItems = [
@@ -15,6 +15,33 @@ const Header = () => {
     { label: 'Experience', path: '/experience-timeline', icon: 'Clock' },
     { label: 'Contact', path: '/contact-form-page', icon: 'Mail' },
   ];
+
+  // Initialize dark mode from localStorage or system preference
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDarkMode(false);
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    
+    if (newDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -59,53 +86,88 @@ const Header = () => {
             {/* Logo */}
             <Link 
               to="/home-landing-page" 
-              className="flex items-center space-x-2 text-xl font-semibold text-foreground hover:text-primary transition-colors duration-200 font-sans"
+              className="flex items-center space-x-2 text-xl font-semibold text-foreground hover:text-primary transition-colors duration-200 min-w-0 flex-shrink-0"
             >
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
                 <span className="text-primary-foreground font-bold text-sm">PM</span>
               </div>
-              <span className="hidden sm:block">Prashaint Mishra</span>
+              {/* Mobile-friendly name display */}
+              <span className="block truncate">
+                <span className="hidden sm:inline">Prashaint Mishra</span>
+                <span className="sm:hidden">Prashaint</span>
+              </span>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-1">
-              {navigationItems?.map((item) => (
-                <Link
-                  key={item?.path}
-                  to={item?.path}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ease-out hover:bg-muted font-sans ${
-                    isActivePath(item?.path)
-                      ? 'text-primary bg-muted' :'text-muted-foreground hover:text-foreground'
-                  }`}
-                >
-                  {item?.label}
-                </Link>
-              ))}
-            </nav>
+            {/* Desktop Navigation & Controls */}
+            <div className="hidden md:flex items-center space-x-4">
+              {/* Navigation Links */}
+              <nav className="flex items-center space-x-1">
+                {navigationItems?.map((item) => (
+                  <Link
+                    key={item?.path}
+                    to={item?.path}
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ease-out hover:bg-muted ${
+                      isActivePath(item?.path)
+                        ? 'text-primary bg-muted' :'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    {item?.label}
+                  </Link>
+                ))}
+              </nav>
 
-            {/* Desktop Actions - Only Settings Menu */}
-            <div className="hidden md:flex items-center space-x-2">
-              <SettingsMenu />
+              {/* Dark Mode Toggle - Desktop */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleDarkMode}
+                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                className="w-9 h-9"
+              >
+                <Icon 
+                  name={isDarkMode ? 'Sun' : 'Moon'} 
+                  size={18} 
+                  className="transition-transform duration-200"
+                />
+              </Button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={toggleMobileMenu}
-              aria-label="Toggle mobile menu"
-            >
-              <Icon 
-                name={isMobileMenuOpen ? 'X' : 'Menu'} 
-                size={24} 
-                className="transition-transform duration-200"
-              />
-            </Button>
+            {/* Mobile Controls */}
+            <div className="md:hidden flex items-center space-x-2">
+              {/* Dark Mode Toggle - Mobile */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleDarkMode}
+                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                className="w-9 h-9 flex-shrink-0"
+              >
+                <Icon 
+                  name={isDarkMode ? 'Sun' : 'Moon'} 
+                  size={18} 
+                  className="transition-transform duration-200"
+                />
+              </Button>
+
+              {/* Mobile Menu Button */}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="flex-shrink-0"
+                onClick={toggleMobileMenu}
+                aria-label="Toggle mobile menu"
+              >
+                <Icon 
+                  name={isMobileMenuOpen ? 'X' : 'Menu'} 
+                  size={24} 
+                  className="transition-transform duration-200"
+                />
+              </Button>
+            </div>
           </div>
         </div>
       </header>
-      
+
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
@@ -120,7 +182,7 @@ const Header = () => {
             <div className="flex items-center justify-between p-4 border-b border-border">
               <Link 
                 to="/home-landing-page" 
-                className="flex items-center space-x-2 text-lg font-semibold text-foreground font-sans"
+                className="flex items-center space-x-2 text-lg font-semibold text-foreground"
                 onClick={closeMobileMenu}
               >
                 <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center">
@@ -130,9 +192,16 @@ const Header = () => {
               </Link>
               
               <div className="flex items-center space-x-2">
-                {/* Mobile Settings Menu */}
-                <SettingsMenu />
-                
+                {/* Dark Mode Toggle in Mobile Menu */}
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={toggleDarkMode}
+                  aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                >
+                  <Icon name={isDarkMode ? 'Sun' : 'Moon'} size={20} />
+                </Button>
+
                 <Button
                   variant="ghost"
                   size="icon"
@@ -151,7 +220,7 @@ const Header = () => {
                     <Link
                       to={item?.path}
                       onClick={closeMobileMenu}
-                      className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ease-out hover:bg-muted font-sans ${
+                      className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ease-out hover:bg-muted ${
                         isActivePath(item?.path)
                           ? 'text-primary bg-muted' :'text-muted-foreground hover:text-foreground'
                       }`}
@@ -162,17 +231,28 @@ const Header = () => {
                   </li>
                 ))}
               </ul>
-            </nav>
 
-            {/* Mobile Footer Info */}
-            <div className="absolute bottom-4 left-4 right-4">
-              <div className="bg-muted/50 rounded-lg p-4">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground font-claude">Claude.ai Font Style</span>
-                  <Icon name="Check" size={14} className="text-success" />
+              {/* Theme Preference in Mobile Menu */}
+              <div className="mt-6 pt-6 border-t border-border">
+                <div className="px-4">
+                  <h3 className="text-sm font-medium text-foreground mb-3">Appearance</h3>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">
+                      {isDarkMode ? 'Dark mode' : 'Light mode'}
+                    </span>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={toggleDarkMode}
+                      className="ml-2"
+                    >
+                      <Icon name={isDarkMode ? 'Sun' : 'Moon'} size={16} className="mr-2" />
+                      {isDarkMode ? 'Light' : 'Dark'}
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
+            </nav>
           </div>
         </div>
       )}

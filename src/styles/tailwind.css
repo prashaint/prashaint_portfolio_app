@@ -6,273 +6,115 @@
 
 @layer base {
   :root {
-    /* Light mode colors */
+    /* Light Mode Colors */
     --color-background: #FAFAFA; /* gray-50 */
     --color-foreground: #1E293B; /* slate-800 */
     --color-border: #E2E8F0; /* slate-200 */
     --color-input: #FFFFFF; /* white */
     --color-ring: #2563EB; /* blue-600 */
     
+    /* Card Colors */
     --color-card: #FFFFFF; /* white */
     --color-card-foreground: #1E293B; /* slate-800 */
     
+    /* Popover Colors */
     --color-popover: #FFFFFF; /* white */
     --color-popover-foreground: #1E293B; /* slate-800 */
     
+    /* Muted Colors */
     --color-muted: #F1F5F9; /* slate-100 */
     --color-muted-foreground: #64748B; /* slate-500 */
     
+    /* Primary Colors */
     --color-primary: #2563EB; /* blue-600 */
     --color-primary-foreground: #FFFFFF; /* white */
     
+    /* Secondary Colors */
     --color-secondary: #64748B; /* slate-500 */
     --color-secondary-foreground: #FFFFFF; /* white */
     
+    /* Accent Colors */
     --color-accent: #F59E0B; /* amber-500 */
     --color-accent-foreground: #1E293B; /* slate-800 */
     
+    /* Success Colors */
     --color-success: #10B981; /* emerald-500 */
     --color-success-foreground: #FFFFFF; /* white */
     
+    /* Warning Colors */
     --color-warning: #F59E0B; /* amber-500 */
     --color-warning-foreground: #1E293B; /* slate-800 */
     
+    /* Error Colors */
     --color-error: #EF4444; /* red-500 */
     --color-error-foreground: #FFFFFF; /* white */
     
+    /* Destructive Colors */
     --color-destructive: #EF4444; /* red-500 */
     --color-destructive-foreground: #FFFFFF; /* white */
   }
 
-  /* Dark mode colors */
   .dark {
+    /* Dark Mode Colors */
     --color-background: #0F172A; /* slate-900 */
-    --color-foreground: #F8FAFC; /* slate-50 */
+    --color-foreground: #F1F5F9; /* slate-100 */
     --color-border: #334155; /* slate-700 */
     --color-input: #1E293B; /* slate-800 */
     --color-ring: #3B82F6; /* blue-500 */
     
+    /* Card Colors */
     --color-card: #1E293B; /* slate-800 */
-    --color-card-foreground: #F8FAFC; /* slate-50 */
+    --color-card-foreground: #F1F5F9; /* slate-100 */
     
+    /* Popover Colors */
     --color-popover: #1E293B; /* slate-800 */
-    --color-popover-foreground: #F8FAFC; /* slate-50 */
+    --color-popover-foreground: #F1F5F9; /* slate-100 */
     
+    /* Muted Colors */
     --color-muted: #334155; /* slate-700 */
     --color-muted-foreground: #94A3B8; /* slate-400 */
     
+    /* Primary Colors */
     --color-primary: #3B82F6; /* blue-500 */
-    --color-primary-foreground: #F8FAFC; /* slate-50 */
+    --color-primary-foreground: #F1F5F9; /* slate-100 */
     
+    /* Secondary Colors */
     --color-secondary: #64748B; /* slate-500 */
-    --color-secondary-foreground: #F8FAFC; /* slate-50 */
+    --color-secondary-foreground: #F1F5F9; /* slate-100 */
     
-    --color-accent: #FBBF24; /* amber-400 */
+    /* Accent Colors */
+    --color-accent: #F59E0B; /* amber-500 */
     --color-accent-foreground: #0F172A; /* slate-900 */
     
-    --color-success: #34D399; /* emerald-400 */
-    --color-success-foreground: #0F172A; /* slate-900 */
+    /* Success Colors */
+    --color-success: #10B981; /* emerald-500 */
+    --color-success-foreground: #F1F5F9; /* slate-100 */
     
-    --color-warning: #FBBF24; /* amber-400 */
+    /* Warning Colors */
+    --color-warning: #F59E0B; /* amber-500 */
     --color-warning-foreground: #0F172A; /* slate-900 */
     
-    --color-error: #F87171; /* red-400 */
-    --color-error-foreground: #F8FAFC; /* slate-50 */
+    /* Error Colors */
+    --color-error: #EF4444; /* red-500 */
+    --color-error-foreground: #F1F5F9; /* slate-100 */
     
-    --color-destructive: #F87171; /* red-400 */
-    --color-destructive-foreground: #F8FAFC; /* slate-50 */
+    /* Destructive Colors */
+    --color-destructive: #EF4444; /* red-500 */
+    --color-destructive-foreground: #F1F5F9; /* slate-100 */
   }
 
   * {
     @apply border-border;
   }
   
-  /* Apply Claude.ai font stack to body and main content areas */
   body {
     @apply bg-background text-foreground;
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     font-feature-settings: "rlig" 1, "calt" 1;
-    line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  /* Keep sans-serif for headings and UI elements */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: Inter, system-ui, sans-serif;
-    font-weight: 600;
-    line-height: 1.2;
-  }
-
-  /* Navigation and UI elements should use sans-serif */
-  nav, button, input, select, textarea {
-    font-family: Inter, system-ui, sans-serif;
-  }
-
-  /* Code blocks use monospace */
-  code, pre, kbd {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-  }
-
-  /* Dark mode font weight adjustments */
-  .dark .font-claude,
-  .dark .font-claude-ui {
-    font-weight: 350; /* Slightly lighter for dark backgrounds */
-  }
-
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    .font-claude,
-    .font-claude-ui {
-      font-weight: 500;
-    }
-  }
-
-  /* Reduced motion preferences */
-  @media (prefers-reduced-motion: reduce) {
-    .theme-transition,
-    .transition-all,
-    .transition-colors {
-      transition: none !important;
-    }
-  }
-
-  /* Print styles */
-  @media print {
-    body, .font-claude, .font-claude-ui {
-      font-family: Georgia, "Times New Roman", Times, serif !important;
-      font-size: 12pt !important;
-      line-height: 1.5 !important;
-      color: black !important;
-    }
-    
-    .font-sans {
-      font-family: Arial, Helvetica, sans-serif !important;
-    }
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-
-  /* Claude.ai specific utility classes */
-  .font-claude {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  }
-
-  .font-claude-ui {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    line-height: 1.6;
-  }
-
-  /* Reading-optimized text for long content */
-  .prose-claude {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    line-height: 1.7;
-    font-size: 1.125rem; /* 18px */
-    color: theme('colors.foreground');
-  }
-
-  .prose-claude p {
-    margin-bottom: 1.25rem;
-  }
-
-  .prose-claude h1, 
-  .prose-claude h2, 
-  .prose-claude h3, 
-  .prose-claude h4, 
-  .prose-claude h5, 
-  .prose-claude h6 {
-    font-family: Inter, system-ui, sans-serif;
-    font-weight: 600;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  /* Theme transition utilities */
-  .theme-transition {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-  }
-
-  /* Dark mode specific adjustments */
-  .dark .shadow-soft-hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  }
-
-  .dark .shadow-soft {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  }
-
-  /* Backdrop blur adjustments for dark mode */
-  .dark .backdrop-blur-sm {
-    backdrop-filter: blur(4px) brightness(0.8);
-  }
-
-  /* Responsive font scaling */
-  .text-claude-responsive {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: clamp(1rem, 2.5vw, 1.125rem);
-    line-height: clamp(1.6, 1.5 + 0.5vw, 1.8);
-  }
-
-  /* Additional Claude font utilities */
-  .text-claude-small {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 0.875rem;
-    line-height: 1.6;
-  }
-
-  .text-claude-base {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 1rem;
-    line-height: 1.7;
-  }
-
-  .text-claude-lg {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 1.125rem;
-    line-height: 1.75;
-  }
-
-  .text-claude-xl {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 1.25rem;
-    line-height: 1.8;
-  }
-
-  /* Content-specific optimizations */
-  .article-content {
-    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 1.125rem;
-    line-height: 1.8;
-    text-align: left;
-    hyphens: auto;
-    word-spacing: 0.05em;
-  }
-
-  .article-content h1, 
-  .article-content h2, 
-  .article-content h3, 
-  .article-content h4, 
-  .article-content h5, 
-  .article-content h6 {
-    font-family: Inter, system-ui, sans-serif;
-    font-weight: 600;
-    line-height: 1.3;
-    margin-top: 2em;
-    margin-bottom: 0.75em;
-  }
-
-  .article-content p {
-    margin-bottom: 1.5em;
-  }
-
-  .article-content blockquote {
-    font-style: italic;
-    border-left: 4px solid theme('colors.primary');
-    padding-left: 1.5rem;
-    margin: 2rem 0;
-    font-size: 1.1em;
   }
 }

@@ -8,41 +8,36 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
-    projectType: '',
-    budget: '',
-    timeline: '',
+    age: '',
+    interestArea: '',
+    exploreAreas: '',
     message: ''
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const projectTypeOptions = [
-    { value: 'ML Based Data Pipeline', label: 'ML Based Data Pipeline' },
-    { value: 'ETL Pipeline', label: 'ETL Pipeline' },
-    { value: 'AI Based App', label: 'AI Based App' },
-    { value: 'e-commerce', label: 'E-commerce Solution' },
-    { value: 'consulting', label: 'Technical Consulting' },
-    { value: 'Data Product Support', label: 'Data Product Support' },
+  const interestAreaOptions = [
+    { value: 'Data Engineering', label: 'Data Engineering' },
+    { value: 'Machine Learning', label: 'Machine Learning' },
+    { value: 'Cloud Technologies', label: 'Cloud Technologies' },
+    { value: 'Software Development', label: 'Software Development' },
+    { value: 'Technology Trends', label: 'Technology Trends' },
+    { value: 'Career Guidance', label: 'Career Guidance' },
+    { value: 'Learning & Development', label: 'Learning & Development' },
+    { value: 'Open Source Projects', label: 'Open Source Projects' },
     { value: 'Other', label: 'Other' }
   ];
 
-  const budgetOptions = [
-    { value: 'under-5k', label: 'Under $5,000' },
-    { value: '5k-15k', label: '$5,000 - $15,000' },
-    { value: '15k-30k', label: '$15,000 - $30,000' },
-    { value: '30k-50k', label: '$30,000 - $50,000' },
-    { value: 'over-50k', label: 'Over $50,000' },
-    { value: 'discuss', label: 'Let\'s Discuss' }
-  ];
-
-  const timelineOptions = [
-    { value: 'asap', label: 'ASAP' },
-    { value: '1-month', label: 'Within 1 Month' },
-    { value: '2-3-months', label: '2-3 Months' },
-    { value: '3-6-months', label: '3-6 Months' },
-    { value: 'flexible', label: 'Flexible Timeline' }
+  const exploreAreasOptions = [
+    { value: 'Knowledge Sharing', label: 'Knowledge Sharing' },
+    { value: 'Technical Discussions', label: 'Technical Discussions' },
+    { value: 'Mentorship', label: 'Mentorship' },
+    { value: 'Community Building', label: 'Community Building' },
+    { value: 'Open Source Collaboration', label: 'Open Source Collaboration' },
+    { value: 'Technology Exchange', label: 'Technology Exchange' },
+    { value: 'Learning Together', label: 'Learning Together' },
+    { value: 'Networking', label: 'Networking' }
   ];
 
   const validateForm = () => {
@@ -58,8 +53,18 @@ const ContactForm = () => {
       newErrors.email = 'Please enter a valid email address';
     }
 
-    if (!formData?.projectType) {
-      newErrors.projectType = 'Please select a project type';
+    if (!formData?.age?.trim()) {
+      newErrors.age = 'Age is required';
+    } else if (isNaN(formData?.age) || parseInt(formData?.age) < 16 || parseInt(formData?.age) > 100) {
+      newErrors.age = 'Please enter a valid age (16-100)';
+    }
+
+    if (!formData?.interestArea) {
+      newErrors.interestArea = 'Please select your interest area';
+    }
+
+    if (!formData?.exploreAreas) {
+      newErrors.exploreAreas = 'Please select areas to explore together';
     }
 
     if (!formData?.message?.trim()) {
@@ -92,23 +97,43 @@ const ContactForm = () => {
     
     if (!validateForm()) {
       return;
-    // email the form data to the server or an email service
-    
     }
 
     setIsSubmitting(true);
 
-    // Simulate form submission
     try {
+      // Create email content
+      const emailBody = `
+New Connection Request from Portfolio Website
+
+Name: ${formData.name}
+Email: ${formData.email}
+Age: ${formData.age}
+Interest Area: ${formData.interestArea}
+Areas to Explore Together: ${formData.exploreAreas}
+
+Message:
+${formData.message}
+
+---
+This message was sent from the portfolio website contact form.
+      `;
+
+      // Create mailto link
+      const mailtoLink = `mailto:prashaint.kumar.mishra@gmail.com?subject=New Connection Request from ${formData.name}&body=${encodeURIComponent(emailBody)}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      // Simulate form submission
       await new Promise(resolve => setTimeout(resolve, 2000));
       setIsSubmitted(true);
       setFormData({
         name: '',
         email: '',
-        company: '',
-        projectType: '',
-        budget: '',
-        timeline: '',
+        age: '',
+        interestArea: '',
+        exploreAreas: '',
         message: ''
       });
     } catch (error) {
@@ -131,10 +156,10 @@ const ContactForm = () => {
             <Icon name="CheckCircle" size={32} className="text-success" />
           </div>
           <h3 className="text-xl font-semibold text-foreground mb-2">
-            Message Sent Successfully!
+            Connection Request Sent!
           </h3>
           <p className="text-muted-foreground mb-6">
-            Thank you for reaching out. I'll get back to you within 24 hours.
+            Thank you for reaching out! I'll get back to you soon to explore opportunities together.
           </p>
           <Button 
             variant="outline" 
@@ -153,12 +178,26 @@ const ContactForm = () => {
     <div className="bg-card rounded-lg border border-border p-6 md:p-8">
       <div className="mb-6">
         <h2 className="text-2xl font-semibold text-foreground mb-2">
-          Let's Work Together
+          Let's Connect to Learn More!
         </h2>
-        <p className="text-muted-foreground">
-          Ready to bring your project to life? Fill out the form below and I'll get back to you within 24 hours.
+        <p className="text-muted-foreground mb-4">
+          I'm always excited to connect with fellow enthusiasts, share knowledge, and explore new learning opportunities together. Fill out the form below to get in touch!
         </p>
+        
+        {/* Disclaimer */}
+        <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4">
+          <div className="flex items-start space-x-2">
+            <Icon name="AlertTriangle" size={20} className="text-amber-600 mt-0.5" />
+            <div>
+              <h4 className="text-sm font-semibold text-amber-800 mb-1">Important Disclaimer</h4>
+              <p className="text-xs text-amber-700">
+                This website is for knowledge sharing and networking purposes only. I do not accept paid project work or any other form of work that involves monetary benefits through this platform.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
+
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Input
@@ -182,50 +221,46 @@ const ContactForm = () => {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Input
-            label="Company/Organization"
-            type="text"
-            placeholder="Your company name (optional)"
-            value={formData?.company}
-            onChange={(e) => handleInputChange('company', e?.target?.value)}
+            label="Age"
+            type="number"
+            placeholder="Enter your age"
+            value={formData?.age}
+            onChange={(e) => handleInputChange('age', e?.target?.value)}
+            error={errors?.age}
+            required
+            min="16"
+            max="100"
           />
 
           <Select
-            label="Project Type"
-            placeholder="Select project type"
-            options={projectTypeOptions}
-            value={formData?.projectType}
-            onChange={(value) => handleInputChange('projectType', value)}
-            error={errors?.projectType}
+            label="Interest Area"
+            placeholder="Select your main interest"
+            options={interestAreaOptions}
+            value={formData?.interestArea}
+            onChange={(value) => handleInputChange('interestArea', value)}
+            error={errors?.interestArea}
             required
           />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Select
-            label="Budget Range"
-            placeholder="Select budget range"
-            options={budgetOptions}
-            value={formData?.budget}
-            onChange={(value) => handleInputChange('budget', value)}
-          />
 
           <Select
-            label="Timeline"
-            placeholder="Select timeline"
-            options={timelineOptions}
-            value={formData?.timeline}
-            onChange={(value) => handleInputChange('timeline', value)}
+            label="Areas to Explore Together"
+            placeholder="What would you like to explore?"
+            options={exploreAreasOptions}
+            value={formData?.exploreAreas}
+            onChange={(value) => handleInputChange('exploreAreas', value)}
+            error={errors?.exploreAreas}
+            required
           />
         </div>
 
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            Project Details <span className="text-error">*</span>
+            Tell me more about yourself and what you'd like to explore <span className="text-error">*</span>
           </label>
           <textarea
-            placeholder="Tell me about your project, goals, and any specific requirements..."
+            placeholder="Share your background, interests, learning goals, or any specific topics you'd like to discuss..."
             value={formData?.message}
             onChange={(e) => handleInputChange('message', e?.target?.value)}
             rows={6}
@@ -248,7 +283,7 @@ const ContactForm = () => {
             iconPosition="right"
             className="flex-1"
           >
-            {isSubmitting ? 'Sending Message...' : 'Send Message'}
+            {isSubmitting ? 'Sending Message...' : 'Send Connection Request'}
           </Button>
           
           <Button
@@ -258,10 +293,9 @@ const ContactForm = () => {
               setFormData({
                 name: '',
                 email: '',
-                company: '',
-                projectType: '',
-                budget: '',
-                timeline: '',
+                age: '',
+                interestArea: '',
+                exploreAreas: '',
                 message: ''
               });
               setErrors({});

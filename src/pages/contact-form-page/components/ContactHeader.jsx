@@ -4,19 +4,19 @@ import Icon from '../../../components/AppIcon';
 const ContactHeader = () => {
   const features = [
     {
-      icon: 'Clock',
-      title: 'Quick Response',
-      description: 'Get replies within 24 hours'
+      icon: 'MessageCircle',
+      title: 'Open Communication',
+      description: 'Friendly and accessible discussions'
     },
     {
       icon: 'Shield',
-      title: 'Confidential',
-      description: 'Your information is secure'
+      title: 'Learning Focused',
+      description: 'Knowledge sharing and growth'
     },
     {
       icon: 'Users',
-      title: 'Collaborative',
-      description: 'Work together on your vision'
+      title: 'Community Building',
+      description: 'Building meaningful connections'
     }
   ];
 
@@ -24,15 +24,15 @@ const ContactHeader = () => {
     <div className="text-center mb-8 md:mb-12">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-          Let's Create Something
-          <span className="text-primary block">Amazing Together</span>
+          Let's Connect & 
+          <span className="text-primary block">Explore Together</span>
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-          <h4><b>Ready to transform your ideas into reality?</b></h4> 
-          <br/><p>Whether you want to build a scalable data pipeline, a cutting-edge machine learning model, a user-friendly web application, or a robust mobile app.
-          <br/>With over 13 years of experience in data engineering and software development, I specialize in delivering high-quality solutions tailored to your needs. Let's collaborate to turn your project into a success story!
-          I'm here to help bring your vision to life.</p>
+          <h4><b>Ready to embark on a learning journey together?</b></h4> 
+          <br/><p>Whether you're interested in data engineering, machine learning, cloud technologies, or just want to share knowledge and experiences.
+          <br/>With over 13 years of experience in data engineering and software development, I'm passionate about sharing knowledge, mentoring, and learning from others. Let's connect to explore opportunities for mutual growth, knowledge exchange, and building meaningful professional relationships!
+          I'm here to connect, learn, and grow together.</p>
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
