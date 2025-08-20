@@ -131,7 +131,7 @@ const AboutBioSection = () => {
       <section className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Ready to Work Together?
+            Ready to Connect & Explore Together?
           </h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             I'm always excited to take on new challenges and collaborate on innovative projects. Let's discuss how we can bring your ideas to life.

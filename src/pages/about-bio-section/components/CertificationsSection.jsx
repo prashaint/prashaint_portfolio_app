@@ -61,6 +61,7 @@ const CertificationsSection = () => {
       id: 1,
       degree: "Master of Computer Applications (MCA)",
       institution: "Birla Institute of Technology, Mesra",
+      institutionUrl: "https://bitmesra.ac.in/",
       location: "Ranchi, India",
       period: "2008 - 2011",
       gpa: "8.14/10.0",
@@ -71,6 +72,7 @@ const CertificationsSection = () => {
       id: 2,
       degree: "Bachelor of Computer Applications (BCA)",
       institution: "Birla Institute of Technology, Mesra",
+      institutionUrl: "https://bitmesra.ac.in/",
       location: "Ranchi, India",
       period: "2005 - 2008",
       gpa: "7.15/10.0",
@@ -82,10 +84,10 @@ const CertificationsSection = () => {
   const achievements = [
     {
       id: 1,
-      title: "Best Innovation Award",
-      organization: "TechCorp Annual Conference",
-      year: "2023",
-      description: "Recognized for developing an AI-powered user interface that improved user engagement by 40%"
+      title: "Toastmasters Pathway Level 3 Award",
+      organization: "Toastmasters International",
+      year: "2024",
+      description: "Recognized for outstanding public speaking and leadership skills by completing Level 3 in the 'Presentation Mastery' Pathways program",
     },
     {
       id: 2,
@@ -156,6 +158,7 @@ const CertificationsSection = () => {
           ))}
         </div>
       </div>
+      
       {/* Education */}
       <div>
         <div className="text-center mb-8">
@@ -182,15 +185,21 @@ const CertificationsSection = () => {
                   <h3 className="font-semibold text-foreground mb-1">
                     {edu?.degree}
                   </h3>
-                  <p className="text-primary font-medium mb-1">
+                  <a
+                    href={edu?.institutionUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary font-medium mb-1 hover:text-primary/80 transition-colors duration-200 inline-flex items-center gap-1"
+                  >
                     {edu?.institution}
-                  </p>
+                    <Icon name="ExternalLink" size={14} />
+                  </a>
                   <p className="text-muted-foreground text-sm mb-2">
                     {edu?.location} • {edu?.period}
                   </p>
                   <div className="flex flex-wrap gap-4 text-sm">
                     <span className="text-muted-foreground">
-                      GPA: <span className="font-medium text-foreground">{edu?.gpa}</span>
+                      CGPA: <span className="font-medium text-foreground">{edu?.gpa}</span>
                     </span>
                     <span className="text-muted-foreground">
                       Specialization: <span className="font-medium text-foreground">{edu?.specialization}</span>
@@ -202,6 +211,7 @@ const CertificationsSection = () => {
           ))}
         </div>
       </div>
+      
       {/* Achievements */}
       <div>
         <div className="text-center mb-8">
