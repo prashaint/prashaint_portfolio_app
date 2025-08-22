@@ -7,7 +7,7 @@ import Icon from '../../../components/AppIcon';
 const AboutPreview = () => {
   const achievements = [
     {
-      number: "50+",
+      number: "20+",
       label: "Projects Completed",
       icon: "CheckCircle"
     },
@@ -17,7 +17,7 @@ const AboutPreview = () => {
       icon: "Calendar"
     },
     {
-      number: "30+",
+      number: "10+",
       label: "Happy Clients",
       icon: "Users"
     },
