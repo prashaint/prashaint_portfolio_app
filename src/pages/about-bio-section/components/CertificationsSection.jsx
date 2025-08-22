@@ -91,10 +91,10 @@ const CertificationsSection = () => {
     },
     {
       id: 2,
-      title: "Open Source Contributor of the Year",
-      organization: "React Community",
-      year: "2022",
-      description: "Contributed to multiple React ecosystem projects with over 1000+ GitHub stars"
+      title: "Toastmasters Pathway Level 4 Award",
+      organization: "Toastmasters International",
+      year: "2025",
+      description: "Recognized for advanced communication and leadership skills by completing Level 4 in the 'Presentation Mastery' Pathways program"
     },
     {
       id: 3,
