@@ -18,134 +18,130 @@ const ExperienceTimeline = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Mock experience data
-  const experienceData = [
-    {
-      id: 1,
-      role: "AVP",
-      company: "Barclays PLC",
-      location: "Pune, India",
-      duration: "2 years 7 months",
-      type: "Full-time",
-      industry: "Technology",
-      roleType: "Senior Data Engineer",
-      year: "2023",
-      companyLogo: "https://media.licdn.com/dms/image/v2/C4E0BAQFAXc9z0Go7Uw/company-logo_100_100/company-logo_100_100/0/1663677974291/barclays_bank_logo?e=1756944000&v=beta&t=upHeeom86S-4ZgQZeIk7ZujBR83YtKFT5CqyOwhyTzM",
-      summary: "Led development of enterprise-level data pipelines using cloud technologies. Managed a team of 5 developers and collaborated with cross-functional teams to deliver high-quality software solutions.",
-      technologies: ["PySpark", "Airflow", "Unix", "AWS", "Docker", "MySQL", "Git"],
-      achievements: [
-        "Led the migration from legacy SAS application to PySpark application which reduced the execution time of jobs from 10Hrs+ to 2 Hours and enhanced the overall performance by 80%.",
-        "Led a team of Data Engineers and designed complex data pipelines for ML Models designed to prevent credit card related frauds.",
-        "Mentored 3 junior developers and established coding standards for the team",
-        "Analyzed and remediated the DQ gaps present in existing data curation process which elevated the performance by 60% in order to get better ML scores."
-      ],
-      projectsCount: 4
-    },
-        {
-      id: 2,
-      role: "Senior Developer - BA4",
-      company: "Barclays PLC",
-      location: "Pune, India",
-      duration: "1 years 7 months",
-      type: "Full-time",
-      industry: "Technology",
-      roleType: "Data Engineer",
-      year: "2021",
-      companyLogo: "https://media.licdn.com/dms/image/v2/C4E0BAQFAXc9z0Go7Uw/company-logo_100_100/company-logo_100_100/0/1663677974291/barclays_bank_logo?e=1756944000&v=beta&t=upHeeom86S-4ZgQZeIk7ZujBR83YtKFT5CqyOwhyTzM",
-      summary: "Led development of enterprise-level data pipelines using cloud technologies. Managed a team of 5 developers and collaborated with cross-functional teams to deliver high-quality software solutions.",
-      technologies: ["PySpark", "Airflow", "Unix", "AWS", "Docker", "MySQL", "Git"],
-      achievements: [
-        "Developed the PySpark framework to automate the existing process which improved the performance in terms of execution and resource usage to 70% and data quality improved to 90%.",
-        "Optimized the pipeline workflow for existing ML models to reduce the execution time by 40% and improved the overall performance of the application.",
-        "Mentored 4 junior developers and established coding standards for the team",
-        "Analyzed and remediated the DQ gaps present in existing data curation process which elevated the performance by 60% in order to get better ML scores."
-      ],
-      projectsCount: 2
-    },
-    {
-      id: 3,
-      role: "Manager",
-      company: "Citibank",
-      location: "Pune, India",
-      duration: "2 year 10 months",
-      type: "Full-time",
-      industry: "Technology",
-      roleType: "Data Engineer",
-      year: "2019",
-      companyLogo: "https://media.licdn.com/dms/image/v2/D4E0BAQFgF4xtqyXBcg/company-logo_100_100/company-logo_100_100/0/1719257286385/citi_logo?e=1756944000&v=beta&t=ee7uUteB29B87B4SLf0OEhhE3YPsA6Q6cMi1laQPtHY",
-      summary: "Designed and developed the Ingestion framework which is used to fetch data from multiple sources performs sanity checks along with basic transformations in order to store the data into staging layer and allows downstream applications to pull the data for analytics, it has reduced resource and infra cost by 20%.",
-      technologies: ["Scala", "Spark", "Hbase", "Hive", "Oracle", "Git", "Unix"],
-      achievements: [
-        "Implemented Igestion framework to ingest and load 100+ source data files into Hbase and Hive tables with 99% data quality.",
-        "Optimized the existing data processing pipeline to reduce the execution time by 30% and improved the overall performance of the application.",
-        "Mentored 5 junior developers and established coding standards for the team"
-      ],
-      projectsCount: 5
-    },
-    {
-      id: 4,
-      role: "Assitant Manager",
-      company: "Citibank",
-      location: "Pune, India",
-      duration: "2 year 9 months",
-      type: "Full-time",
-      industry: "Technology",
-      roleType: "Data Engineer",
-      year: "2016",
-      companyLogo: "https://media.licdn.com/dms/image/v2/D4E0BAQFgF4xtqyXBcg/company-logo_100_100/company-logo_100_100/0/1719257286385/citi_logo?e=1756944000&v=beta&t=ee7uUteB29B87B4SLf0OEhhE3YPsA6Q6cMi1laQPtHY",
-      summary: "Designed and developed the Ingestion framework which is used to fetch data from multiple sources performs sanity checks along with basic transformations in order to store the data into staging layer and allows downstream applications to pull the data for analytics, it has reduced resource and infra cost by 20%.",
-      technologies: ["Scala", "Spark", "Hbase", "Hive", "Oracle", "Git", "Unix"],
-      achievements: [
-        "Implemented Igestion framework to ingest and load 100+ source data files into Hbase and Hive tables with 99% data quality.",
-        "Optimized the existing data processing pipeline to reduce the execution time by 30% and improved the overall performance of the application.",
-        "Mentored 5 junior developers and established coding standards for the team"
-      ],
-      projectsCount: 8
-    },
-    {
-      id: 5,
-      role: "Associate - Projects",
-      company: "Cognizant",
-      location: "Pune, India",
-      duration: "1 year 7 months",
-      type: "Full-time",
-      industry: "Technology",
-      roleType: "Ab-Initio Developer",
-      year: "2014",
-      companyLogo: "https://media.licdn.com/dms/image/v2/D4E0BAQHjkUYrDIUKYA/company-logo_100_100/company-logo_100_100/0/1719839886088/cognizant_logo?e=1756944000&v=beta&t=ekipSJ4q4w4gvKahEydAdpK0fZWsN1iafho1eNCBg_U",
-      summary: "Developed ETL Ab-Initio workflows as per project requirements and supported end-to-end delivery of the tasks till prod deployment and L3 support post Go-Live which reduced the total batch execution time by 30%.",
-      technologies: ["Ab-Initio", "Linux", "Oracle", "Shell-Scripting", "TWS", "Unix"],
-      achievements: [
-        "Designed and implemented RESTful APIs handling 1M+ requests per day",
-        "Built real-time data processing pipeline reducing latency by 60%",
-        "Implemented comprehensive security measures including OAuth2 and JWT",
-        "Optimized database queries resulting in 45% improvement in response times"
-      ],
-      projectsCount: 4
-    },
-        {
-      id: 6,
-      role: "Senior Systems Engineer",
-      company: "Infosys",
-      location: "Pune, India",
-      duration: "3 year 4 months",
-      type: "Full-time",
-      industry: "Technology",
-      roleType: "Ab-Initio Developer",
-      year: "2011",
-      companyLogo: "https://media.licdn.com/dms/image/v2/D560BAQEv67uGFge5Sw/company-logo_100_100/B56ZfEsEVpHoAU-/0/1751351576332/infosys_logo?e=1756944000&v=beta&t=g45HfaxJNW2chLi8pYoqEZ7FvLAbhkyneVwYdciBg3k",
-      summary: "Developed ETL Ab-Initio workflows as per project requirements and supported end-to-end delivery of the tasks till prod deployment and L3 support post Go-Live which reduced the total batch execution time by 30%.",
-      technologies: ["Ab-Initio", "Linux", "Oracle", "Shell-Scripting", "TWS", "Unix"],
-      achievements: [
-        "Designed and implemented RESTful APIs handling 1M+ requests per day",
-        "Built real-time data processing pipeline reducing latency by 60%",
-        "Implemented comprehensive security measures including OAuth2 and JWT",
-        "Optimized database queries resulting in 45% improvement in response times"
-      ],
-      projectsCount: 4
-    },
-    
-  ];
 
+  // Update the experienceData in src/pages/experience-timeline/index.jsx
+// Replace the experienceData array with this cleaned version
+
+const experienceData = [
+  {
+    id: 1,
+    role: "AVP",
+    company: "Barclays PLC",
+    location: "Pune, India",
+    duration: "2 years 7 months",
+    type: "Full-time",
+    industry: "Technology",
+    roleType: "Senior Data Engineer",
+    year: "2023",
+    summary: "Led development of enterprise-level data pipelines using cloud technologies. Managed a team of 5 developers and collaborated with cross-functional teams to deliver high-quality software solutions.",
+    technologies: ["PySpark", "Airflow", "Unix", "AWS", "Docker", "MySQL", "Git"],
+    achievements: [
+      "Led the migration from legacy SAS application to PySpark application which reduced the execution time of jobs from 10Hrs+ to 2 Hours and enhanced the overall performance by 80%.",
+      "Led a team of Data Engineers and designed complex data pipelines for ML Models designed to prevent credit card related frauds.",
+      "Mentored 3 junior developers and established coding standards for the team",
+      "Analyzed and remediated the DQ gaps present in existing data curation process which elevated the performance by 60% in order to get better ML scores."
+    ],
+    projectsCount: 4
+  },
+  {
+    id: 2,
+    role: "Senior Developer - BA4",
+    company: "Barclays PLC",
+    location: "Pune, India",
+    duration: "1 years 7 months",
+    type: "Full-time",
+    industry: "Technology",
+    roleType: "Data Engineer",
+    year: "2021",
+    summary: "Led development of enterprise-level data pipelines using cloud technologies. Managed a team of 5 developers and collaborated with cross-functional teams to deliver high-quality software solutions.",
+    technologies: ["PySpark", "Airflow", "Unix", "AWS", "Docker", "MySQL", "Git"],
+    achievements: [
+      "Developed the PySpark framework to automate the existing process which improved the performance in terms of execution and resource usage to 70% and data quality improved to 90%.",
+      "Optimized the pipeline workflow for existing ML models to reduce the execution time by 40% and improved the overall performance of the application.",
+      "Mentored 4 junior developers and established coding standards for the team",
+      "Analyzed and remediated the DQ gaps present in existing data curation process which elevated the performance by 60% in order to get better ML scores."
+    ],
+    projectsCount: 2
+  },
+  {
+    id: 3,
+    role: "Manager",
+    company: "Citibank",
+    location: "Pune, India",
+    duration: "2 year 10 months",
+    type: "Full-time",
+    industry: "Technology",
+    roleType: "Data Engineer",
+    year: "2019",
+    summary: "Designed and developed the Ingestion framework which is used to fetch data from multiple sources performs sanity checks along with basic transformations in order to store the data into staging layer and allows downstream applications to pull the data for analytics, it has reduced resource and infra cost by 20%.",
+    technologies: ["Scala", "Spark", "Hbase", "Hive", "Oracle", "Git", "Unix"],
+    achievements: [
+      "Implemented Igestion framework to ingest and load 100+ source data files into Hbase and Hive tables with 99% data quality.",
+      "Optimized the existing data processing pipeline to reduce the execution time by 30% and improved the overall performance of the application.",
+      "Mentored 5 junior developers and established coding standards for the team"
+    ],
+    projectsCount: 5
+  },
+  {
+    id: 4,
+    role: "Assistant Manager",
+    company: "Citibank",
+    location: "Pune, India",
+    duration: "2 year 9 months",
+    type: "Full-time",
+    industry: "Technology",
+    roleType: "Data Engineer",
+    year: "2016",
+    summary: "Designed and developed the Ingestion framework which is used to fetch data from multiple sources performs sanity checks along with basic transformations in order to store the data into staging layer and allows downstream applications to pull the data for analytics, it has reduced resource and infra cost by 20%.",
+    technologies: ["Scala", "Spark", "Hbase", "Hive", "Oracle", "Git", "Unix"],
+    achievements: [
+      "Implemented Igestion framework to ingest and load 100+ source data files into Hbase and Hive tables with 99% data quality.",
+      "Optimized the existing data processing pipeline to reduce the execution time by 30% and improved the overall performance of the application.",
+      "Mentored 5 junior developers and established coding standards for the team"
+    ],
+    projectsCount: 8
+  },
+  {
+    id: 5,
+    role: "Associate - Projects",
+    company: "Cognizant",
+    location: "Pune, India",
+    duration: "1 year 7 months",
+    type: "Full-time",
+    industry: "Technology",
+    roleType: "Ab-Initio Developer",
+    year: "2014",
+    summary: "Developed ETL Ab-Initio workflows as per project requirements and supported end-to-end delivery of the tasks till prod deployment and L3 support post Go-Live which reduced the total batch execution time by 30%.",
+    technologies: ["Ab-Initio", "Linux", "Oracle", "Shell-Scripting", "TWS", "Unix"],
+    achievements: [
+      "Designed and implemented Ab-Initio workflows handling complex data transformations",
+      "Built real-time data processing pipeline reducing batch execution time by 30%",
+      "Implemented comprehensive data validation and quality checks",
+      "Optimized ETL processes resulting in 45% improvement in processing times"
+    ],
+    projectsCount: 4
+  },
+  {
+    id: 6,
+    role: "Senior Systems Engineer",
+    company: "Infosys",
+    location: "Pune, India",
+    duration: "3 year 4 months",
+    type: "Full-time",
+    industry: "Technology",
+    roleType: "Ab-Initio Developer",
+    year: "2011",
+    summary: "Developed ETL Ab-Initio workflows as per project requirements and supported end-to-end delivery of the tasks till prod deployment and L3 support post Go-Live which reduced the total batch execution time by 30%.",
+    technologies: ["Ab-Initio", "Linux", "Oracle", "Shell-Scripting", "TWS", "Unix"],
+    achievements: [
+      "Developed and maintained complex ETL workflows for enterprise clients",
+      "Implemented data migration strategies for large-scale systems",
+      "Provided L3 support for production systems with 99.5% uptime",
+      "Trained junior team members on Ab-Initio development best practices"
+    ],
+    projectsCount: 4
+  }
+];
   // Filter experiences based on current filters
   useEffect(() => {
     let filtered = experienceData;

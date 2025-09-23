@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Icon from '../../../components/AppIcon';
-import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
 
 const TimelineEntry = ({ experience, index, isLast }) => {
@@ -10,24 +9,111 @@ const TimelineEntry = ({ experience, index, isLast }) => {
     setIsExpanded(!isExpanded);
   };
 
+  const getCompanyInitials = (companyName) => {
+    return companyName
+      .split(' ')
+      .map(word => word.charAt(0))
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
+  };
+
+  const getCompanyColor = (companyName) => {
+    const colors = [
+      'bg-blue-500',
+      'bg-green-500', 
+      'bg-purple-500',
+      'bg-red-500',
+      'bg-yellow-500',
+      'bg-indigo-500',
+      'bg-pink-500',
+      'bg-teal-500'
+    ];
+    // Use company name hash for consistent colors
+    let hash = 0;
+    for (let i = 0; i < companyName.length; i++) {
+      hash = companyName.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const index = Math.abs(hash) % colors.length;
+    return colors[index];
+  };
+
+  // Company logo mapping - using more reliable sources
+  const getCompanyLogo = (companyName) => {
+    const logoMap = {
+      'Barclays PLC': {
+        url: 'https://logo.clearbit.com/barclays.com',
+        fallback: 'https://logowik.com/content/uploads/images/barclays6037.logowik.com.webp'
+      },
+      'Citibank': {
+        url: 'https://logo.clearbit.com/citigroup.com',
+        fallback: 'https://logowik.com/content/uploads/images/citibank2754.logowik.com.webp'
+      },
+      'Cognizant': {
+        url: 'https://logo.clearbit.com/cognizant.com',
+        fallback: 'https://logowik.com/content/uploads/images/cognizant9709.logowik.com.webp'
+      },
+      'Infosys': {
+        url: 'https://logo.clearbit.com/infosys.com',
+        fallback: 'https://logowik.com/content/uploads/images/infosys6265.logowik.com.webp'
+      }
+    };
+    return logoMap[companyName] || null;
+  };
+
+  const CompanyLogo = ({ company }) => {
+    const [imageError, setImageError] = useState(false);
+    const [secondaryError, setSecondaryError] = useState(false);
+    const logoInfo = getCompanyLogo(company);
+
+    if (!logoInfo || imageError && secondaryError) {
+      // Show initials fallback
+      return (
+        <div className={`w-8 h-8 md:w-10 md:h-10 ${getCompanyColor(company)} rounded-full flex items-center justify-center`}>
+          <span className="text-white text-xs md:text-sm font-bold">
+            {getCompanyInitials(company)}
+          </span>
+        </div>
+      );
+    }
+
+    return (
+      <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden bg-white flex items-center justify-center p-1">
+        <img
+          src={imageError ? logoInfo.fallback : logoInfo.url}
+          alt={`${company} logo`}
+          className="w-full h-full object-contain rounded-full"
+          onError={() => {
+            if (!imageError) {
+              setImageError(true);
+            } else {
+              setSecondaryError(true);
+            }
+          }}
+          onLoad={() => {
+            setImageError(false);
+            setSecondaryError(false);
+          }}
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+        />
+      </div>
+    );
+  };
+
   return (
     <div className="relative flex items-start space-x-4 md:space-x-6 pb-8 md:pb-12">
       {/* Timeline Line */}
       {!isLast && (
         <div className="absolute left-6 md:left-8 top-16 w-0.5 h-full bg-border" />
       )}
+      
       {/* Timeline Dot */}
       <div className="relative z-10 flex-shrink-0">
-        <div className="w-12 h-12 md:w-16 md:h-16 bg-card border-2 border-primary rounded-full flex items-center justify-center shadow-sm">
-          <div className="w-6 h-6 md:w-8 md:h-8 bg-muted rounded-lg overflow-hidden">
-            <Image
-              src={experience?.companyLogo}
-              alt={`${experience?.company} logo`}
-              className="w-full h-full object-cover"
-            />
-          </div>
+        <div className="w-12 h-12 md:w-16 md:h-16 bg-card border-2 border-primary rounded-full flex items-center justify-center shadow-sm overflow-hidden">
+          <CompanyLogo company={experience?.company} />
         </div>
       </div>
+
       {/* Content */}
       <div className="flex-1 min-w-0">
         <div className="bg-card border border-border rounded-lg p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
@@ -49,8 +135,9 @@ const TimelineEntry = ({ experience, index, isLast }) => {
               </span>
               {experience?.type && (
                 <span className={`text-xs font-medium px-2 py-1 rounded-full ${
-                  experience?.type === 'Full-time' ?'bg-success/10 text-success'
-                    : experience?.type === 'Contract' ?'bg-warning/10 text-warning' :'bg-muted text-muted-foreground'
+                  experience?.type === 'Full-time' ? 'bg-success/10 text-success'
+                    : experience?.type === 'Contract' ? 'bg-warning/10 text-warning' 
+                    : 'bg-muted text-muted-foreground'
                 }`}>
                   {experience?.type}
                 </span>
