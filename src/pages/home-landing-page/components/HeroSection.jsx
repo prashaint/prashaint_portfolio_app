@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
+import AnimatedBackground from '../../../components/AnimatedBackground';
 
 const HeroSection = () => {
   const socialLinks = [
@@ -15,13 +16,14 @@ const HeroSection = () => {
   const handleDownloadResume = () => {
     // Mock resume download
     const link = document.createElement('a');
-    link.href = '/assets/resume/Prashaint_Kumar_Mishra_Mar25.pdf';
-    link.download = 'Prashaint_Kumar_Mishra_Mar25.pdf';
+    link.href = '/assets/resume/Prashaint_Mishra_Nov25.pdf';
+    link.download = 'Prashaint_Mishra_Nov25.pdf';
     link?.click();
   };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-muted/30 to-background overflow-hidden">
+    <AnimatedBackground />
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>

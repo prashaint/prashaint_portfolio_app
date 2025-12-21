@@ -5,6 +5,7 @@ import FeaturedProjects from './components/FeaturedProjects';
 import SkillsOverview from './components/SkillsOverview';
 import AboutPreview from './components/AboutPreview';
 import ContactCTA from './components/ContactCTA';
+import TestimonialsSlider from '../../components/TestimonialsSlider';
 
 const HomeLandingPage = () => {
   useEffect(() => {
@@ -38,6 +39,7 @@ const HomeLandingPage = () => {
         <FeaturedProjects />
         <SkillsOverview />
         <AboutPreview />
+        <TestimonialsSlider />
         <ContactCTA />
       </main>
       {/* Footer */}

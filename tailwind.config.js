@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: ["class"],
+  darkMode: ["class"],  // Already present, just verify
   content: [
     './pages/**/*.{js,jsx}',
     './components/**/*.{js,jsx}',
@@ -105,6 +105,10 @@ export default {
           from: { transform: "translateX(100%)" },
           to: { transform: "translateX(0)" },
         },
+        "fade-in-up": {  // ADD THIS
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -114,6 +118,7 @@ export default {
         "slide-in-from-bottom": "slide-in-from-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         "slide-in-from-left": "slide-in-from-left 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         "slide-in-from-right": "slide-in-from-right 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        "fade-in-up": "fade-in-up 0.6s ease-out",  // ADD THIS
       },
       transitionTimingFunction: {
         'ease-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
