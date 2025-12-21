@@ -148,14 +148,22 @@ const ContactInfo = () => {
             onClick={() => {
               // Resume download
               const link = document.createElement('a');
-              link.href = '/assets/resume/Prashaint_Kumar_Mishra_Mar25.pdf';
-              link.download = 'Prashaint_Kumar_Mishra_Mar25.pdf';
+              link.href = '/assets/resume/Prashaint_Mishra_Nov25.pdf';
+              link.download = 'Prashaint_Mishra_Nov25.pdf';
               link?.click();
             }}
           >
             Download Resume
           </Button>
-          
+          <Button
+            variant="outline"
+            fullWidth
+            iconName="Calendar"
+            iconPosition="left"
+            onClick={() => window.open('https://calendly.com/prashaint', '_blank')}
+          >
+            Schedule Meeting
+          </Button>
           <Button
             variant="outline"
             fullWidth

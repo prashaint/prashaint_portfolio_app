@@ -51,9 +51,8 @@ const AboutPreview = () => {
                 I've had the privilege of working with diverse clients and teams to bring innovative ideas to life.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                My journey began with a curiosity about how things work on the web, and it has evolved into 
-                a career dedicated to crafting efficient, scalable, and user-friendly applications. I believe 
-                in the power of technology to solve real-world problems and create meaningful connections.
+                My journey began with a Master's degree from BIT Mesra, and it has evolved into a career dedicated to crafting complex and scalable data pipelines. 
+                I believe in the power of data engineering to solve real-world problems and drive business decisions.
               </p>
             </div>
 

@@ -9,16 +9,16 @@ const PersonalInfo = () => {
     location: "Pune, MH, India",
     email: "prashaint.kumar.mishra@gmail.com",
     phone: "+91 8484093319",
-    bio: `I'm Senior Data Engineer with over 13 years of experience. I have designed, developed and maintained complex data pipelines for ML projects. My journey began with a MCA degree from BIT Mesra Ranchi, where I discovered my love for both coding and Data Engineering.\n\nI specialize in PySpark, Python, and modern Data Engineering technologies, with a keen eye for creating complext and scalable data pipelines. My approach combines technical expertise with creative problem-solving, ensuring that every project not only functions flawlessly but also provides an exceptional user experience.\n\nWhen I'm not coding, you'll find me exploring the latest design trends, contributing to open-source projects, or hiking the beautiful trails around the Bay Area. I believe in continuous learning and staying ahead of the curve in this ever-evolving tech landscape.`,
+    bio: `I'm Senior Data Engineer with over 13 years of experience. I have designed, developed and maintained complex data pipelines for ML projects. My journey began with a MCA degree from BIT Mesra Ranchi, where I discovered my love for both coding and Data Engineering.\n\nI specialize in PySpark, Python, and modern Data Engineering technologies, with a keen eye for creating complex and scalable data pipelines...`,
     profileImage: "assets/images/prashaint.jpg",
-    resumeUrl: "/assets/resume/Prashaint_Kumar_Mishra_Mar25.pdf"
+    resumeUrl: "/assets/resume/Prashaint_Mishra_Nov25.pdf"
   };
 
   const handleDownloadResume = () => {
     // Mock download functionality
     const link = document.createElement('a');
     link.href = personalData?.resumeUrl;
-    link.download = 'Prashaint_Kumar_Mishra_Mar25.pdf';
+    link.download = 'Prashaint_Mishra_Nov25.pdf';
     document.body?.appendChild(link);
     link?.click();
     document.body?.removeChild(link);
