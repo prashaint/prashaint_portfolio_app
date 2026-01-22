@@ -56,8 +56,20 @@ Tailwind CSS 3.4.6    // Utility-first CSS framework
 ├── Custom Components  // Design system components
 ├── Responsive Design  // Mobile-first approach
 ├── CSS Variables      // Dynamic theming
+├── Modern Gradients   // Animated gradient backgrounds
+├── Glassmorphism     // Backdrop blur effects
 └── PostCSS           // CSS processing
 ```
+
+**Modern Design Features (v2.0)**:
+- Animated multi-color gradient backgrounds (`gradient-hero`)
+- Glassmorphism effects with backdrop blur (`glass-effect`)
+- Button glow animations (`btn-glow`)
+- Pulse glow effects (`pulse-glow`)
+- Gradient text effects (`gradient-text`)
+- Custom gradient scrollbars
+- Floating dot animations
+- Shine overlay effects
 
 ### Build Layer
 ```javascript
@@ -477,5 +489,101 @@ const observer = new PerformanceObserver((list) => {
 
 observer.observe({ entryTypes: ['largest-contentful-paint'] });
 ```
+
+## Recent Architecture Updates (v2.0)
+
+### Modern Design System Evolution
+
+#### Color Palette Update
+The application has transitioned to a modern purple-blue-pink gradient color scheme:
+
+```css
+Primary Colors:
+- Primary: #667eea (Modern purple-blue)
+- Accent: #f093fb (Modern pink)
+- Gradient: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe)
+```
+
+#### New Styling Utilities
+```
+Gradient System:
+├── gradient-hero         // Animated background (15s infinite loop)
+├── gradient-text         // Text with gradient fill
+├── gradient-border       // Animated gradient borders
+└── gradientShift         // Keyframe animation
+
+Glassmorphism:
+├── glass-effect         // Backdrop blur with transparency
+├── Backdrop filters     // Modern blur effects
+└── Semi-transparent UI  // RGBA-based backgrounds
+
+Animations:
+├── btn-glow            // Button hover glow animation
+├── pulse-glow          // Pulsing shadow effect
+├── float               // Floating dot animations
+├── shine               // Rotating radial gradient
+└── Custom scrollbar    // Gradient scrollbar styling
+```
+
+#### Typography Enhancements
+- Extended Inter font family (weights: 300-900)
+- Optimized letter-spacing for modern headings
+- Enhanced readability on gradient backgrounds
+- Smooth font rendering with antialiasing
+
+#### Asset Management
+**New Local Assets**:
+- AWS logo (`public/assets/images/aws.png`)
+- Databricks logo (`public/assets/images/databricks.png`)
+- Barclays logo (`public/assets/images/barclays.jpg`)
+- BIT Mesra logo (`public/assets/images/Bit_mesra.png`)
+- Updated resume (`Prashaint_Kumar_Mishra_Mar25.pdf`)
+
+**Profile Images**:
+- `prashaint_profile2.jpg` - Main profile image with modern styling
+
+### Component Updates
+
+#### HeroSection Enhancements
+```javascript
+Key Changes:
+├── Background: gradient-hero with animations
+├── Text: White text on gradient background
+├── Buttons: Modern styling with glow effects
+├── Social Links: Glassmorphism effects
+├── Profile Image: Decorative gradients + pulse glow
+└── Floating Badge: Glass effect with availability status
+```
+
+#### Styling Philosophy
+The architecture now follows a modern, visually engaging design philosophy:
+
+1. **Visual Hierarchy**: Gradient backgrounds create depth
+2. **Interactive Elements**: Smooth hover and glow effects
+3. **Glassmorphism**: Modern transparency and blur
+4. **Animations**: Subtle, continuous animations for engagement
+5. **Performance**: CSS-based animations for optimal performance
+
+### Performance Considerations
+
+**Animation Performance**:
+```javascript
+// CSS-based animations (GPU accelerated)
+- transform: translateY() ✓
+- opacity: 0-1 ✓
+- background-position ✓
+- backdrop-filter ✓
+
+// Avoided for performance
+- width/height animations ✗
+- top/left animations ✗
+- filter (except backdrop-filter) ✗
+```
+
+**Optimization Strategies**:
+- Use `will-change` for animated properties
+- Limit `backdrop-filter` usage to essential elements
+- Gradient animations use `background-position` for smoothness
+- Pseudo-elements (`::before`, `::after`) for overlay effects
 
 This architecture documentation provides a comprehensive view of how the portfolio application is structured and organized, making it easier for developers to understand and maintain the codebase.

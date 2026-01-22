@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
 @tailwind base;
 @tailwind components;
@@ -6,12 +6,12 @@
 
 @layer base {
   :root {
-    /* Light Mode Colors */
+    /* Core Colors */
     --color-background: #FAFAFA; /* gray-50 */
     --color-foreground: #1E293B; /* slate-800 */
     --color-border: #E2E8F0; /* slate-200 */
     --color-input: #FFFFFF; /* white */
-    --color-ring: #2563EB; /* blue-600 */
+    --color-ring: #667eea; /* Modern purple-blue */
     
     /* Card Colors */
     --color-card: #FFFFFF; /* white */
@@ -25,16 +25,16 @@
     --color-muted: #F1F5F9; /* slate-100 */
     --color-muted-foreground: #64748B; /* slate-500 */
     
-    /* Primary Colors */
-    --color-primary: #2563EB; /* blue-600 */
+    /* Primary Colors - Modern Purple-Blue Gradient */
+    --color-primary: #667eea; /* modern purple-blue */
     --color-primary-foreground: #FFFFFF; /* white */
     
     /* Secondary Colors */
     --color-secondary: #64748B; /* slate-500 */
     --color-secondary-foreground: #FFFFFF; /* white */
     
-    /* Accent Colors */
-    --color-accent: #F59E0B; /* amber-500 */
+    /* Accent Colors - Modern Pink */
+    --color-accent: #f093fb; /* modern pink */
     --color-accent-foreground: #1E293B; /* slate-800 */
     
     /* Success Colors */
@@ -54,62 +54,16 @@
     --color-destructive-foreground: #FFFFFF; /* white */
   }
 
-  .dark {
-    /* Dark Mode Colors */
-    --color-background: #0F172A; /* slate-900 */
-    --color-foreground: #F1F5F9; /* slate-100 */
-    --color-border: #334155; /* slate-700 */
-    --color-input: #1E293B; /* slate-800 */
-    --color-ring: #3B82F6; /* blue-500 */
-    
-    /* Card Colors */
-    --color-card: #1E293B; /* slate-800 */
-    --color-card-foreground: #F1F5F9; /* slate-100 */
-    
-    /* Popover Colors */
-    --color-popover: #1E293B; /* slate-800 */
-    --color-popover-foreground: #F1F5F9; /* slate-100 */
-    
-    /* Muted Colors */
-    --color-muted: #334155; /* slate-700 */
-    --color-muted-foreground: #94A3B8; /* slate-400 */
-    
-    /* Primary Colors */
-    --color-primary: #3B82F6; /* blue-500 */
-    --color-primary-foreground: #F1F5F9; /* slate-100 */
-    
-    /* Secondary Colors */
-    --color-secondary: #64748B; /* slate-500 */
-    --color-secondary-foreground: #F1F5F9; /* slate-100 */
-    
-    /* Accent Colors */
-    --color-accent: #F59E0B; /* amber-500 */
-    --color-accent-foreground: #0F172A; /* slate-900 */
-    
-    /* Success Colors */
-    --color-success: #10B981; /* emerald-500 */
-    --color-success-foreground: #F1F5F9; /* slate-100 */
-    
-    /* Warning Colors */
-    --color-warning: #F59E0B; /* amber-500 */
-    --color-warning-foreground: #0F172A; /* slate-900 */
-    
-    /* Error Colors */
-    --color-error: #EF4444; /* red-500 */
-    --color-error-foreground: #F1F5F9; /* slate-100 */
-    
-    /* Destructive Colors */
-    --color-destructive: #EF4444; /* red-500 */
-    --color-destructive-foreground: #F1F5F9; /* slate-100 */
-  }
-
   * {
     @apply border-border;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   }
   
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -117,37 +71,199 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Modern Gradient Background with Shine Effects */
+  .gradient-hero {
+    background: linear-gradient(135deg, 
+      #667eea 0%, 
+      #764ba2 25%, 
+      #f093fb 50%, 
+      #4facfe 75%, 
+      #667eea 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Gradient Animation */
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Shine Overlay Effect */
+  .gradient-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: shine 8s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes shine {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Floating Dots Effect */
+  .gradient-hero::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(2px 2px at 60% 70%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1px 1px at 50% 50%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(2px 2px at 90% 80%, rgba(255,255,255,0.25), transparent),
+      radial-gradient(1px 1px at 30% 90%, rgba(255,255,255,0.2), transparent);
+    background-size: 200% 200%;
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-20px);
+      opacity: 0.8;
+    }
+  }
+
+  /* Modern Button Glow Effect */
+  .btn-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-glow:hover::before {
+    left: 100%;
+  }
+
+  /* Glassmorphism Effect */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Modern Card Hover Effect */
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(102, 126, 234, 0.15);
+  }
+
+  /* Gradient Text Effect */
+  .gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated Gradient Border */
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    padding: 2px;
+    border-radius: 12px;
+  }
+
+  .gradient-border > * {
+    background: var(--color-background);
+    border-radius: 10px;
+  }
+
+  /* Pulse Glow Animation */
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(102, 126, 234, 0.6);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
 }
 
-/* Smooth scrolling */
+/* Modern Typography Improvements */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+p {
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+
+/* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar for dark mode */
-.dark::-webkit-scrollbar {
-  width: 8px;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
-.dark::-webkit-scrollbar-track {
-  background: #1f2937;
+::-webkit-scrollbar-track {
+  background: var(--color-muted);
 }
 
-.dark::-webkit-scrollbar-thumb {
-  background: #4b5563;
-  border-radius: 4px;
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 5px;
 }
 
-.dark::-webkit-scrollbar-thumb:hover {
-  background: #6b7280;
-}
-
-/* Hide scrollbar for terminal output but keep functionality */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2, #f093fb);
 }

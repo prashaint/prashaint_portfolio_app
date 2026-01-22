@@ -12,9 +12,10 @@
 
 ### 🎨 Modern Design
 - **Responsive Design**: Mobile-first approach with seamless desktop experience
-- **Interactive Animations**: Smooth transitions and hover effects
-- **Dark/Light Mode**: Consistent theming across all components
-- **Modern UI**: Clean, professional design with attention to detail
+- **Interactive Animations**: Smooth transitions and hover effects with modern gradient backgrounds
+- **Glassmorphism Effects**: Modern glass-effect UI elements with backdrop blur
+- **Gradient Hero Section**: Animated gradient backgrounds with shine and floating dot effects
+- **Modern UI**: Clean, professional design with attention to detail and contemporary styling
 
 ### 💼 Professional Showcase
 - **Experience Timeline**: Interactive career progression visualization
@@ -171,15 +172,21 @@ docker run -p 3000:3000 -v $(pwd):/app portfolio-app
 ## 🎨 Customization
 
 ### Design System
-The application uses a comprehensive design system built with Tailwind CSS:
+The application uses a comprehensive design system built with Tailwind CSS featuring modern gradient colors:
 
 ```css
-/* Color Palette */
---color-primary: #2563EB;        /* Blue-600 */
---color-secondary: #64748B;      /* Slate-500 */
---color-accent: #F59E0B;         /* Amber-500 */
+/* Modern Color Palette */
+--color-primary: #667eea;        /* Modern purple-blue */
+--color-primary-foreground: #FFFFFF;
+--color-accent: #f093fb;         /* Modern pink */
 --color-success: #10B981;        /* Emerald-500 */
 --color-background: #FAFAFA;     /* Gray-50 */
+
+/* Gradient Backgrounds */
+- Animated gradient hero with purple-blue-pink transitions
+- Glassmorphism effects with backdrop blur
+- Modern button glow effects
+- Pulse animations and gradient borders
 ```
 
 ### Component Customization
@@ -469,4 +476,34 @@ Special thanks to the open source community for providing the tools and librarie
 
 **Built with ❤️ by Prashaint Kumar Mishra**
 
-*Last Updated: Aug 2025*
+*Last Updated: January 2025*
+
+---
+
+## 🎨 Recent Design Updates (v2.0)
+
+### Modern Gradient System
+- **Animated Hero Background**: Multi-color gradient animation (purple-blue-pink) with 15s infinite loop
+- **Shine Effect**: Radial gradient overlay with rotating animation for dynamic visual appeal
+- **Floating Dots**: Subtle particle effects that create depth and movement
+- **Glassmorphism**: Modern glass-effect UI elements with `backdrop-blur` and semi-transparent backgrounds
+
+### New Styling Utilities
+```css
+.gradient-hero        /* Animated multi-color gradient background */
+.glass-effect         /* Glassmorphism with backdrop blur */
+.btn-glow            /* Button hover glow animation */
+.card-hover          /* Smooth card elevation on hover */
+.gradient-text       /* Gradient text effect */
+.pulse-glow          /* Pulsing glow animation */
+```
+
+### Typography Updates
+- **Font Weights**: Extended Inter font family (300-900 weights)
+- **Letter Spacing**: Optimized negative letter-spacing for modern headings
+- **Improved Readability**: Better line-height and text contrast on gradient backgrounds
+
+### Image Assets
+- **Local Logo Images**: Added local copies of AWS, Databricks, Barclays, and BIT Mesra logos
+- **Profile Images**: Updated with modern styling and gradient overlays
+- **Resume**: Latest resume (Prashaint_Kumar_Mishra_Mar25.pdf)
