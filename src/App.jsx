@@ -7,12 +7,12 @@ import BackToTop from './components/BackToTop';
 
 function App() {
   return (
-    <>
+    <ThemeProvider>
       <ThemeToggle />
       <TerminalWindow />
       <BackToTop />
       <Routes />
-    </>
+    </ThemeProvider>
   );
 }
 
