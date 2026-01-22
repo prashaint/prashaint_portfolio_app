@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Icon from '../AppIcon';
 import Button from './Button';
+import { useTheme } from '../../contexts/ThemeContext';
+import Logo from '../Logo';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { isDarkMode, toggleTheme } = useTheme();
   const location = useLocation();
 
   const navigationItems = [
@@ -16,32 +18,6 @@ const Header = () => {
     { label: 'Contact', path: '/contact-form-page', icon: 'Mail' },
   ];
 
-  // Initialize dark mode from localStorage or system preference
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setIsDarkMode(true);
-      document.documentElement.classList.add('dark');
-    } else {
-      setIsDarkMode(false);
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !isDarkMode;
-    setIsDarkMode(newDarkMode);
-    
-    if (newDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -80,22 +56,22 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60 border-b border-border">
+      <header className="sticky top-0 z-[100] w-full bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60 border-b border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link 
-              to="/home-landing-page" 
-              className="flex items-center space-x-2 text-xl font-semibold text-foreground hover:text-primary transition-colors duration-200 min-w-0 flex-shrink-0"
+            <Link
+              to="/home-landing-page"
+              className="flex items-center hover:opacity-80 transition-opacity duration-200 min-w-0 flex-shrink-0"
             >
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-primary-foreground font-bold text-sm">PM</span>
+              {/* Desktop Logo */}
+              <div className="hidden sm:block">
+                <Logo variant="full" size="sm" />
               </div>
-              {/* Mobile-friendly name display */}
-              <span className="block truncate">
-                <span className="hidden sm:inline">Prashaint Mishra</span>
-                <span className="sm:hidden">Prashaint</span>
-              </span>
+              {/* Mobile Logo - Icon only */}
+              <div className="sm:hidden">
+                <Logo variant="icon" size="sm" />
+              </div>
             </Link>
 
             {/* Desktop Navigation & Controls */}
@@ -120,13 +96,13 @@ const Header = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={toggleDarkMode}
+                onClick={toggleTheme}
                 aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
                 className="w-9 h-9"
               >
-                <Icon 
-                  name={isDarkMode ? 'Sun' : 'Moon'} 
-                  size={18} 
+                <Icon
+                  name={isDarkMode ? 'Sun' : 'Moon'}
+                  size={18}
                   className="transition-transform duration-200"
                 />
               </Button>
@@ -138,13 +114,13 @@ const Header = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={toggleDarkMode}
+                onClick={toggleTheme}
                 aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
                 className="w-9 h-9 flex-shrink-0"
               >
-                <Icon 
-                  name={isDarkMode ? 'Sun' : 'Moon'} 
-                  size={18} 
+                <Icon
+                  name={isDarkMode ? 'Sun' : 'Moon'}
+                  size={18}
                   className="transition-transform duration-200"
                 />
               </Button>
@@ -170,7 +146,7 @@ const Header = () => {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 md:hidden">
+        <div className="fixed inset-0 z-[999] md:hidden">
           {/* Backdrop */}
           <div 
             className="fixed inset-0 bg-background/80 backdrop-blur-sm"
@@ -180,15 +156,12 @@ const Header = () => {
           {/* Menu Panel */}
           <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-card shadow-soft-hover animate-slide-in-from-right">
             <div className="flex items-center justify-between p-4 border-b border-border">
-              <Link 
-                to="/home-landing-page" 
-                className="flex items-center space-x-2 text-lg font-semibold text-foreground"
+              <Link
+                to="/home-landing-page"
+                className="hover:opacity-80 transition-opacity"
                 onClick={closeMobileMenu}
               >
-                <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-xs">PM</span>
-                </div>
-                <span>Prashaint Mishra</span>
+                <Logo variant="full" size="sm" />
               </Link>
               
               <div className="flex items-center space-x-2">
@@ -196,7 +169,7 @@ const Header = () => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  onClick={toggleDarkMode}
+                  onClick={toggleTheme}
                   aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
                 >
                   <Icon name={isDarkMode ? 'Sun' : 'Moon'} size={20} />
@@ -243,7 +216,7 @@ const Header = () => {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={toggleDarkMode}
+                      onClick={toggleTheme}
                       className="ml-2"
                     >
                       <Icon name={isDarkMode ? 'Sun' : 'Moon'} size={16} className="mr-2" />
