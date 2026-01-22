@@ -94,23 +94,31 @@ module.exports = {
 ```css
 @layer base {
   :root {
-    /* Update these values to match your brand */
-    --color-primary: #2563EB;
+    /* Modern color palette - Updated v2.0 */
+    --color-primary: #667eea;          /* Modern purple-blue */
     --color-primary-foreground: #FFFFFF;
-    --color-secondary: #64748B;
-    --color-accent: #F59E0B;
-    
+    --color-secondary: #64748B;        /* Slate-500 */
+    --color-accent: #f093fb;           /* Modern pink */
+    --color-accent-foreground: #1E293B;
+
+    /* Core colors */
+    --color-background: #FAFAFA;       /* Gray-50 */
+    --color-foreground: #1E293B;       /* Slate-800 */
+    --color-card: #FFFFFF;
+    --color-card-foreground: #1E293B;
+    --color-muted: #F1F5F9;           /* Slate-100 */
+    --color-muted-foreground: #64748B; /* Slate-500 */
+    --color-border: #E2E8F0;          /* Slate-200 */
+
+    /* Status colors */
+    --color-success: #10B981;          /* Emerald-500 */
+    --color-warning: #F59E0B;          /* Amber-500 */
+    --color-error: #EF4444;            /* Red-500 */
+
     /* Custom properties */
-    --color-brand-gradient: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    --color-brand-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     --border-radius-brand: 12px;
-    --shadow-brand: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Dark mode colors (if implementing) */
-  .dark {
-    --color-primary: #3B82F6;
-    --color-background: #0F172A;
-    --color-foreground: #F1F5F9;
+    --shadow-brand: 0 4px 6px -1px rgba(102, 126, 234, 0.1);
   }
 }
 ```
@@ -557,59 +565,169 @@ const BentoGrid = ({ items }) => (
 ### Custom CSS Classes
 
 #### Create Utility Classes: `src/styles/tailwind.css`
+
+**Modern Utilities (v2.0 Update)**:
+
 ```css
 @layer utilities {
-  /* Glass morphism effect */
-  .glass {
+  /* Modern Gradient Background with Shine Effects */
+  .gradient-hero {
+    background: linear-gradient(135deg,
+      #667eea 0%,
+      #764ba2 25%,
+      #f093fb 50%,
+      #4facfe 75%,
+      #667eea 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Gradient Animation */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Shine Overlay Effect */
+  .gradient-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: shine 8s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes shine {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Floating Dots Effect */
+  .gradient-hero::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+      radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(2px 2px at 60% 70%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1px 1px at 50% 50%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(2px 2px at 90% 80%, rgba(255,255,255,0.25), transparent),
+      radial-gradient(1px 1px at 30% 90%, rgba(255,255,255,0.2), transparent);
+    background-size: 200% 200%;
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-20px);
+      opacity: 0.8;
+    }
+  }
+
+  /* Modern Button Glow Effect */
+  .btn-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-glow:hover::before {
+    left: 100%;
+  }
+
+  /* Glassmorphism Effect */
+  .glass-effect {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
-  
-  /* Gradient text */
+
+  /* Modern Card Hover Effect */
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(102, 126, 234, 0.15);
+  }
+
+  /* Gradient Text Effect */
   .gradient-text {
-    background: linear-gradient(135deg, theme('colors.primary') 0%, theme('colors.accent') 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
-  /* Custom shadows */
-  .shadow-brand {
-    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1), 0 2px 4px -1px rgba(37, 99, 235, 0.06);
+
+  /* Animated Gradient Border */
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    padding: 2px;
+    border-radius: 12px;
   }
-  
-  .shadow-glow {
-    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+
+  .gradient-border > * {
+    background: var(--color-background);
+    border-radius: 10px;
   }
-  
-  /* Animations */
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
+
+  /* Pulse Glow Animation */
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.6); }
   }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+
+  .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
   }
-  
-  /* Custom scrollbar */
-  .scrollbar-custom {
-    scrollbar-width: thin;
-    scrollbar-color: theme('colors.primary') theme('colors.muted');
+
+  /* Custom scrollbar with gradient */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
   }
-  
-  .scrollbar-custom::-webkit-scrollbar {
-    width: 6px;
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-muted);
   }
-  
-  .scrollbar-custom::-webkit-scrollbar-track {
-    background: theme('colors.muted');
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 5px;
   }
-  
-  .scrollbar-custom::-webkit-scrollbar-thumb {
-    background: theme('colors.primary');
-    border-radius: 3px;
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2, #f093fb);
   }
 }
 
@@ -618,17 +736,41 @@ const BentoGrid = ({ items }) => (
   .btn-cta {
     @apply bg-gradient-to-r from-primary to-accent text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200;
   }
-  
-  /* Card hover effects */
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
-  }
-  
+
   /* Input focus styles */
   .input-focus {
     @apply focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200;
   }
 }
+```
+
+**Usage Examples**:
+
+```jsx
+// Gradient hero section
+<section className="gradient-hero min-h-screen">
+  <h1 className="gradient-text">Your Name</h1>
+</section>
+
+// Glassmorphism button
+<button className="glass-effect hover:bg-white/20">
+  Click Me
+</button>
+
+// Button with glow effect
+<Button className="btn-glow bg-white text-primary">
+  View My Work
+</Button>
+
+// Card with hover effect
+<div className="card-hover bg-card p-6 rounded-lg">
+  Card Content
+</div>
+
+// Image with pulse glow
+<div className="pulse-glow rounded-2xl">
+  <img src="profile.jpg" alt="Profile" />
+</div>
 ```
 
 ### Animation Customization
