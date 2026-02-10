@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
+import { MotionReveal } from '../../../components/motion';
 
 const HeroSection = () => {
   const socialLinks = [
@@ -27,7 +29,12 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Content */}
-          <div className="text-center lg:text-left order-2 lg:order-1">
+          <motion.div
+            className="text-center lg:text-left order-2 lg:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          >
             <div className="mb-6">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
                 Hi, I'm{' '}
@@ -39,7 +46,7 @@ const HeroSection = () => {
                 AVP - Senior Data Engineer, Barclays
               </h2>
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Seasoned Senior Data Engineer with 13+ years of hands-on experience architecting and leading complex machine learning–driven data pipeline projects across diverse domains. Expert in designing and implementing robust, scalable, and efficient end-to-end data engineering solutions—from ingestion and transformation to model deployment and monitoring. Adept at navigating technical challenges with precision, optimizing performance, and ensuring data integrity across distributed systems. Passionate about leveraging cutting-edge technologies to drive innovation and deliver impactful results.
+                Seasoned Senior Data Engineer with 14+ years of hands-on experience architecting and leading complex machine learning–driven data pipeline projects across diverse domains. Expert in designing and implementing robust, scalable, and efficient end-to-end data engineering solutions—from ingestion and transformation to model deployment and monitoring. Adept at navigating technical challenges with precision, optimizing performance, and ensuring data integrity across distributed systems. Passionate about leveraging cutting-edge technologies to drive innovation and deliver impactful results.
               </p>
             </div>
 
@@ -71,23 +78,25 @@ const HeroSection = () => {
             {/* Social Links with Modern Styling */}
             <div className="flex justify-center lg:justify-start space-x-4">
               {socialLinks?.map((social) => (
-                <a
+                <motion.a
                   key={social?.name}
                   href={social?.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 group glass-effect"
+                  className="w-12 h-12 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-200 group glass-effect"
                   aria-label={`Visit ${social?.name} profile`}
+                  whileHover={{ scale: 1.15 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Icon 
-                    name={social?.icon} 
-                    size={20} 
-                    className="text-white group-hover:text-white transition-colors duration-200" 
+                  <Icon
+                    name={social?.icon}
+                    size={20}
+                    className="text-white group-hover:text-white transition-colors duration-200"
                   />
-                </a>
+                </motion.a>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Profile Image with Modern Effects */}
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
@@ -112,7 +121,7 @@ const HeroSection = () => {
               <div className="absolute -bottom-6 -right-6 glass-effect rounded-lg p-4 shadow-xl border border-white/20">
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium text-white">Available for work</span>
+                  <span className="text-sm font-medium text-white">Available to connect</span>
                 </div>
               </div>
             </div>

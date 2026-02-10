@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
+import { MotionReveal, MotionStagger, MotionStaggerItem } from '../../../components/motion';
 
 const ContactCTA = () => {
   const contactMethods = [
@@ -33,83 +34,88 @@ const ContactCTA = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           {/* Header */}
-          <div className="mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Let's Connect & Learn Together
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Ready to explore technology, share knowledge, and build meaningful connections? I'm always excited to 
-              connect with fellow enthusiasts and learn from each other's experiences.
-            </p>
-          </div>
-
-          {/* Disclaimer Banner */}
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-12 max-w-2xl mx-auto">
-            <div className="flex items-center justify-center space-x-2">
-              <Icon name="Info" size={20} className="text-amber-600" />
-              <p className="text-sm text-amber-700 font-medium">
-                This platform is for knowledge sharing and networking only - no paid work or commercial activities
+          <MotionReveal direction="up">
+            <div className="mb-12">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                Let's Connect & Learn Together
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Ready to explore technology, share knowledge, and build meaningful connections? I'm always excited to
+                connect with fellow enthusiasts and learn from each other's experiences.
               </p>
             </div>
-          </div>
+          </MotionReveal>
+
+          {/* Disclaimer Banner */}
+          <MotionReveal direction="up" delay={0.1}>
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-12 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center space-x-2">
+                <Icon name="Info" size={20} className="text-amber-600" />
+                <p className="text-sm text-amber-700 font-medium">
+                  This platform is for knowledge sharing and networking only - no paid work or commercial activities
+                </p>
+              </div>
+            </div>
+          </MotionReveal>
 
           {/* Contact Methods */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <MotionStagger staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {contactMethods?.map((method, index) => (
-              <div
-                key={index}
-                className="bg-card rounded-xl p-6 shadow-soft-hover hover:shadow-lg transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-                  <Icon name={method?.icon} size={24} className="text-primary" />
+              <MotionStaggerItem key={index}>
+                <div className="bg-card rounded-xl p-6 shadow-soft-hover hover:shadow-lg transition-all duration-300 group">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors duration-300">
+                    <Icon name={method?.icon} size={24} className="text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                    {method?.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {method?.description}
+                  </p>
+                  {method?.action ? (
+                    <a
+                      href={method?.action}
+                      className="text-primary hover:text-primary/80 font-medium text-sm transition-colors duration-200"
+                    >
+                      {method?.value}
+                    </a>
+                  ) : (
+                    <span className="text-foreground font-medium text-sm">
+                      {method?.value}
+                    </span>
+                  )}
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  {method?.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-3">
-                  {method?.description}
-                </p>
-                {method?.action ? (
-                  <a
-                    href={method?.action}
-                    className="text-primary hover:text-primary/80 font-medium text-sm transition-colors duration-200"
-                  >
-                    {method?.value}
-                  </a>
-                ) : (
-                  <span className="text-foreground font-medium text-sm">
-                    {method?.value}
-                  </span>
-                )}
-              </div>
+              </MotionStaggerItem>
             ))}
-          </div>
+          </MotionStagger>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link to="/contact-form-page">
-              <Button 
-                variant="default" 
-                size="lg"
-                iconName="UserPlus"
-                iconPosition="left"
-                className="w-full sm:w-auto"
-              >
-                Connect & Learn
-              </Button>
-            </Link>
-            <Link to="/portfolio-gallery">
-              <Button 
-                variant="outline" 
-                size="lg"
-                iconName="Eye"
-                iconPosition="left"
-                className="w-full sm:w-auto"
-              >
-                View My Portfolio
-              </Button>
-            </Link>
-          </div>
+          <MotionReveal direction="up" delay={0.2}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link to="/contact-form-page">
+                <Button
+                  variant="default"
+                  size="lg"
+                  iconName="UserPlus"
+                  iconPosition="left"
+                  className="w-full sm:w-auto"
+                >
+                  Connect & Learn
+                </Button>
+              </Link>
+              <Link to="/portfolio-gallery">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  iconName="Eye"
+                  iconPosition="left"
+                  className="w-full sm:w-auto"
+                >
+                  View My Portfolio
+                </Button>
+              </Link>
+            </div>
+          </MotionReveal>
 
           {/* Additional Info */}
           <div className="mt-12 pt-8 border-t border-border">

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
+import { MotionReveal, MotionStagger, MotionStaggerItem } from '../../../components/motion';
 
 const AboutPreview = () => {
   const achievements = [
@@ -12,7 +13,7 @@ const AboutPreview = () => {
       icon: "CheckCircle"
     },
     {
-      number: "13+",
+      number: "14+",
       label: "Years Experience",
       icon: "Calendar"
     },
@@ -40,18 +41,18 @@ const AboutPreview = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
-          <div className="order-2 lg:order-1">
+          <MotionReveal direction="left" className="order-2 lg:order-1">
             <div className="mb-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
                 About Me
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                I'm a passionate full-stack developer with a keen eye for design and a love for creating 
-                digital experiences that make a difference. With over 5 years of experience in the industry, 
+                I'm a passionate full-stack developer with a keen eye for design and a love for creating
+                digital experiences that make a difference. With over 5 years of experience in the industry,
                 I've had the privilege of working with diverse clients and teams to bring innovative ideas to life.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                My journey began with a Master's degree from BIT Mesra, and it has evolved into a career dedicated to crafting complex and scalable data pipelines. 
+                My journey began with a Master's degree from BIT Mesra, and it has evolved into a career dedicated to crafting complex and scalable data pipelines.
                 I believe in the power of data engineering to solve real-world problems and drive business decisions.
               </p>
             </div>
@@ -74,7 +75,7 @@ const AboutPreview = () => {
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/about-bio-section">
-                <Button 
+                <Button
                   variant="default"
                   iconName="User"
                   iconPosition="left"
@@ -84,7 +85,7 @@ const AboutPreview = () => {
                 </Button>
               </Link>
               <Link to="/contact-form-page">
-                <Button 
+                <Button
                   variant="outline"
                   iconName="Mail"
                   iconPosition="left"
@@ -94,10 +95,10 @@ const AboutPreview = () => {
                 </Button>
               </Link>
             </div>
-          </div>
+          </MotionReveal>
 
           {/* Image and Stats */}
-          <div className="order-1 lg:order-2">
+          <MotionReveal direction="right" delay={0.2} className="order-1 lg:order-2">
             <div className="relative">
               {/* Main Image */}
               <div className="relative w-full max-w-md mx-auto">
@@ -108,35 +109,34 @@ const AboutPreview = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                
+
                 {/* Decorative Elements */}
                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-xl"></div>
                 <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/10 rounded-full blur-xl"></div>
               </div>
 
               {/* Achievement Stats */}
-              <div className="grid grid-cols-2 gap-4 mt-8">
+              <MotionStagger staggerDelay={0.1} className="grid grid-cols-2 gap-4 mt-8">
                 {achievements?.map((achievement, index) => (
-                  <div
-                    key={index}
-                    className="bg-card rounded-lg p-4 text-center shadow-soft-hover hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="flex justify-center mb-2">
-                      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
-                        <Icon name={achievement?.icon} size={16} className="text-primary" />
+                  <MotionStaggerItem key={index}>
+                    <div className="bg-card rounded-lg p-4 text-center shadow-soft-hover hover:shadow-lg transition-all duration-300">
+                      <div className="flex justify-center mb-2">
+                        <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                          <Icon name={achievement?.icon} size={16} className="text-primary" />
+                        </div>
+                      </div>
+                      <div className="text-2xl font-bold text-foreground mb-1">
+                        {achievement?.number}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        {achievement?.label}
                       </div>
                     </div>
-                    <div className="text-2xl font-bold text-foreground mb-1">
-                      {achievement?.number}
-                    </div>
-                    <div className="text-xs text-muted-foreground">
-                      {achievement?.label}
-                    </div>
-                  </div>
+                  </MotionStaggerItem>
                 ))}
-              </div>
+              </MotionStagger>
             </div>
-          </div>
+          </MotionReveal>
         </div>
       </div>
     </section>

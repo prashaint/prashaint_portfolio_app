@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter, Routes as RouterRoutes, Route } from "react-router-dom";
+import { BrowserRouter, Routes as RouterRoutes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import ScrollToTop from "./components/ScrollToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
 import NotFound from "./pages/NotFound";
@@ -10,13 +11,11 @@ import HomeLandingPage from './pages/home-landing-page';
 import PortfolioGallery from './pages/portfolio-gallery';
 import ExperienceTimeline from './pages/experience-timeline';
 
-const Routes = () => {
+const AnimatedRoutes = () => {
+  const location = useLocation();
   return (
-    <BrowserRouter>
-      <ErrorBoundary>
-      <ScrollToTop />
-      <RouterRoutes>
-        {/* Define your route here */}
+    <AnimatePresence mode="wait">
+      <RouterRoutes location={location} key={location.pathname}>
         <Route path="/" element={<AboutBioSection />} />
         <Route path="/about-bio-section" element={<AboutBioSection />} />
         <Route path="/contact-form-page" element={<ContactFormPage />} />
@@ -26,6 +25,16 @@ const Routes = () => {
         <Route path="/experience-timeline" element={<ExperienceTimeline />} />
         <Route path="*" element={<NotFound />} />
       </RouterRoutes>
+    </AnimatePresence>
+  );
+};
+
+const Routes = () => {
+  return (
+    <BrowserRouter>
+      <ErrorBoundary>
+      <ScrollToTop />
+      <AnimatedRoutes />
       </ErrorBoundary>
     </BrowserRouter>
   );

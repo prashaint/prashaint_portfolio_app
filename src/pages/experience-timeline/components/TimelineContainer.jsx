@@ -1,5 +1,6 @@
 import React from 'react';
 import TimelineEntry from './TimelineEntry';
+import { MotionStagger, MotionStaggerItem } from '../../../components/motion';
 
 const TimelineContainer = ({ experiences }) => {
   if (experiences?.length === 0) {
@@ -17,16 +18,17 @@ const TimelineContainer = ({ experiences }) => {
   }
 
   return (
-    <div className="relative">
+    <MotionStagger staggerDelay={0.2} className="relative">
       {experiences?.map((experience, index) => (
-        <TimelineEntry
-          key={experience?.id}
-          experience={experience}
-          index={index}
-          isLast={index === experiences?.length - 1}
-        />
+        <MotionStaggerItem key={experience?.id} direction="left">
+          <TimelineEntry
+            experience={experience}
+            index={index}
+            isLast={index === experiences?.length - 1}
+          />
+        </MotionStaggerItem>
       ))}
-    </div>
+    </MotionStagger>
   );
 };
 

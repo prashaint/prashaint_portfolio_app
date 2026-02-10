@@ -501,7 +501,7 @@ The application has transitioned to a modern purple-blue-pink gradient color sch
 Primary Colors:
 - Primary: #667eea (Modern purple-blue)
 - Accent: #f093fb (Modern pink)
-- Gradient: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe)
+- Gradient: linear-gradient(145deg, #667eea, #764ba2, #f093fb, #4facfe)
 ```
 
 #### New Styling Utilities

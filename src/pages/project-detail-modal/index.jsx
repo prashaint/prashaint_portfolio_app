@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import Header from '../../components/ui/Header';
+import { PageTransition } from '../../components/motion';
 import ProjectNavigation from './components/ProjectNavigation';
 import ProjectImageGallery from './components/ProjectImageGallery';
 import ProjectInfo from './components/ProjectInfo';
@@ -31,7 +33,7 @@ The redesign resulted in a 40% increase in mobile conversions and 25% improvemen
       technologies: ["React", "Node.js", "MongoDB", "Stripe API", "AWS", "Figma"],
       images: [
         "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1563014544-824ae1b704d3?w=800&h=600&fit=crop",
         "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&h=600&fit=crop"
       ],
       liveUrl: "https://example-ecommerce.com",
@@ -101,7 +103,7 @@ The application serves over 100,000 active users and has maintained a 4.8-star r
       status: "completed",
       technologies: ["React Native", "Node.js", "MySQL", "Firebase", "Plaid API", "Sketch"],
       images: [
-        "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1563986768609-322da14575f3?w=800&h=600&fit=crop",
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
       ],
@@ -224,19 +226,21 @@ The system has facilitated over 50,000 hours of online learning and maintains hi
 
   if (!isModalOpen || !currentProject) {
     return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <div className="container mx-auto px-4 py-16 text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Project Not Found</h1>
-          <p className="text-muted-foreground mb-8">The requested project could not be found.</p>
-          <button
-            onClick={() => navigate('/portfolio-gallery')}
-            className="text-primary hover:underline"
-          >
-            Return to Portfolio
-          </button>
+      <PageTransition>
+        <div className="min-h-screen bg-background">
+          <Header />
+          <div className="container mx-auto px-4 py-16 text-center">
+            <h1 className="text-2xl font-bold text-foreground mb-4">Project Not Found</h1>
+            <p className="text-muted-foreground mb-8">The requested project could not be found.</p>
+            <button
+              onClick={() => navigate('/portfolio-gallery')}
+              className="text-primary hover:underline"
+            >
+              Return to Portfolio
+            </button>
+          </div>
         </div>
-      </div>
+      </PageTransition>
     );
   }
 
@@ -244,12 +248,22 @@ The system has facilitated over 50,000 hours of online learning and maintains hi
     <div className="fixed inset-0 z-50 bg-background">
       {/* Desktop Modal Overlay */}
       <div className="hidden md:flex fixed inset-0 items-center justify-center p-4">
-        <div 
+        <motion.div
           className="fixed inset-0 bg-background/80 backdrop-blur-sm"
           onClick={handleBackdropClick}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
         />
         
-        <div className="relative w-full max-w-6xl max-h-[90vh] bg-card rounded-lg shadow-soft-hover overflow-hidden animate-slide-in-from-bottom">
+        <motion.div
+          className="relative w-full max-w-6xl max-h-[90vh] bg-card rounded-lg shadow-soft-hover overflow-hidden"
+          initial={{ opacity: 0, y: 40, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 40, scale: 0.98 }}
+          transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           <ProjectNavigation
             projects={projects}
             currentProject={currentProject}
@@ -275,7 +289,7 @@ The system has facilitated over 50,000 hours of online learning and maintains hi
               />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
       {/* Mobile Full Screen Modal */}
       <div className="md:hidden flex flex-col h-full">
@@ -303,11 +317,19 @@ The system has facilitated over 50,000 hours of online learning and maintains hi
         />
       </div>
       {/* Share Message Toast */}
-      {shareMessage && (
-        <div className="fixed top-4 right-4 bg-card border border-border rounded-lg px-4 py-2 shadow-soft-hover animate-slide-in-from-right z-60">
-          <p className="text-sm font-medium text-foreground">{shareMessage}</p>
-        </div>
-      )}
+      <AnimatePresence>
+        {shareMessage && (
+          <motion.div
+            className="fixed top-4 right-4 bg-card border border-border rounded-lg px-4 py-2 shadow-soft-hover z-60"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 50 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            <p className="text-sm font-medium text-foreground">{shareMessage}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

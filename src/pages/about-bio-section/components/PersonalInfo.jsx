@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
+import { MotionReveal, MotionStagger, MotionStaggerItem } from '../../../components/motion';
 
 const PersonalInfo = () => {
   const personalData = {
@@ -9,7 +10,7 @@ const PersonalInfo = () => {
     location: "Pune, MH, India",
     email: "prashaint.kumar.mishra@gmail.com",
     phone: "+91 8484093319",
-    bio: `I'm Senior Data Engineer with over 13 years of experience. I have designed, developed and maintained complex data pipelines for ML projects. My journey began with a MCA degree from BIT Mesra Ranchi, where I discovered my love for both coding and Data Engineering.\n\nI specialize in PySpark, Python, and modern Data Engineering technologies, with a keen eye for creating complex and scalable data pipelines...`,
+    bio: `I'm Senior Data Engineer with over 14 years of experience. I have designed, developed and maintained complex data pipelines for ML projects. My journey began with a MCA degree from BIT Mesra Ranchi, where I discovered my love for both coding and Data Engineering.\n\nI specialize in PySpark, Python, and modern Data Engineering technologies, with a keen eye for creating complex and scalable data pipelines...`,
     profileImage: "assets/images/prashaint.jpg",
     resumeUrl: "/assets/resume/Prashaint_Mishra_Nov25.pdf"
   };
@@ -27,74 +28,84 @@ const PersonalInfo = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
       {/* Profile Image Section */}
-      <div className="flex flex-col items-center lg:items-start space-y-6">
-        <div className="relative">
-          <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-soft-hover">
-            <Image
-              src={personalData?.profileImage}
-              alt={personalData?.name}
-              className="w-full h-full object-cover"
-            />
+      <MotionReveal direction="left">
+        <div className="flex flex-col items-center lg:items-start space-y-6">
+          <div className="relative">
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-soft-hover">
+              <Image
+                src={personalData?.profileImage}
+                alt={personalData?.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-soft-hover">
+              <span className="text-2xl">👋</span>
+            </div>
           </div>
-          <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-soft-hover">
-            <span className="text-2xl">👋</span>
-          </div>
-        </div>
-        
-        {/* Contact Info - Using sans-serif for UI elements */}
-        <div className="text-center lg:text-left space-y-2">
-          <h1 className="text-2xl md:text-3xl font-bold text-foreground font-sans">
-            {personalData?.name}
-          </h1>
-          <p className="text-lg text-primary font-medium font-sans">
-            {personalData?.title}
-          </p>
-          <p className="text-muted-foreground flex items-center justify-center lg:justify-start space-x-2 font-claude">
-            <span>📍</span>
-            <span>{personalData?.location}</span>
-          </p>
-        </div>
 
-        {/* Download Resume Button */}
-        <Button
-          variant="default"
-          size="lg"
-          onClick={handleDownloadResume}
-          iconName="Download"
-          iconPosition="left"
-          className="w-full sm:w-auto font-sans"
-        >
-          Download Resume
-        </Button>
-      </div>
+          {/* Contact Info - Using sans-serif for UI elements */}
+          <div className="text-center lg:text-left space-y-2">
+            <h1 className="text-2xl md:text-3xl font-bold text-foreground font-sans">
+              {personalData?.name}
+            </h1>
+            <p className="text-lg text-primary font-medium font-sans">
+              {personalData?.title}
+            </p>
+            <p className="text-muted-foreground flex items-center justify-center lg:justify-start space-x-2 font-claude">
+              <span>📍</span>
+              <span>{personalData?.location}</span>
+            </p>
+          </div>
+
+          {/* Download Resume Button */}
+          <Button
+            variant="default"
+            size="lg"
+            onClick={handleDownloadResume}
+            iconName="Download"
+            iconPosition="left"
+            className="w-full sm:w-auto font-sans"
+          >
+            Download Resume
+          </Button>
+        </div>
+      </MotionReveal>
       
       {/* Bio Section - Using Claude.ai serif font for reading content */}
-      <div className="space-y-6">
-        <div>
-          <h2 className="text-xl md:text-2xl font-semibold text-foreground mb-4 font-sans">
-            About Me
-          </h2>
-          <div className="prose-claude">
-            {personalData?.bio?.split('\n\n')?.map((paragraph, index) => (
-              <p key={index} className="text-muted-foreground leading-relaxed mb-4 last:mb-0 font-claude-ui">
-                {paragraph}
-              </p>
-            ))}
+      <MotionReveal direction="right" delay={0.2}>
+        <div className="space-y-6">
+          <div>
+            <h2 className="text-xl md:text-2xl font-semibold text-foreground mb-4 font-sans">
+              About Me
+            </h2>
+            <div className="prose-claude">
+              {personalData?.bio?.split('\n\n')?.map((paragraph, index) => (
+                <p key={index} className="text-muted-foreground leading-relaxed mb-4 last:mb-0 font-claude-ui">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Quick Stats */}
-        <div className="grid grid-cols-2 gap-4 pt-6 border-t border-border">
-          <div className="text-center p-4 bg-muted rounded-lg">
-            <div className="text-2xl font-bold text-primary font-sans">13+</div>
-            <div className="text-sm text-muted-foreground font-claude">Years Experience</div>
-          </div>
-          <div className="text-center p-4 bg-muted rounded-lg">
-            <div className="text-2xl font-bold text-primary font-sans">20+</div>
-            <div className="text-sm text-muted-foreground font-claude">Projects Completed</div>
-          </div>
+          {/* Quick Stats */}
+          <MotionStagger staggerDelay={0.15}>
+            <div className="grid grid-cols-2 gap-4 pt-6 border-t border-border">
+              <MotionStaggerItem>
+                <div className="text-center p-4 bg-muted rounded-lg">
+                  <div className="text-2xl font-bold text-primary font-sans">14+</div>
+                  <div className="text-sm text-muted-foreground font-claude">Years Experience</div>
+                </div>
+              </MotionStaggerItem>
+              <MotionStaggerItem>
+                <div className="text-center p-4 bg-muted rounded-lg">
+                  <div className="text-2xl font-bold text-primary font-sans">20+</div>
+                  <div className="text-sm text-muted-foreground font-claude">Projects Completed</div>
+                </div>
+              </MotionStaggerItem>
+            </div>
+          </MotionStagger>
         </div>
-      </div>
+      </MotionReveal>
     </div>
   );
 };

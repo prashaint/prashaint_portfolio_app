@@ -6,6 +6,7 @@ import SkillsSection from './components/SkillsSection';
 import CertificationsSection from './components/CertificationsSection';
 import PersonalInterests from './components/PersonalInterests';
 import Icon from '../../components/AppIcon';
+import { PageTransition, MotionReveal } from '../../components/motion';
 
 const AboutBioSection = () => {
   const [activeSection, setActiveSection] = useState('personal');
@@ -43,10 +44,11 @@ const AboutBioSection = () => {
   };
 
   return (
+    <PageTransition>
     <div className="min-h-screen bg-background">
       <Helmet>
         <title>About Me - Prashaint Mishra | Senior Data Engineer</title>
-        <meta name="description" content="Learn about Prashaint Mishra, a passionate full stack developer with 13+ years of experience in React, Node.js, and modern web technologies. Discover my skills, education, and personal interests." />
+        <meta name="description" content="Learn about Prashaint Mishra, a passionate full stack developer with 14+ years of experience in React, Node.js, and modern web technologies. Discover my skills, education, and personal interests." />
         <meta name="keywords" content="Prashaint Mishra, Full Stack Developer, UI/UX Designer, React Developer, Web Developer, Portfolio" />
         <meta property="og:title" content="About Me - Prashaint Mishra | Senior Data Engineer" />
         <meta property="og:description" content="Passionate full stack developer specializing in React, Node.js, and user experience design. Based in San Francisco with 6+ years of experience." />
@@ -56,6 +58,7 @@ const AboutBioSection = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary/5 via-background to-accent/5 pt-8 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <MotionReveal direction="up">
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Get to Know Me Better
@@ -64,6 +67,7 @@ const AboutBioSection = () => {
               I'm more than just a developer. Discover my journey, skills, passions, and the values that drive my work.
             </p>
           </div>
+          </MotionReveal>
 
           {/* Section Navigation */}
           <div className="flex flex-wrap justify-center gap-2 mb-8">
@@ -87,24 +91,32 @@ const AboutBioSection = () => {
       {/* Main Content */}
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Personal Info Section */}
+        <MotionReveal direction="up">
         <section id="personal" className="mb-20">
           <PersonalInfo />
         </section>
+        </MotionReveal>
 
         {/* Skills Section */}
+        <MotionReveal direction="up">
         <section id="skills" className="mb-20">
           <SkillsSection />
         </section>
+        </MotionReveal>
 
         {/* Credentials Section */}
+        <MotionReveal direction="up">
         <section id="credentials" className="mb-20">
           <CertificationsSection />
         </section>
+        </MotionReveal>
 
         {/* Personal Interests Section */}
+        <MotionReveal direction="up">
         <section id="interests" className="mb-20">
           <PersonalInterests />
         </section>
+        </MotionReveal>
       </main>
       {/* Floating Navigation */}
       {isScrolled && (
@@ -128,6 +140,7 @@ const AboutBioSection = () => {
         </div>
       )}
       {/* Footer CTA */}
+      <MotionReveal direction="up">
       <section className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
@@ -154,7 +167,9 @@ const AboutBioSection = () => {
           </div>
         </div>
       </section>
+      </MotionReveal>
     </div>
+    </PageTransition>
   );
 };
 

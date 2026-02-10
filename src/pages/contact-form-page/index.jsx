@@ -4,6 +4,7 @@ import Header from '../../components/ui/Header';
 import ContactHeader from './components/ContactHeader';
 import ContactForm from './components/ContactForm';
 import ContactInfo from './components/ContactInfo';
+import { PageTransition, MotionReveal } from '../../components/motion';
 
 const ContactFormPage = () => {
   useEffect(() => {
@@ -11,6 +12,7 @@ const ContactFormPage = () => {
   }, []);
 
   return (
+    <PageTransition>
     <div className="min-h-screen bg-background">
       <Helmet>
         <title>Connect & Learn - Prashaint Mishra | Let's Explore Together</title>
@@ -30,17 +32,22 @@ const ContactFormPage = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {/* Contact Form - Main Content */}
+          <MotionReveal direction="left" delay={0.1}>
           <div className="lg:col-span-2">
             <ContactForm />
           </div>
+          </MotionReveal>
 
           {/* Contact Information - Sidebar */}
+          <MotionReveal direction="right" delay={0.2}>
           <div className="lg:col-span-1">
             <ContactInfo />
           </div>
+          </MotionReveal>
         </div>
 
         {/* Additional Information Section */}
+        <MotionReveal direction="up">
         <div className="max-w-4xl mx-auto mt-12 md:mt-16">
           <div className="bg-card rounded-lg border border-border p-6 md:p-8">
             <h2 className="text-xl font-semibold text-foreground mb-4">
@@ -64,7 +71,7 @@ const ContactFormPage = () => {
                 </h3>
                 <p className="text-sm text-muted-foreground">
                   Absolutely! I'm passionate about helping others grow in their careers. I can provide guidance on data engineering, 
-                  career development, technology choices, and industry best practices based on my 13+ years of experience.
+                  career development, technology choices, and industry best practices based on my 14+ years of experience.
                 </p>
               </div>
 
@@ -100,6 +107,7 @@ const ContactFormPage = () => {
             </div>
           </div>
         </div>
+        </MotionReveal>
       </main>
       {/* Footer */}
       <footer className="bg-card border-t border-border mt-16">
@@ -115,6 +123,7 @@ const ContactFormPage = () => {
         </div>
       </footer>
     </div>
+    </PageTransition>
   );
 };
 

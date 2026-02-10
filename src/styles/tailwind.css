@@ -127,7 +127,7 @@
 
   /* Modern Gradient Background with Shine Effects */
   .gradient-hero {
-    background: linear-gradient(135deg, 
+    background: linear-gradient(145deg, 
       #667eea 0%, 
       #764ba2 25%, 
       #f093fb 50%, 
@@ -245,7 +245,7 @@
 
   /* Gradient Text Effect */
   .gradient-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(145deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -254,7 +254,7 @@
   /* Animated Gradient Border */
   .gradient-border {
     position: relative;
-    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe);
+    background: linear-gradient(145deg, #667eea, #764ba2, #f093fb, #4facfe);
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
     padding: 2px;
@@ -354,10 +354,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(145deg, #667eea, #764ba2);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #764ba2, #f093fb);
+  background: linear-gradient(145deg, #764ba2, #f093fb);
 }

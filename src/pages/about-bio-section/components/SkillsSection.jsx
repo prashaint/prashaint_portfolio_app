@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
+import { MotionStagger, MotionStaggerItem } from '../../../components/motion';
 
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState('technical');
@@ -88,46 +90,52 @@ const SkillsSection = () => {
           <span>{skillCategories?.[activeCategory]?.title}</span>
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <MotionStagger staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories?.[activeCategory]?.skills?.map((skill, index) => (
-            <div key={index} className="space-y-2">
-              <div className="flex justify-between items-center">
-                <div>
-                  <span className="font-medium text-foreground">{skill?.name}</span>
-                  <span className="text-xs text-muted-foreground ml-2">({skill?.category})</span>
+            <MotionStaggerItem key={index}>
+              <div className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <span className="font-medium text-foreground">{skill?.name}</span>
+                    <span className="text-xs text-muted-foreground ml-2">({skill?.category})</span>
+                  </div>
+                  <span className="text-sm font-medium text-primary">{skill?.level}%</span>
                 </div>
-                <span className="text-sm font-medium text-primary">{skill?.level}%</span>
+                <div className="w-full bg-muted rounded-full h-2">
+                  <motion.div
+                    className={`h-2 rounded-full ${getSkillColor(skill?.level)}`}
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill?.level}%` }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+                  />
+                </div>
               </div>
-              <div className="w-full bg-muted rounded-full h-2">
-                <div
-                  className={`h-2 rounded-full transition-all duration-1000 ease-out ${getSkillColor(skill?.level)}`}
-                  style={{ width: `${skill?.level}%` }}
-                />
-              </div>
-            </div>
+            </MotionStaggerItem>
           ))}
-        </div>
+        </MotionStagger>
       </div>
       {/* Skill Tags Cloud */}
       <div className="bg-muted/50 rounded-xl p-6 md:p-8">
         <h3 className="text-lg font-semibold text-foreground mb-4 text-center">
           Technologies I Work With
         </h3>
-        <div className="flex flex-wrap justify-center gap-2">
+        <MotionStagger staggerDelay={0.03} className="flex flex-wrap justify-center gap-2">
           {[
             "ML", "Databricks", "Azure", "AWS", "Pyspark", "Spark",
             "Python", "PostgreSQL", "React", "Node.js", "Docker", "Kubernetes",
             "Git", "CI/CD", "GitLab", "SQL", "Figma", "Adobe XD",
             "Tailwind CSS", "SASS", "GraphQL", "REST APIs", "FastAPI", "Django"
           ]?.map((tech, index) => (
-            <span
-              key={index}
-              className="px-3 py-1 bg-card text-foreground text-sm rounded-full shadow-sm hover:shadow-md transition-shadow duration-200 cursor-default"
-            >
-              {tech}
-            </span>
+            <MotionStaggerItem key={index}>
+              <span
+                className="px-3 py-1 bg-card text-foreground text-sm rounded-full shadow-sm hover:shadow-md transition-shadow duration-200 cursor-default"
+              >
+                {tech}
+              </span>
+            </MotionStaggerItem>
           ))}
-        </div>
+        </MotionStagger>
       </div>
     </div>
   );

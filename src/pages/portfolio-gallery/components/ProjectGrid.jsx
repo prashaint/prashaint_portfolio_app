@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import ProjectCard from './ProjectCard';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
+import { MotionStagger, MotionStaggerItem } from '../../../components/motion';
 
 const ProjectGrid = ({ 
   projects, 
@@ -10,7 +11,6 @@ const ProjectGrid = ({
   onLoadMore, 
   hasMore = false 
 }) => {
-  const [visibleProjects, setVisibleProjects] = useState([]);
   const [isIntersecting, setIsIntersecting] = useState(false);
   const loadMoreRef = useRef(null);
   const observerRef = useRef(null);
@@ -42,15 +42,6 @@ const ProjectGrid = ({
     }
   }, [isIntersecting, hasMore, loading, onLoadMore]);
 
-  // Animate projects on load
-  useEffect(() => {
-    setVisibleProjects([]);
-    const timer = setTimeout(() => {
-      setVisibleProjects(projects);
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, [projects]);
 
   if (loading && projects?.length === 0) {
     return (
@@ -99,20 +90,16 @@ const ProjectGrid = ({
         </p>
       </div>
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {visibleProjects?.map((project, index) => (
-          <ProjectCard
-            key={project?.id}
-            project={project}
-            onProjectClick={onProjectClick}
-            className={`animate-fade-in-up`}
-            style={{
-              animationDelay: `${index * 100}ms`,
-              animationFillMode: 'both'
-            }}
-          />
+      <MotionStagger staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {projects?.map((project) => (
+          <MotionStaggerItem key={project?.id}>
+            <ProjectCard
+              project={project}
+              onProjectClick={onProjectClick}
+            />
+          </MotionStaggerItem>
         ))}
-      </div>
+      </MotionStagger>
       {/* Load More */}
       {hasMore && (
         <div ref={loadMoreRef} className="flex justify-center mt-12">
