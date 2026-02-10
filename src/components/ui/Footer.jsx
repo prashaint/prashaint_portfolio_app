@@ -24,7 +24,7 @@ const Footer = () => {
 
   return (
     <MotionReveal direction="up">
-      <footer className="bg-card border-t border-border">
+      <footer className="bg-[#F5F0E8] dark:bg-card border-t border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main Footer Content */}
           <div className="py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
