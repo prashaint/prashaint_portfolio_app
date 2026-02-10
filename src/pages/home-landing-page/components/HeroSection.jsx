@@ -30,7 +30,7 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Content */}
           <motion.div
-            className="text-center lg:text-left order-2 lg:order-1"
+            className="text-center lg:text-left order-1 lg:order-1"
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
@@ -42,6 +42,29 @@ const HeroSection = () => {
                   Prashaint Kumar Mishra
                 </span>
               </h1>
+
+              {/* Mobile-only Profile Image - shown between heading and subtitle */}
+              <div className="flex justify-center mb-6 lg:hidden">
+                <div className="relative">
+                  <div className="absolute -top-3 -left-3 w-full h-full bg-white/10 rounded-2xl transform rotate-3 backdrop-blur-sm"></div>
+                  <div className="absolute -bottom-3 -right-3 w-full h-full bg-white/10 rounded-2xl transform -rotate-3 backdrop-blur-sm"></div>
+                  <div className="relative w-56 h-56 sm:w-64 sm:h-64 overflow-hidden rounded-2xl shadow-2xl pulse-glow">
+                    <Image
+                      src="assets/images/prashaint_profile2.jpg"
+                      alt="Prashaint Mishra - Senior Data Engineer"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                  </div>
+                  <div className="absolute -bottom-4 -right-4 glass-effect rounded-lg p-3 shadow-xl border border-white/20">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></div>
+                      <span className="text-xs font-medium text-white">Available to connect</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium text-white/90 mb-6">
                 AVP - Senior Data Engineer, Barclays
               </h2>
@@ -99,7 +122,7 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Profile Image with Modern Effects */}
-          <div className="flex justify-center lg:justify-end order-1 lg:order-2">
+          <div className="hidden lg:flex justify-center lg:justify-end order-2 lg:order-2">
             <div className="relative">
               {/* Decorative Gradient Elements */}
               <div className="absolute -top-4 -left-4 w-full h-full bg-white/10 rounded-2xl transform rotate-3 backdrop-blur-sm"></div>

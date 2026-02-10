@@ -76,14 +76,14 @@ const Header = () => {
         }`}
         style={{
           background: isDarkMode
-            ? 'linear-gradient(180deg, #4c1d95 0%, #3b0764 40%, #2e1065 70%, #1e0640 100%)'
+            ? 'linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 40%, #0d0d0d 80%, #000000 100%)'
             : 'linear-gradient(180deg, #c4b5fd 0%, #a78bfa 35%, #8b5cf6 70%, #7c3aed 100%)',
           boxShadow: isScrolled
             ? isDarkMode
-              ? '0 4px 20px rgba(76, 29, 149, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08)'
+              ? '0 4px 24px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.4)'
               : '0 4px 20px rgba(139, 92, 246, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5)'
             : isDarkMode
-              ? '0 2px 8px rgba(76, 29, 149, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06)'
+              ? '0 2px 12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 -1px 0 rgba(0, 0, 0, 0.3)'
               : '0 2px 8px rgba(139, 92, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4)',
         }}
       >
