@@ -6,6 +6,7 @@ import SkillsSection from './components/SkillsSection';
 import CertificationsSection from './components/CertificationsSection';
 import PersonalInterests from './components/PersonalInterests';
 import Icon from '../../components/AppIcon';
+import Footer from '../../components/ui/Footer';
 import { PageTransition, MotionReveal } from '../../components/motion';
 
 const AboutBioSection = () => {
@@ -168,6 +169,7 @@ const AboutBioSection = () => {
         </div>
       </section>
       </MotionReveal>
+      <Footer />
     </div>
     </PageTransition>
   );

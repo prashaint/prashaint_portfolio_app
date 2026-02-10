@@ -6,6 +6,7 @@ import SkillsOverview from './components/SkillsOverview';
 import AboutPreview from './components/AboutPreview';
 import ContactCTA from './components/ContactCTA';
 import TestimonialsSlider from '../../components/TestimonialsSlider';
+import Footer from '../../components/ui/Footer';
 import { PageTransition } from '../../components/motion';
 
 const HomeLandingPage = () => {
@@ -44,23 +45,7 @@ const HomeLandingPage = () => {
           <TestimonialsSlider />
           <ContactCTA />
         </main>
-        {/* Footer */}
-        <footer className="bg-card border-t border-border py-8">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-center md:text-left">
-                <p className="text-muted-foreground text-sm">
-                  © {new Date()?.getFullYear()} Prashaint Mishra. All rights reserved.
-                </p>
-              </div>
-              <div className="text-center md:text-right">
-                <p className="text-muted-foreground text-sm">
-                  Built with React & Tailwind CSS
-                </p>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </PageTransition>
   );
