@@ -4,6 +4,7 @@ import Header from '../../components/ui/Header';
 import ContactHeader from './components/ContactHeader';
 import ContactForm from './components/ContactForm';
 import ContactInfo from './components/ContactInfo';
+import Footer from '../../components/ui/Footer';
 import { PageTransition, MotionReveal } from '../../components/motion';
 
 const ContactFormPage = () => {
@@ -109,19 +110,7 @@ const ContactFormPage = () => {
         </div>
         </MotionReveal>
       </main>
-      {/* Footer */}
-      <footer className="bg-card border-t border-border mt-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center">
-            <p className="text-sm text-muted-foreground">
-              © {new Date()?.getFullYear()} Prashaint Mishra. All rights reserved.
-            </p>
-            <p className="text-xs text-muted-foreground mt-2">
-              This platform is for educational and networking purposes only. No commercial activities are conducted here.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
     </PageTransition>
   );

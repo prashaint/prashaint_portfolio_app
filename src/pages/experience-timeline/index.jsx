@@ -6,6 +6,7 @@ import TimelineContainer from './components/TimelineContainer';
 import ExperienceStats from './components/ExperienceStats';
 import Button from '../../components/ui/Button';
 import Icon from '../../components/AppIcon';
+import Footer from '../../components/ui/Footer';
 import { PageTransition, MotionReveal } from '../../components/motion';
 
 const ExperienceTimeline = () => {
@@ -258,16 +259,7 @@ const experienceData = [
           </Button>
         )}
 
-        {/* Footer */}
-        <footer className="bg-card border-t border-border py-8">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <p className="text-muted-foreground">
-                © {new Date()?.getFullYear()} Portfolio Pro. All rights reserved.
-              </p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
       </PageTransition>
     </>

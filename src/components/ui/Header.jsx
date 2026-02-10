@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Icon from '../AppIcon';
-import Button from './Button';
 import { useTheme } from '../../contexts/ThemeContext';
 import Logo from '../Logo';
 
@@ -70,110 +69,41 @@ const Header = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-        className={`sticky top-0 z-[100] w-full transition-all duration-300 ${
+        className={`sticky top-0 z-[100] w-full transition-all duration-300 border-b ${
           isScrolled
-            ? 'bg-card/90 backdrop-blur-xl border-b border-border/50 shadow-sm'
-            : 'bg-transparent border-b border-transparent'
+            ? 'border-white/10'
+            : 'border-transparent'
         }`}
+        style={{
+          background: isDarkMode
+            ? 'linear-gradient(180deg, #4c1d95 0%, #3b0764 40%, #2e1065 70%, #1e0640 100%)'
+            : 'linear-gradient(180deg, #c4b5fd 0%, #a78bfa 35%, #8b5cf6 70%, #7c3aed 100%)',
+          boxShadow: isScrolled
+            ? isDarkMode
+              ? '0 4px 20px rgba(76, 29, 149, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08)'
+              : '0 4px 20px rgba(139, 92, 246, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5)'
+            : isDarkMode
+              ? '0 2px 8px rgba(76, 29, 149, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06)'
+              : '0 2px 8px rgba(139, 92, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4)',
+        }}
       >
-        {/* Gradient accent line at the top */}
-        <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-accent to-primary transition-opacity duration-300 ${
-          isScrolled ? 'opacity-100' : 'opacity-0'
-        }`} />
+        {/* Top highlight line for 3D raised effect */}
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/50 to-transparent" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+          <div className="relative flex items-center justify-between h-16">
+            {/* Desktop: Logo on left */}
             <Link
               to="/home-landing-page"
-              className="flex items-center hover:opacity-80 transition-opacity duration-200 min-w-0 flex-shrink-0"
+              className="hidden md:flex items-center hover:opacity-80 transition-opacity duration-200 min-w-0 flex-shrink-0 [&_span]:text-white"
             >
-              <div className="hidden sm:block">
-                <Logo variant="full" size="sm" />
-              </div>
-              <div className="sm:hidden">
-                <Logo variant="icon" size="sm" />
-              </div>
+              <Logo variant="full" size="sm" />
             </Link>
 
-            {/* Desktop Navigation & Controls */}
-            <div className="hidden md:flex items-center space-x-2">
-              {/* Pill-shaped navigation bar */}
-              <nav className="flex items-center bg-muted/40 rounded-full px-1.5 py-1">
-                {navigationItems?.map((item) => {
-                  const active = isActivePath(item?.path);
-                  return (
-                    <Link
-                      key={item?.path}
-                      to={item?.path}
-                      className="relative px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200"
-                    >
-                      {/* Animated sliding pill for active link */}
-                      {active && (
-                        <motion.span
-                          layoutId="activeNavPill"
-                          className="absolute inset-0 bg-primary rounded-full"
-                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                        />
-                      )}
-                      <span className={`relative z-10 ${
-                        active
-                          ? 'text-primary-foreground'
-                          : 'text-muted-foreground hover:text-foreground'
-                      }`}>
-                        {item?.label}
-                      </span>
-                    </Link>
-                  );
-                })}
-              </nav>
-
-              {/* Theme Toggle with spin animation */}
+            {/* Mobile: Hamburger on left */}
+            <div className="md:hidden flex-shrink-0">
               <motion.button
-                onClick={toggleTheme}
-                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-                className="relative w-9 h-9 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors duration-200"
-                whileTap={{ scale: 0.9 }}
-              >
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.div
-                    key={isDarkMode ? 'sun' : 'moon'}
-                    initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
-                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                    exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
-                    transition={{ duration: 0.25 }}
-                  >
-                    <Icon name={isDarkMode ? 'Sun' : 'Moon'} size={18} />
-                  </motion.div>
-                </AnimatePresence>
-              </motion.button>
-            </div>
-
-            {/* Mobile Controls */}
-            <div className="md:hidden flex items-center space-x-1">
-              {/* Theme Toggle - Mobile */}
-              <motion.button
-                onClick={toggleTheme}
-                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-                className="w-9 h-9 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors duration-200 flex-shrink-0"
-                whileTap={{ scale: 0.9 }}
-              >
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.div
-                    key={isDarkMode ? 'sun-m' : 'moon-m'}
-                    initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
-                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                    exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
-                    transition={{ duration: 0.25 }}
-                  >
-                    <Icon name={isDarkMode ? 'Sun' : 'Moon'} size={18} />
-                  </motion.div>
-                </AnimatePresence>
-              </motion.button>
-
-              {/* Hamburger with icon swap animation */}
-              <motion.button
-                className="w-9 h-9 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors duration-200 flex-shrink-0"
+                className="w-9 h-9 rounded-full flex items-center justify-center text-white/90 hover:text-white hover:bg-white/15 transition-colors duration-200"
                 onClick={toggleMobileMenu}
                 aria-label="Toggle mobile menu"
                 whileTap={{ scale: 0.9 }}
@@ -191,6 +121,91 @@ const Header = () => {
                 </AnimatePresence>
               </motion.button>
             </div>
+
+            {/* Mobile: Centered name */}
+            <Link
+              to="/home-landing-page"
+              className="md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hover:opacity-80 transition-opacity duration-200"
+            >
+              <span className="font-display font-bold tracking-tight text-white text-lg whitespace-nowrap drop-shadow-sm">
+                Prashaint Mishra
+              </span>
+            </Link>
+
+            {/* Desktop Navigation & Controls */}
+            <div className="hidden md:flex items-center space-x-2">
+              {/* Pill-shaped navigation bar */}
+              <nav className="flex items-center bg-white/15 backdrop-blur-sm rounded-full px-1.5 py-1">
+                {navigationItems?.map((item) => {
+                  const active = isActivePath(item?.path);
+                  return (
+                    <Link
+                      key={item?.path}
+                      to={item?.path}
+                      className="relative px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200"
+                    >
+                      {/* Animated sliding pill for active link */}
+                      {active && (
+                        <motion.span
+                          layoutId="activeNavPill"
+                          className="absolute inset-0 bg-white rounded-full shadow-sm"
+                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        />
+                      )}
+                      <span className={`relative z-10 ${
+                        active
+                          ? 'text-violet-700 dark:text-purple-900 font-semibold'
+                          : 'text-white/80 hover:text-white'
+                      }`}>
+                        {item?.label}
+                      </span>
+                    </Link>
+                  );
+                })}
+              </nav>
+
+              {/* Theme Toggle with spin animation */}
+              <motion.button
+                onClick={toggleTheme}
+                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                className="relative w-9 h-9 rounded-full flex items-center justify-center text-white/80 hover:text-white hover:bg-white/15 transition-colors duration-200"
+                whileTap={{ scale: 0.9 }}
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={isDarkMode ? 'sun' : 'moon'}
+                    initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    <Icon name={isDarkMode ? 'Sun' : 'Moon'} size={18} />
+                  </motion.div>
+                </AnimatePresence>
+              </motion.button>
+            </div>
+
+            {/* Mobile: Theme toggle on right */}
+            <div className="md:hidden flex-shrink-0">
+              <motion.button
+                onClick={toggleTheme}
+                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                className="w-9 h-9 rounded-full flex items-center justify-center text-white/90 hover:text-white hover:bg-white/15 transition-colors duration-200"
+                whileTap={{ scale: 0.9 }}
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={isDarkMode ? 'sun-m' : 'moon-m'}
+                    initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    <Icon name={isDarkMode ? 'Sun' : 'Moon'} size={18} />
+                  </motion.div>
+                </AnimatePresence>
+              </motion.button>
+            </div>
           </div>
         </div>
       </motion.header>
@@ -198,7 +213,14 @@ const Header = () => {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 z-[999] md:hidden">
+          <motion.div
+            key="mobile-menu-overlay"
+            className="fixed inset-0 z-[999] md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
             {/* Backdrop */}
             <motion.div
               className="fixed inset-0 bg-background/60 backdrop-blur-sm"
@@ -304,7 +326,7 @@ const Header = () => {
                 </motion.div>
               </nav>
             </motion.div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

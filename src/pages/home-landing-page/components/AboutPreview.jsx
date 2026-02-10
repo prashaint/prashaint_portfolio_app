@@ -48,7 +48,7 @@ const AboutPreview = () => {
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 I'm a passionate full-stack developer with a keen eye for design and a love for creating
-                digital experiences that make a difference. With over 5 years of experience in the industry,
+                digital experiences that make a difference. With over 14 years of experience in the industry,
                 I've had the privilege of working with diverse clients and teams to bring innovative ideas to life.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">

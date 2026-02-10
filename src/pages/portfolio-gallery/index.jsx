@@ -5,6 +5,7 @@ import ProjectDetailModal from '../../components/ui/ProjectDetailModal';
 import FilterBar from './components/FilterBar';
 import ProjectGrid from './components/ProjectGrid';
 import StatsSection from './components/StatsSection';
+import Footer from '../../components/ui/Footer';
 import { PageTransition } from '../../components/motion';
 
 const PortfolioGallery = () => {
@@ -227,6 +228,8 @@ const PortfolioGallery = () => {
           projects={filteredProjects}
           onNavigateProject={handleNavigateProject}
         />
+
+        <Footer />
       </div>
       </PageTransition>
     </>
