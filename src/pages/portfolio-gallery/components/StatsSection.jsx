@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from '../../../components/AppIcon';
+import { MotionStagger, MotionStaggerItem } from '../../../components/motion';
 
 const StatsSection = ({ projects }) => {
   const stats = [
@@ -36,24 +37,23 @@ const StatsSection = ({ projects }) => {
   return (
     <div className="bg-muted/30 border-y border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <MotionStagger staggerDelay={0.1} className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats?.map((stat) => (
-            <div
-              key={stat?.id}
-              className="text-center group"
-            >
-              <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-card border border-border mb-3 group-hover:scale-110 transition-transform duration-200 ${stat?.color}`}>
-                <Icon name={stat?.icon} size={20} />
+            <MotionStaggerItem key={stat?.id}>
+              <div className="text-center group">
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-card border border-border mb-3 group-hover:scale-110 transition-transform duration-200 ${stat?.color}`}>
+                  <Icon name={stat?.icon} size={20} />
+                </div>
+                <div className="text-2xl md:text-3xl font-bold text-foreground mb-1">
+                  {stat?.value}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  {stat?.label}
+                </div>
               </div>
-              <div className="text-2xl md:text-3xl font-bold text-foreground mb-1">
-                {stat?.value}
-              </div>
-              <div className="text-sm text-muted-foreground">
-                {stat?.label}
-              </div>
-            </div>
+            </MotionStaggerItem>
           ))}
-        </div>
+        </MotionStagger>
       </div>
     </div>
   );

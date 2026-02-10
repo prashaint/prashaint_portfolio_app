@@ -6,6 +6,7 @@ import TimelineContainer from './components/TimelineContainer';
 import ExperienceStats from './components/ExperienceStats';
 import Button from '../../components/ui/Button';
 import Icon from '../../components/AppIcon';
+import { PageTransition, MotionReveal } from '../../components/motion';
 
 const ExperienceTimeline = () => {
   const [filters, setFilters] = useState({
@@ -204,12 +205,14 @@ const experienceData = [
         <meta name="description" content="Explore my professional journey through an interactive timeline showcasing career progression, key achievements, and technology expertise across various roles and companies." />
         <meta name="keywords" content="experience, timeline, career, professional history, skills, achievements, portfolio" />
       </Helmet>
+      <PageTransition>
       <div className="min-h-screen bg-background">
         <Header />
-        
+
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 py-12 md:py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <MotionReveal direction="up">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
                 Professional Experience
@@ -217,10 +220,11 @@ const experienceData = [
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
                 A comprehensive timeline of my career journey, showcasing growth, achievements, and the technologies that shaped my expertise.
               </p>
-              
+
               {/* Experience Stats */}
               <ExperienceStats experiences={experienceData} />
             </div>
+            </MotionReveal>
           </div>
         </section>
 
@@ -265,6 +269,7 @@ const experienceData = [
           </div>
         </footer>
       </div>
+      </PageTransition>
     </>
   );
 };

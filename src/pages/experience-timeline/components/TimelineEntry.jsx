@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 
@@ -181,21 +182,30 @@ const TimelineEntry = ({ experience, index, isLast }) => {
           )}
 
           {/* Expanded Content */}
-          {isExpanded && experience?.achievements && (
-            <div className="border-t border-border pt-4 animate-slide-in-from-top">
-              <h4 className="text-sm font-medium text-foreground mb-3">Key Achievements</h4>
-              <ul className="space-y-2">
-                {experience?.achievements?.map((achievement, achievementIndex) => (
-                  <li key={achievementIndex} className="flex items-start space-x-2">
-                    <Icon name="CheckCircle" size={16} className="text-success mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-muted-foreground leading-relaxed">
-                      {achievement}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <AnimatePresence>
+            {isExpanded && experience?.achievements && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                style={{ overflow: "hidden" }}
+                className="border-t border-border pt-4"
+              >
+                <h4 className="text-sm font-medium text-foreground mb-3">Key Achievements</h4>
+                <ul className="space-y-2">
+                  {experience?.achievements?.map((achievement, achievementIndex) => (
+                    <li key={achievementIndex} className="flex items-start space-x-2">
+                      <Icon name="CheckCircle" size={16} className="text-success mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-muted-foreground leading-relaxed">
+                        {achievement}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Projects Link */}
           {experience?.projectsCount && (

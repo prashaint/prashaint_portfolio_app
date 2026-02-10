@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
@@ -23,7 +24,9 @@ const ProjectCard = ({ project, onProjectClick, className = '' }) => {
   };
 
   return (
-    <div
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.2 }}
       className={`group relative bg-card rounded-lg border border-border overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-soft-hover hover:border-primary/20 focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 ${className}`}
       onClick={handleCardClick}
       onKeyPress={handleKeyPress}
@@ -217,7 +220,7 @@ const ProjectCard = ({ project, onProjectClick, className = '' }) => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -683,7 +683,7 @@ const HeroSection = () => {
                 AVP - Senior Data Engineer, Barclays
               </h2>
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Seasoned Senior Data Engineer with 13+ years of hands-on experience...
+                Seasoned Senior Data Engineer with 14+ years of hands-on experience...
               </p>
             </div>
 

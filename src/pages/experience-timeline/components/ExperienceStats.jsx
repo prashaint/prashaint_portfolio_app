@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from '../../../components/AppIcon';
+import { MotionStagger, MotionStaggerItem } from '../../../components/motion';
 
 const ExperienceStats = ({ experiences }) => {
   const totalYears = experiences?.reduce((acc, exp) => {
@@ -52,24 +53,25 @@ const ExperienceStats = ({ experiences }) => {
   ];
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+    <MotionStagger staggerDelay={0.12} className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
       {stats?.map((stat, index) => (
-        <div
-          key={index}
-          className="bg-card border border-border rounded-lg p-4 text-center hover:shadow-md transition-shadow duration-200"
-        >
-          <div className={`inline-flex items-center justify-center w-10 h-10 rounded-lg bg-muted mb-3 ${stat?.color}`}>
-            <Icon name={stat?.icon} size={20} />
+        <MotionStaggerItem key={index}>
+          <div
+            className="bg-card border border-border rounded-lg p-4 text-center hover:shadow-md transition-shadow duration-200"
+          >
+            <div className={`inline-flex items-center justify-center w-10 h-10 rounded-lg bg-muted mb-3 ${stat?.color}`}>
+              <Icon name={stat?.icon} size={20} />
+            </div>
+            <div className="text-2xl font-bold text-foreground mb-1">
+              {stat?.value}
+            </div>
+            <div className="text-sm text-muted-foreground">
+              {stat?.label}
+            </div>
           </div>
-          <div className="text-2xl font-bold text-foreground mb-1">
-            {stat?.value}
-          </div>
-          <div className="text-sm text-muted-foreground">
-            {stat?.label}
-          </div>
-        </div>
+        </MotionStaggerItem>
       ))}
-    </div>
+    </MotionStagger>
   );
 };
 

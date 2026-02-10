@@ -116,7 +116,7 @@ module.exports = {
     --color-error: #EF4444;            /* Red-500 */
 
     /* Custom properties */
-    --color-brand-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    --color-brand-gradient: linear-gradient(145deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     --border-radius-brand: 12px;
     --shadow-brand: 0 4px 6px -1px rgba(102, 126, 234, 0.1);
   }
@@ -572,7 +572,7 @@ const BentoGrid = ({ items }) => (
 @layer utilities {
   /* Modern Gradient Background with Shine Effects */
   .gradient-hero {
-    background: linear-gradient(135deg,
+    background: linear-gradient(145deg,
       #667eea 0%,
       #764ba2 25%,
       #f093fb 50%,
@@ -680,7 +680,7 @@ const BentoGrid = ({ items }) => (
 
   /* Gradient Text Effect */
   .gradient-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(145deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -689,7 +689,7 @@ const BentoGrid = ({ items }) => (
   /* Animated Gradient Border */
   .gradient-border {
     position: relative;
-    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe);
+    background: linear-gradient(145deg, #667eea, #764ba2, #f093fb, #4facfe);
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
     padding: 2px;
@@ -722,12 +722,12 @@ const BentoGrid = ({ items }) => (
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(145deg, #667eea, #764ba2);
     border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #764ba2, #f093fb);
+    background: linear-gradient(145deg, #764ba2, #f093fb);
   }
 }
 

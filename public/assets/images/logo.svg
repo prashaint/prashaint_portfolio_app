@@ -8,7 +8,7 @@
   </defs>
 
   <!-- Background hexagon -->
-  <path d="M50 5 L86.6 27.5 L86.6 72.5 L50 95 L13.4 72.5 L13.4 27.5 Z" fill="url(#logoGradient)"/>
+  <path d="M50 5 L86.6 27.5 L86.6 72.5 L50 95 L14.4 72.5 L14.4 27.5 Z" fill="url(#logoGradient)"/>
 
   <!-- Data flow lines -->
   <g opacity="0.3">
