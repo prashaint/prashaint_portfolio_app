@@ -10,7 +10,7 @@ const PersonalInterests = () => {
       title: "Photography",
       description: "Capturing moments and exploring creative composition through landscape and street photography",
       icon: "Camera",
-      image: "https://www.shutterstock.com/image-photo/landscape-photographer-using-dslr-camera-260nw-2506814565.jpg",
+      image: "https://www.shutterstock.com/image-photo/landscape-photographer-using-dslr-camera-260nw-2506813565.jpg",
       level: "Intermediate"
     },
     {
@@ -50,7 +50,7 @@ const PersonalInterests = () => {
       title: "Cooking",
       description: "Experimenting with international cuisines and perfecting homemade pasta recipes",
       icon: "ChefHat",
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3146?w=300&h=200&fit=crop",
+      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=200&fit=crop",
       level: "Home Chef"
     },
     {
