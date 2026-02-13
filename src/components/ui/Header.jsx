@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Icon from '../AppIcon';
@@ -46,6 +47,10 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
+    closeMobileMenu();
+  }, [location.pathname]);
+
+  useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -77,14 +82,14 @@ const Header = () => {
         style={{
           background: isDarkMode
             ? 'linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 40%, #0d0d0d 80%, #000000 100%)'
-            : 'linear-gradient(180deg, #c4b5fd 0%, #a78bfa 35%, #8b5cf6 70%, #7c3aed 100%)',
+            : 'linear-gradient(180deg, #8b8ff8 0%, #6c72f6 35%, #5a5ef0 70%, #4a4de8 100%)',
           boxShadow: isScrolled
             ? isDarkMode
-              ? '0 4px 24px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.4)'
-              : '0 4px 20px rgba(139, 92, 246, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5)'
+              ? '0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3)'
+              : '0 4px 16px rgba(108, 114, 246, 0.3), 0 1px 4px rgba(108, 114, 246, 0.15)'
             : isDarkMode
-              ? '0 2px 12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 -1px 0 rgba(0, 0, 0, 0.3)'
-              : '0 2px 8px rgba(139, 92, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4)',
+              ? '0 2px 8px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2)'
+              : '0 2px 8px rgba(108, 114, 246, 0.2), 0 1px 3px rgba(108, 114, 246, 0.1)',
         }}
       >
         {/* Top highlight line for 3D raised effect */}
@@ -154,7 +159,7 @@ const Header = () => {
                       )}
                       <span className={`relative z-10 ${
                         active
-                          ? 'text-violet-700 dark:text-purple-900 font-semibold'
+                          ? 'dark:text-purple-900 font-semibold text-[#4a4de8]'
                           : 'text-white/80 hover:text-white'
                       }`}>
                         {item?.label}
@@ -210,125 +215,128 @@ const Header = () => {
         </div>
       </motion.header>
 
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            key="mobile-menu-overlay"
-            className="fixed inset-0 z-[999] md:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            {/* Backdrop */}
+      {/* Mobile Menu Overlay - rendered via portal to avoid transform context breaking fixed positioning */}
+      {createPortal(
+        <AnimatePresence>
+          {isMobileMenuOpen && (
             <motion.div
-              className="fixed inset-0 bg-background/60 backdrop-blur-sm"
+              key="mobile-menu-overlay"
+              className="fixed inset-0 z-[999] md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              onClick={closeMobileMenu}
-            />
-
-            {/* Slide-in Panel */}
-            <motion.div
-              className="fixed inset-y-0 right-0 w-full max-w-sm bg-card/95 backdrop-blur-xl shadow-2xl border-l border-border/50"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             >
-              {/* Panel Header */}
-              <div className="flex items-center justify-between p-4 border-b border-border/50">
-                <Link
-                  to="/home-landing-page"
-                  className="hover:opacity-80 transition-opacity"
-                  onClick={closeMobileMenu}
-                >
-                  <Logo variant="full" size="sm" />
-                </Link>
+              {/* Backdrop */}
+              <motion.div
+                className="fixed inset-0 bg-background/60 backdrop-blur-sm"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                onClick={closeMobileMenu}
+              />
 
-                <motion.button
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors duration-200"
-                  onClick={closeMobileMenu}
-                  aria-label="Close mobile menu"
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Icon name="X" size={22} />
-                </motion.button>
-              </div>
+              {/* Slide-in Panel */}
+              <motion.div
+                className="fixed inset-y-0 right-0 w-full max-w-sm bg-card/95 backdrop-blur-xl shadow-2xl border-l border-border/50"
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              >
+                {/* Panel Header */}
+                <div className="flex items-center justify-between p-4 border-b border-border/50">
+                  <Link
+                    to="/home-landing-page"
+                    className="hover:opacity-80 transition-opacity"
+                    onClick={closeMobileMenu}
+                  >
+                    <Logo variant="full" size="sm" />
+                  </Link>
 
-              {/* Navigation Links - staggered entrance */}
-              <nav className="p-4">
-                <ul className="space-y-1">
-                  {navigationItems?.map((item, index) => {
-                    const active = isActivePath(item?.path);
-                    return (
-                      <motion.li
-                        key={item?.path}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.05 + index * 0.05, duration: 0.3 }}
-                      >
-                        <Link
-                          to={item?.path}
-                          onClick={closeMobileMenu}
-                          className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
-                            active
-                              ? 'text-primary-foreground bg-primary'
-                              : 'text-muted-foreground hover:text-foreground hover:bg-muted/60'
-                          }`}
+                  <motion.button
+                    className="w-9 h-9 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors duration-200"
+                    onClick={closeMobileMenu}
+                    aria-label="Close mobile menu"
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Icon name="X" size={22} />
+                  </motion.button>
+                </div>
+
+                {/* Navigation Links - staggered entrance */}
+                <nav className="p-4">
+                  <ul className="space-y-1">
+                    {navigationItems?.map((item, index) => {
+                      const active = isActivePath(item?.path);
+                      return (
+                        <motion.li
+                          key={item?.path}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.05 + index * 0.05, duration: 0.3 }}
                         >
-                          <Icon name={item?.icon} size={20} />
-                          <span>{item?.label}</span>
-                          {active && (
-                            <Icon name="ChevronRight" size={16} className="ml-auto opacity-60" />
-                          )}
-                        </Link>
-                      </motion.li>
-                    );
-                  })}
-                </ul>
+                          <Link
+                            to={item?.path}
+                            onClick={closeMobileMenu}
+                            className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
+                              active
+                                ? 'text-primary-foreground bg-primary'
+                                : 'text-muted-foreground hover:text-foreground hover:bg-muted/60'
+                            }`}
+                          >
+                            <Icon name={item?.icon} size={20} />
+                            <span>{item?.label}</span>
+                            {active && (
+                              <Icon name="ChevronRight" size={16} className="ml-auto opacity-60" />
+                            )}
+                          </Link>
+                        </motion.li>
+                      );
+                    })}
+                  </ul>
 
-                {/* Appearance toggle */}
-                <motion.div
-                  className="mt-6 pt-6 border-t border-border/50"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.35, duration: 0.3 }}
-                >
-                  <div className="px-4">
-                    <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
-                      Appearance
-                    </h3>
-                    <div className="flex items-center justify-between bg-muted/40 rounded-xl px-4 py-3">
-                      <div className="flex items-center space-x-3">
-                        <Icon name={isDarkMode ? 'Moon' : 'Sun'} size={18} className="text-primary" />
-                        <span className="text-sm font-medium text-foreground">
-                          {isDarkMode ? 'Dark mode' : 'Light mode'}
-                        </span>
+                  {/* Appearance toggle */}
+                  <motion.div
+                    className="mt-6 pt-6 border-t border-border/50"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.35, duration: 0.3 }}
+                  >
+                    <div className="px-4">
+                      <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                        Appearance
+                      </h3>
+                      <div className="flex items-center justify-between bg-muted/40 rounded-xl px-4 py-3">
+                        <div className="flex items-center space-x-3">
+                          <Icon name={isDarkMode ? 'Moon' : 'Sun'} size={18} className="text-primary" />
+                          <span className="text-sm font-medium text-foreground">
+                            {isDarkMode ? 'Dark mode' : 'Light mode'}
+                          </span>
+                        </div>
+                        <button
+                          onClick={toggleTheme}
+                          className="relative w-11 h-6 rounded-full bg-border transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                          role="switch"
+                          aria-checked={isDarkMode}
+                        >
+                          <motion.div
+                            className="absolute top-0.5 w-5 h-5 rounded-full bg-primary shadow-sm"
+                            animate={{ left: isDarkMode ? '22px' : '2px' }}
+                            transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                          />
+                        </button>
                       </div>
-                      <button
-                        onClick={toggleTheme}
-                        className="relative w-11 h-6 rounded-full bg-border transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary/50"
-                        role="switch"
-                        aria-checked={isDarkMode}
-                      >
-                        <motion.div
-                          className="absolute top-0.5 w-5 h-5 rounded-full bg-primary shadow-sm"
-                          animate={{ left: isDarkMode ? '22px' : '2px' }}
-                          transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                        />
-                      </button>
                     </div>
-                  </div>
-                </motion.div>
-              </nav>
+                  </motion.div>
+                </nav>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </>
   );
 };

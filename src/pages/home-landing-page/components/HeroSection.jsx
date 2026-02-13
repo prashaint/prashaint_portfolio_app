@@ -36,11 +36,8 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <div className="mb-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-                Hi, I'm{' '}
-                <span className="gradient-text bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">
-                  Prashaint Kumar Mishra
-                </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight font-display tracking-tight">
+                Hi, I'm Prashaint Kumar Mishra
               </h1>
 
               {/* Mobile-only Profile Image - shown between heading and subtitle */}
