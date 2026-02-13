@@ -82,14 +82,14 @@ const Header = () => {
         style={{
           background: isDarkMode
             ? 'linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 40%, #0d0d0d 80%, #000000 100%)'
-            : 'linear-gradient(180deg, #c4b5fd 0%, #a78bfa 35%, #8b5cf6 70%, #7c3aed 100%)',
+            : 'linear-gradient(180deg, #8b8ff8 0%, #6c72f6 35%, #5a5ef0 70%, #4a4de8 100%)',
           boxShadow: isScrolled
             ? isDarkMode
-              ? '0 4px 24px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.4)'
-              : '0 4px 20px rgba(139, 92, 246, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5)'
+              ? '0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3)'
+              : '0 4px 16px rgba(108, 114, 246, 0.3), 0 1px 4px rgba(108, 114, 246, 0.15)'
             : isDarkMode
-              ? '0 2px 12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 -1px 0 rgba(0, 0, 0, 0.3)'
-              : '0 2px 8px rgba(139, 92, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4)',
+              ? '0 2px 8px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2)'
+              : '0 2px 8px rgba(108, 114, 246, 0.2), 0 1px 3px rgba(108, 114, 246, 0.1)',
         }}
       >
         {/* Top highlight line for 3D raised effect */}
@@ -159,7 +159,7 @@ const Header = () => {
                       )}
                       <span className={`relative z-10 ${
                         active
-                          ? 'text-violet-700 dark:text-purple-900 font-semibold'
+                          ? 'dark:text-purple-900 font-semibold text-[#4a4de8]'
                           : 'text-white/80 hover:text-white'
                       }`}>
                         {item?.label}
