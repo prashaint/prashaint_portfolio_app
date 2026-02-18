@@ -30,8 +30,16 @@ const Footer = () => {
           <div className="py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Brand Column */}
             <div className="space-y-4">
-              <Link to="/home-landing-page" className="inline-block hover:opacity-80 transition-opacity">
-                <Logo variant="full" size="sm" />
+              <Link to="/home-landing-page" className="inline-flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                <Logo variant="icon" size="lg" />
+                <div className="flex flex-col">
+                  <span className="font-display font-bold tracking-tight text-foreground text-lg">
+                    MishraAI
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    Prashaint Mishra
+                  </span>
+                </div>
               </Link>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
                 Senior Data Engineer passionate about building scalable data pipelines and sharing knowledge with the community.

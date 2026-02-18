@@ -74,26 +74,32 @@ const Header = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-        className={`sticky top-0 z-[100] w-full transition-all duration-300 border-b ${
-          isScrolled
-            ? 'border-white/10'
-            : 'border-transparent'
+        className={`sticky top-0 z-[100] isolate w-full transition-all duration-300 ${
+          isDarkMode ? 'border-b-0' : `border-b ${isScrolled ? 'border-white/10' : 'border-transparent'}`
         }`}
         style={{
           background: isDarkMode
-            ? 'linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 40%, #0d0d0d 80%, #000000 100%)'
+            ? 'linear-gradient(180deg, #2c2c2c 0%, #1a1a1a 30%, #111111 60%, #0a0a0a 100%)'
             : 'linear-gradient(180deg, #8b8ff8 0%, #6c72f6 35%, #5a5ef0 70%, #4a4de8 100%)',
-          boxShadow: isScrolled
-            ? isDarkMode
-              ? '0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3)'
-              : '0 4px 16px rgba(108, 114, 246, 0.3), 0 1px 4px rgba(108, 114, 246, 0.15)'
-            : isDarkMode
-              ? '0 2px 8px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2)'
+          boxShadow: isDarkMode
+            ? isScrolled
+              ? '0 8px 32px rgba(0, 0, 0, 0.7), 0 4px 16px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -1px 0 rgba(0, 0, 0, 0.3)'
+              : '0 6px 24px rgba(0, 0, 0, 0.6), 0 3px 12px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
+            : isScrolled
+              ? '0 4px 16px rgba(108, 114, 246, 0.3), 0 1px 4px rgba(108, 114, 246, 0.15)'
               : '0 2px 8px rgba(108, 114, 246, 0.2), 0 1px 3px rgba(108, 114, 246, 0.1)',
         }}
       >
-        {/* Top highlight line for 3D raised effect */}
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+        {/* Top glossy highlight for 3D raised effect */}
+        <div className={`absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r ${
+          isDarkMode
+            ? 'from-transparent via-white/20 to-transparent'
+            : 'from-transparent via-white/50 to-transparent'
+        }`} />
+        {/* Secondary shine line below top for extra depth */}
+        {isDarkMode && (
+          <div className="absolute top-[1px] left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-white/8 to-transparent" />
+        )}
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between h-16">
@@ -140,7 +146,9 @@ const Header = () => {
             {/* Desktop Navigation & Controls */}
             <div className="hidden md:flex items-center space-x-2">
               {/* Pill-shaped navigation bar */}
-              <nav className="flex items-center bg-white/15 backdrop-blur-sm rounded-full px-1.5 py-1">
+              <nav className={`flex items-center rounded-full px-1.5 py-1 ${
+                isDarkMode ? 'bg-white/8 border border-white/10' : 'bg-white/15 backdrop-blur-sm'
+              }`}>
                 {navigationItems?.map((item) => {
                   const active = isActivePath(item?.path);
                   return (
@@ -153,14 +161,16 @@ const Header = () => {
                       {active && (
                         <motion.span
                           layoutId="activeNavPill"
-                          className="absolute inset-0 bg-white rounded-full shadow-sm"
+                          className={`absolute inset-0 rounded-full ${
+                            isDarkMode ? 'bg-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]' : 'bg-white shadow-sm'
+                          }`}
                           transition={{ type: "spring", stiffness: 380, damping: 30 }}
                         />
                       )}
                       <span className={`relative z-10 ${
                         active
-                          ? 'dark:text-purple-900 font-semibold text-[#4a4de8]'
-                          : 'text-white/80 hover:text-white'
+                          ? isDarkMode ? 'text-white font-semibold' : 'text-[#4a4de8] font-semibold'
+                          : 'text-white/70 hover:text-white'
                       }`}>
                         {item?.label}
                       </span>
