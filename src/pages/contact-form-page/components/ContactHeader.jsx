@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from '../../../components/AppIcon';
+import Logo from '../../../components/Logo';
 import { MotionReveal, MotionStagger, MotionStaggerItem } from '../../../components/motion';
 
 const ContactHeader = () => {
@@ -25,6 +26,9 @@ const ContactHeader = () => {
     <div className="text-center mb-8 md:mb-12">
       <div className="max-w-3xl mx-auto">
         <MotionReveal direction="up">
+          <div className="flex justify-center mb-6">
+            <Logo variant="icon" size="xl" />
+          </div>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Let's Connect &
             <span className="text-primary block">Explore Together</span>
