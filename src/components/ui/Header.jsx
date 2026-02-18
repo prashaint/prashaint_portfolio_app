@@ -112,7 +112,7 @@ const Header = () => {
             </Link>
 
             {/* Mobile: Hamburger on left */}
-            <div className="md:hidden flex-shrink-0">
+            <div className="md:hidden flex-shrink-0 relative z-10">
               <motion.button
                 className="w-9 h-9 rounded-full flex items-center justify-center text-white/90 hover:text-white hover:bg-white/15 transition-colors duration-200"
                 onClick={toggleMobileMenu}
@@ -201,7 +201,7 @@ const Header = () => {
             </div>
 
             {/* Mobile: Theme toggle on right */}
-            <div className="md:hidden flex-shrink-0">
+            <div className="md:hidden flex-shrink-0 relative z-10">
               <motion.button
                 onClick={toggleTheme}
                 aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
