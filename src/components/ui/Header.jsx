@@ -74,7 +74,7 @@ const Header = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-        className={`sticky top-0 z-[100] w-full transition-all duration-300 ${
+        className={`sticky top-0 z-[100] isolate w-full transition-all duration-300 ${
           isDarkMode ? 'border-b-0' : `border-b ${isScrolled ? 'border-white/10' : 'border-transparent'}`
         }`}
         style={{
