@@ -61,7 +61,7 @@ const FilterBar = ({
   };
 
   return (
-    <div className="sticky top-16 z-40 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60 border-b border-border">
+    <div className="sticky top-16 z-30 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60 border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         {/* Search Bar - Mobile */}
         {showSearch && (
