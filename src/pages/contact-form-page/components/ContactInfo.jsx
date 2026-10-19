@@ -148,8 +148,8 @@ const ContactInfo = () => {
             onClick={() => {
               // Resume download
               const link = document.createElement('a');
-              link.href = '/assets/resume/Prashaint_Mishra_Nov25.pdf';
-              link.download = 'Prashaint_Mishra_Nov25.pdf';
+              link.href = '/assets/resume/Prashaint_Kumar_Mishra_Oct26.pdf';
+              link.download = 'Prashaint_Kumar_Mishra_Oct26.pdf';
               link?.click();
             }}
           >
@@ -173,7 +173,7 @@ const ContactInfo = () => {
           >
             Schedule Casual Chat
           </Button>
-          
+
           <Button
             variant="outline"
             fullWidth
