@@ -74,7 +74,7 @@ const CertificationsSection = () => {
       institution: "Birla Institute of Technology, Mesra",
       location: "Ranchi, India",
       period: "2005 - 2008",
-      gpa: "7.15/10.0",
+      gpa: "7.17/10.0",
       specialization: "Computer Science and Applications",
       logo: "/assets/images/Bit_mesra.png"
     }
@@ -114,7 +114,7 @@ const CertificationsSection = () => {
       "Microsoft": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.png",
       "Meta": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/200px-Meta_Platforms_Inc._logo.svg.png"
     };
-    
+
     return logoMap[issuer] || "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop";
   };
 
@@ -128,14 +128,14 @@ const CertificationsSection = () => {
       "Microsoft": "dark:filter dark:brightness-110 dark:contrast-90",
       "Meta": "dark:filter dark:brightness-105 dark:contrast-95"
     };
-    
+
     return stylingMap[issuer] || "dark:filter dark:brightness-110 dark:contrast-90";
   };
 
   // Component for rendering company logos with text fallbacks
   const CompanyLogo = ({ issuer, className }) => {
     const [imageError, setImageError] = useState(false);
-    
+
     const textLogos = {
       "Amazon Web Services": { text: "AWS", bgColor: "bg-orange-500", textColor: "text-white" },
       "Databricks": { text: "DB", bgColor: "bg-red-500", textColor: "text-white" },
@@ -199,9 +199,8 @@ const CertificationsSection = () => {
                         ID: {cert?.credentialId}
                       </span>
                       <div className="flex items-center space-x-2">
-                        <span className={`px-2 py-1 text-xs rounded-full ${
-                          cert?.status === 'Active' ? 'bg-success/10 text-success' : 'bg-muted text-muted-foreground'
-                        }`}>
+                        <span className={`px-2 py-1 text-xs rounded-full ${cert?.status === 'Active' ? 'bg-success/10 text-success' : 'bg-muted text-muted-foreground'
+                          }`}>
                           {cert?.status}
                         </span>
                         <Icon name="ExternalLink" size={14} className="text-muted-foreground" />

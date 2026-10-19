@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#FFFFFF"/>
+
+  <!-- Citi arc: curves over the wordmark, open downward -->
+  <path d="M 42 110 C 42 55, 158 55, 158 110"
+        fill="none" stroke="#003B70" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- Red dot at apex of arc -->
+  <circle cx="100" cy="55" r="11" fill="#EF3340"/>
+
+  <!-- "citi" wordmark in deep blue, positioned below the arc -->
+  <text x="100" y="155"
+        font-family="Arial, sans-serif"
+        font-size="44"
+        font-weight="bold"
+        fill="#003B70"
+        text-anchor="middle"
+        letter-spacing="3">citi</text>
+</svg>
