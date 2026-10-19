@@ -10,9 +10,9 @@ const PersonalInfo = () => {
     location: "Pune, MH, India",
     email: "prashaint.kumar.mishra@gmail.com",
     phone: "+91 8484093319",
-    bio: `I'm Senior Data Engineer with over 14 years of experience. I have designed, developed and maintained complex data pipelines for ML projects. My journey began with a MCA degree from BIT Mesra Ranchi, where I discovered my love for both coding and Data Engineering.\n\nI specialize in PySpark, Python, and modern Data Engineering technologies, with a keen eye for creating complex and scalable data pipelines...`,
+    bio: `I'm Senior Data Engineer with over 15+ years of experience. I have designed, developed and maintained complex data pipelines for ML projects. My journey began with a MCA degree from BIT Mesra Ranchi, where I discovered my love for both coding and Data Engineering.\n\nI specialize in PySpark, Python, and modern Data Engineering technologies, with a keen eye for creating complex and scalable data pipelines...`,
     profileImage: "assets/images/prashaint.jpg",
-    resumeUrl: "/assets/resume/Prashaint_Mishra_Nov25.pdf"
+    resumeUrl: "/assets/resume/Prashaint_Kumar_Mishra_Oct26.pdf"
   };
 
   const handleDownloadResume = () => {
@@ -70,7 +70,7 @@ const PersonalInfo = () => {
           </Button>
         </div>
       </MotionReveal>
-      
+
       {/* Bio Section - Using Claude.ai serif font for reading content */}
       <MotionReveal direction="right" delay={0.2}>
         <div className="space-y-6">

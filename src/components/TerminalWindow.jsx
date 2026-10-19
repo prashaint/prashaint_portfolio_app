@@ -9,9 +9,9 @@ const TerminalWindow = () => {
 
   const commands = {
     help: 'Available commands: whoami, skills, experience, contact, clear',
-    whoami: 'Prashaint Mishra - Senior Data Engineer with 14+ years of experience in ML-driven data pipelines',
+    whoami: 'Prashaint Mishra - Senior Data Engineer with 15+ years of experience in ML-driven data pipelines',
     skills: 'Core Skills: PySpark | Python | Airflow | AWS | Databricks | SQL | Docker | ML Pipelines',
-    experience: 'Current: AVP at Barclays | Previous: Citi, Cognizant, Infosys (14+ years total)',
+    experience: 'Current: AVP at Barclays | Previous: Citi, Cognizant, Infosys (15+ years total)',
     contact: 'Email: prashaint.kumar.mishra@gmail.com | LinkedIn: linkedin.com/in/prashaint',
     clear: 'CLEAR'
   };
@@ -25,7 +25,7 @@ const TerminalWindow = () => {
   const handleCommand = (e) => {
     e.preventDefault();
     const cmd = input.toLowerCase().trim();
-    
+
     if (cmd === 'clear') {
       setOutput(['Welcome to Prashaint\'s Terminal! Type "help" for commands.']);
     } else if (commands[cmd]) {
@@ -33,7 +33,7 @@ const TerminalWindow = () => {
     } else if (cmd) {
       setOutput([...output, `> ${input}`, `Command not found: ${cmd}. Type "help" for available commands.`]);
     }
-    
+
     setInput('');
   };
 
@@ -51,28 +51,28 @@ const TerminalWindow = () => {
         <div className="fixed inset-x-4 sm:right-4 sm:left-auto bottom-32 z-[85] sm:w-96 bg-gray-900 rounded-lg shadow-2xl overflow-hidden animate-slide-in-from-bottom">
           <div className="bg-gray-800 px-3 sm:px-4 py-2 flex items-center justify-between">
             <span className="text-green-400 text-xs sm:text-sm font-mono">prashaint@terminal:~$</span>
-            <button 
-              onClick={() => setIsOpen(false)} 
+            <button
+              onClick={() => setIsOpen(false)}
               className="text-gray-400 hover:text-white p-1 transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
-          
-          <div 
+
+          <div
             ref={outputRef}
             className="h-48 sm:h-64 overflow-y-auto p-3 sm:p-4 font-mono text-xs sm:text-sm"
           >
             {output.map((line, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className={`${line.startsWith('>') ? 'text-green-400' : 'text-gray-300'} mb-1 break-words`}
               >
                 {line}
               </div>
             ))}
           </div>
-          
+
           <div className="border-t border-gray-700 p-2">
             <input
               type="text"

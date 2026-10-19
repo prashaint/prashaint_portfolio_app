@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 200">
+  <rect width="260" height="200" fill="#FFFFFF"/>
+
+  <!-- Cognizant logo: bold angled C stroke (open to right) -->
+  <!-- The "C" arc - large open C -->
+  <path d="M 145 48 C 80 42, 35 68, 35 100 C 35 132, 80 158, 145 152"
+        fill="none" stroke="#1A3F91" stroke-width="24" stroke-linecap="round"/>
+
+  <!-- The filled square blue dot at top-right of the C opening -->
+  <rect x="136" y="32" width="30" height="30" rx="3" fill="#1A3F91"/>
+
+  <!-- Cognizant text below -->
+  <text x="148" y="122"
+        font-family="Arial, sans-serif"
+        font-size="22"
+        font-weight="bold"
+        fill="#1A3F91"
+        text-anchor="middle">Cognizant</text>
+</svg>

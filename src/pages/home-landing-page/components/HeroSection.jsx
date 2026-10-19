@@ -16,15 +16,15 @@ const HeroSection = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/assets/resume/Prashaint_Kumar_Mishra_Mar25.pdf';
-    link.download = 'Prashaint_Kumar_Mishra_Mar25.pdf';
+    link.href = '/assets/resume/Prashaint_Kumar_Mishra_Oct26.pdf';
+    link.download = 'Prashaint_Kumar_Mishra_Oct26.pdf';
     link?.click();
   };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center gradient-hero overflow-hidden">
       {/* Gradient Background with Shine Effects - Applied via CSS */}
-      
+
       {/* Content Container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -66,15 +66,15 @@ const HeroSection = () => {
                 AVP - Senior Data Engineer, Barclays
               </h2>
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Seasoned Senior Data Engineer with 14+ years of hands-on experience architecting and leading complex machine learning–driven data pipeline projects across diverse domains. Expert in designing and implementing robust, scalable, and efficient end-to-end data engineering solutions—from ingestion and transformation to model deployment and monitoring. Adept at navigating technical challenges with precision, optimizing performance, and ensuring data integrity across distributed systems. Passionate about leveraging cutting-edge technologies to drive innovation and deliver impactful results.
+                Seasoned Senior Data Engineer with 15+ years of hands-on experience architecting and leading complex machine learning–driven data pipeline projects across diverse domains. Expert in designing and implementing robust, scalable, and efficient end-to-end data engineering solutions—from ingestion and transformation to model deployment and monitoring. Adept at navigating technical challenges with precision, optimizing performance, and ensuring data integrity across distributed systems. Passionate about leveraging cutting-edge technologies to drive innovation and deliver impactful results.
               </p>
             </div>
 
             {/* CTA Buttons with Modern Effects */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <Link to="/portfolio-gallery">
-                <Button 
-                  variant="default" 
+                <Button
+                  variant="default"
                   size="lg"
                   iconName="ArrowRight"
                   iconPosition="right"
@@ -83,8 +83,8 @@ const HeroSection = () => {
                   View My Work
                 </Button>
               </Link>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="lg"
                 iconName="Download"
                 iconPosition="left"
@@ -124,7 +124,7 @@ const HeroSection = () => {
               {/* Decorative Gradient Elements */}
               <div className="absolute -top-4 -left-4 w-full h-full bg-white/10 rounded-2xl transform rotate-3 backdrop-blur-sm"></div>
               <div className="absolute -bottom-4 -right-4 w-full h-full bg-white/10 rounded-2xl transform -rotate-3 backdrop-blur-sm"></div>
-              
+
               {/* Main Image Container with Gradient Border */}
               <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] overflow-hidden rounded-2xl shadow-2xl pulse-glow">
                 <Image
@@ -132,7 +132,7 @@ const HeroSection = () => {
                   alt="Prashaint Mishra - Senior Data Engineer"
                   className="w-full h-full object-cover"
                 />
-                
+
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
               </div>
