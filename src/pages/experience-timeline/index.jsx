@@ -33,7 +33,7 @@ const ExperienceTimeline = () => {
       duration: "3 years 9 months",
       type: "Full-time",
       industry: "Technology",
-      roleType: "Senior Data Engineer",
+      roleType: "Senior Data Engineer and Solution Architect",
       year: "2023",
       summary: "Led development of enterprise-level data pipelines using cloud technologies. Managed a team of 5 developers and collaborated with cross-functional teams to deliver high-quality software solutions.",
       technologies: ["PySpark", "Airflow", "Unix", "AWS", "Docker", "MySQL", "Git"],

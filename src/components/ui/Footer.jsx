@@ -42,7 +42,7 @@ const Footer = () => {
                 </div>
               </Link>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-                Senior Data Engineer passionate about building scalable data pipelines and sharing knowledge with the community.
+                Senior Data Engineer and Solution Architect passionate about building scalable data pipelines and sharing knowledge with the community.
               </p>
               {/* Social Icons */}
               <div className="flex items-center space-x-3 pt-1">

@@ -17,6 +17,7 @@ const Header = () => {
     { label: 'Portfolio', path: '/portfolio-gallery', icon: 'Briefcase' },
     { label: 'About', path: '/about-bio-section', icon: 'User' },
     { label: 'Experience', path: '/experience-timeline', icon: 'Clock' },
+    { label: 'Interests', path: '/creative-interests', icon: 'Sparkles' },
     { label: 'Contact', path: '/contact-form-page', icon: 'Mail' },
   ];
 
@@ -74,9 +75,8 @@ const Header = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-        className={`sticky top-0 z-[100] w-full transition-all duration-300 ${
-          isDarkMode ? 'border-b-0' : `border-b ${isScrolled ? 'border-white/10' : 'border-transparent'}`
-        }`}
+        className={`sticky top-0 z-[100] w-full transition-all duration-300 ${isDarkMode ? 'border-b-0' : `border-b ${isScrolled ? 'border-white/10' : 'border-transparent'}`
+          }`}
         style={{
           background: isDarkMode
             ? 'linear-gradient(180deg, #2c2c2c 0%, #1a1a1a 30%, #111111 60%, #0a0a0a 100%)'
@@ -91,11 +91,10 @@ const Header = () => {
         }}
       >
         {/* Top glossy highlight for 3D raised effect */}
-        <div className={`absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r ${
-          isDarkMode
+        <div className={`absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r ${isDarkMode
             ? 'from-transparent via-white/20 to-transparent'
             : 'from-transparent via-white/50 to-transparent'
-        }`} />
+          }`} />
         {/* Secondary shine line below top for extra depth */}
         {isDarkMode && (
           <div className="absolute top-[1px] left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-white/8 to-transparent" />
@@ -146,9 +145,8 @@ const Header = () => {
             {/* Desktop Navigation & Controls */}
             <div className="hidden md:flex items-center space-x-2">
               {/* Pill-shaped navigation bar */}
-              <nav className={`flex items-center rounded-full px-1.5 py-1 ${
-                isDarkMode ? 'bg-white/8 border border-white/10' : 'bg-white/15 backdrop-blur-sm'
-              }`}>
+              <nav className={`flex items-center rounded-full px-1.5 py-1 ${isDarkMode ? 'bg-white/8 border border-white/10' : 'bg-white/15 backdrop-blur-sm'
+                }`}>
                 {navigationItems?.map((item) => {
                   const active = isActivePath(item?.path);
                   return (
@@ -161,17 +159,15 @@ const Header = () => {
                       {active && (
                         <motion.span
                           layoutId="activeNavPill"
-                          className={`absolute inset-0 rounded-full ${
-                            isDarkMode ? 'bg-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]' : 'bg-white shadow-sm'
-                          }`}
+                          className={`absolute inset-0 rounded-full ${isDarkMode ? 'bg-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]' : 'bg-white shadow-sm'
+                            }`}
                           transition={{ type: "spring", stiffness: 380, damping: 30 }}
                         />
                       )}
-                      <span className={`relative z-10 ${
-                        active
+                      <span className={`relative z-10 ${active
                           ? isDarkMode ? 'text-white font-semibold' : 'text-[#4a4de8] font-semibold'
                           : 'text-white/70 hover:text-white'
-                      }`}>
+                        }`}>
                         {item?.label}
                       </span>
                     </Link>
@@ -290,11 +286,10 @@ const Header = () => {
                           <Link
                             to={item?.path}
                             onClick={closeMobileMenu}
-                            className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
-                              active
+                            className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${active
                                 ? 'text-primary-foreground bg-primary'
                                 : 'text-muted-foreground hover:text-foreground hover:bg-muted/60'
-                            }`}
+                              }`}
                           >
                             <Icon name={item?.icon} size={20} />
                             <span>{item?.label}</span>

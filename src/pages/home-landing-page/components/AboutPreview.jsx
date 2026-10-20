@@ -13,7 +13,7 @@ const AboutPreview = () => {
       icon: "CheckCircle"
     },
     {
-      number: "14+",
+      number: "15+",
       label: "Years Experience",
       icon: "Calendar"
     },
@@ -30,7 +30,7 @@ const AboutPreview = () => {
   ];
 
   const highlights = [
-    "Senior Data Engineer with expertiese on modern and complex Data Pipelines development",
+    "Senior Data Engineer and Solution Architect with expertise on modern and complex Data Pipelines development",
     "End-to-end data solutions from ingestion to visualization",
     "Performance optimization and scalable architecture",
     "Agile development and team collaboration"
@@ -48,7 +48,7 @@ const AboutPreview = () => {
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 I'm a passionate full-stack developer with a keen eye for design and a love for creating
-                digital experiences that make a difference. With over 14 years of experience in the industry,
+                digital experiences that make a difference. With 15+ years of experience in the industry,
                 I've had the privilege of working with diverse clients and teams to bring innovative ideas to life.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
