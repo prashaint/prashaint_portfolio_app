@@ -10,6 +10,7 @@ import ProjectDetailModal from './pages/project-detail-modal';
 import HomeLandingPage from './pages/home-landing-page';
 import PortfolioGallery from './pages/portfolio-gallery';
 import ExperienceTimeline from './pages/experience-timeline';
+import CreativeInterests from './pages/creative-interests';
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -23,6 +24,7 @@ const AnimatedRoutes = () => {
         <Route path="/home-landing-page" element={<HomeLandingPage />} />
         <Route path="/portfolio-gallery" element={<PortfolioGallery />} />
         <Route path="/experience-timeline" element={<ExperienceTimeline />} />
+        <Route path="/creative-interests" element={<CreativeInterests />} />
         <Route path="*" element={<NotFound />} />
       </RouterRoutes>
     </AnimatePresence>
@@ -33,8 +35,8 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <ErrorBoundary>
-      <ScrollToTop />
-      <AnimatedRoutes />
+        <ScrollToTop />
+        <AnimatedRoutes />
       </ErrorBoundary>
     </BrowserRouter>
   );

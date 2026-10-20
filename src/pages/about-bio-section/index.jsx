@@ -48,10 +48,10 @@ const AboutBioSection = () => {
     <PageTransition>
       <div className="min-h-screen bg-background">
         <Helmet>
-          <title>About Me - Prashaint Mishra | Senior Data Engineer</title>
+          <title>About Me - Prashaint Mishra | Senior Data Engineer and Solution Architect</title>
           <meta name="description" content="Learn about Prashaint Mishra, a passionate full stack developer with 15+ years of experience in React, Node.js, and modern web technologies. Discover my skills, education, and personal interests." />
           <meta name="keywords" content="Prashaint Mishra, Full Stack Developer, UI/UX Designer, React Developer, Web Developer, Portfolio" />
-          <meta property="og:title" content="About Me - Prashaint Mishra | Senior Data Engineer" />
+          <meta property="og:title" content="About Me - Prashaint Mishra | Senior Data Engineer and Solution Architect" />
           <meta property="og:description" content="Passionate full stack developer specializing in React, Node.js, and user experience design. Based in San Francisco with 6+ years of experience." />
           <meta property="og:type" content="profile" />
         </Helmet>

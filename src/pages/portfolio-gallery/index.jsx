@@ -34,7 +34,7 @@ const PortfolioGallery = () => {
       featured: true,
       client: "Personal Project",
       duration: "4 months",
-      role: "Senior Data Engineer",
+      role: "Senior Data Engineer and Solution Architect",
       completedDate: "2024-02-15",
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/example"
@@ -194,43 +194,43 @@ const PortfolioGallery = () => {
       </Helmet>
 
       <PageTransition>
-      <div className="min-h-screen bg-background">
-        <Header />
+        <div className="min-h-screen bg-background">
+          <Header />
 
-        {/* Filter Bar */}
-        <FilterBar
-          categories={categories}
-          activeCategory={activeCategory}
-          onCategoryChange={setActiveCategory}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          sortBy={sortBy}
-          onSortChange={setSortBy}
-        />
+          {/* Filter Bar */}
+          <FilterBar
+            categories={categories}
+            activeCategory={activeCategory}
+            onCategoryChange={setActiveCategory}
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+            sortBy={sortBy}
+            onSortChange={setSortBy}
+          />
 
-        {/* Stats Section */}
-        <StatsSection projects={allProjects} />
+          {/* Stats Section */}
+          <StatsSection projects={allProjects} />
 
-        {/* Project Grid */}
-        <ProjectGrid
-          projects={projectsToShow}
-          loading={loading}
-          onProjectClick={handleProjectClick}
-          onLoadMore={handleLoadMore}
-          hasMore={hasMore}
-        />
+          {/* Project Grid */}
+          <ProjectGrid
+            projects={projectsToShow}
+            loading={loading}
+            onProjectClick={handleProjectClick}
+            onLoadMore={handleLoadMore}
+            hasMore={hasMore}
+          />
 
-        {/* Project Detail Modal */}
-        <ProjectDetailModal
-          isOpen={!!selectedProject}
-          onClose={handleCloseModal}
-          project={selectedProject}
-          projects={filteredProjects}
-          onNavigateProject={handleNavigateProject}
-        />
+          {/* Project Detail Modal */}
+          <ProjectDetailModal
+            isOpen={!!selectedProject}
+            onClose={handleCloseModal}
+            project={selectedProject}
+            projects={filteredProjects}
+            onNavigateProject={handleNavigateProject}
+          />
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
       </PageTransition>
     </>
   );

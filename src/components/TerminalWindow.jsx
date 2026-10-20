@@ -9,7 +9,7 @@ const TerminalWindow = () => {
 
   const commands = {
     help: 'Available commands: whoami, skills, experience, contact, clear',
-    whoami: 'Prashaint Mishra - Senior Data Engineer with 15+ years of experience in ML-driven data pipelines',
+    whoami: 'Prashaint Mishra - Senior Data Engineer and Solution Architect with 15+ years of experience in ML-driven data pipelines',
     skills: 'Core Skills: PySpark | Python | Airflow | AWS | Databricks | SQL | Docker | ML Pipelines',
     experience: 'Current: AVP at Barclays | Previous: Citi, Cognizant, Infosys (15+ years total)',
     contact: 'Email: prashaint.kumar.mishra@gmail.com | LinkedIn: linkedin.com/in/prashaint',

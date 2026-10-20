@@ -36,9 +36,9 @@ const ContactHeader = () => {
 
           <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
             <h4><b>Ready to embark on a learning journey together?</b></h4>
-            <br/><p>Whether you're interested in data engineering, machine learning, cloud technologies, or just want to share knowledge and experiences.
-            <br/>With over 14 years of experience in data engineering and software development, I'm passionate about sharing knowledge, mentoring, and learning from others. Let's connect to explore opportunities for mutual growth, knowledge exchange, and building meaningful professional relationships!
-            I'm here to connect, learn, and grow together.</p>
+            <br /><p>Whether you're interested in data engineering, machine learning, cloud technologies, or just want to share knowledge and experiences.
+              <br />With 15+ years of experience in data engineering and software development, I'm passionate about sharing knowledge, mentoring, and learning from others. Let's connect to explore opportunities for mutual growth, knowledge exchange, and building meaningful professional relationships!
+              I'm here to connect, learn, and grow together.</p>
           </p>
         </MotionReveal>
 

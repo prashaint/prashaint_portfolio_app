@@ -12,16 +12,16 @@ import { PageTransition } from '../../components/motion';
 const HomeLandingPage = () => {
   useEffect(() => {
     // Set page title
-    document.title = 'Prashaint Mishra - AVP - Senior Data Engineer';
+    document.title = 'Prashaint Mishra - AVP - Senior Data Engineer and Solution Architect';
 
     // Add meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription?.setAttribute('content', 'Professional portfolio of Prashaint Mishra - AVP - Senior Data Engineer. Explore my projects, skills, and experience in modern and complex Data Pipelines.');
+      metaDescription?.setAttribute('content', 'Professional portfolio of Prashaint Mishra - AVP - Senior Data Engineer and Solution Architect. Explore my projects, skills, and experience in modern and complex Data Pipelines.');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'description';
-      meta.content = 'Professional portfolio of Prashaint Mishra - AVP - Senior Data Engineer. Explore my projects, skills, and experience in modern and complex Data Pipelines.';
+      meta.content = 'Professional portfolio of Prashaint Mishra - AVP - Senior Data Engineer and Solution Architect. Explore my projects, skills, and experience in modern and complex Data Pipelines.';
       document.getElementsByTagName('head')?.[0]?.appendChild(meta);
     }
 

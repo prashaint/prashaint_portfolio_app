@@ -48,7 +48,7 @@ const HeroSection = () => {
                   <div className="relative w-56 h-56 sm:w-64 sm:h-64 overflow-hidden rounded-2xl shadow-2xl pulse-glow">
                     <Image
                       src="assets/images/prashaint_profile2.jpg"
-                      alt="Prashaint Mishra - Senior Data Engineer"
+                      alt="Prashaint Mishra - Senior Data Engineer and Solution Architect"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
@@ -63,10 +63,10 @@ const HeroSection = () => {
               </div>
 
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium text-white/90 mb-6">
-                AVP - Senior Data Engineer, Barclays
+                Senior Data Engineer & Solution Architect
               </h2>
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Seasoned Senior Data Engineer with 15+ years of hands-on experience architecting and leading complex machine learning–driven data pipeline projects across diverse domains. Expert in designing and implementing robust, scalable, and efficient end-to-end data engineering solutions—from ingestion and transformation to model deployment and monitoring. Adept at navigating technical challenges with precision, optimizing performance, and ensuring data integrity across distributed systems. Passionate about leveraging cutting-edge technologies to drive innovation and deliver impactful results.
+                Seasoned Senior Data Engineer & Solution Architect with 15+ years of hands-on experience architecting and leading complex machine learning–driven data pipeline projects across diverse domains. Expert in designing and implementing robust, scalable, and efficient end-to-end data engineering solutions—from ingestion and transformation to model deployment and monitoring. Adept at navigating technical challenges with precision, optimizing performance, and ensuring data integrity across distributed systems. Passionate about leveraging cutting-edge technologies to drive innovation and deliver impactful results.
               </p>
             </div>
 
@@ -129,7 +129,7 @@ const HeroSection = () => {
               <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] overflow-hidden rounded-2xl shadow-2xl pulse-glow">
                 <Image
                   src="assets/images/prashaint_profile2.jpg"
-                  alt="Prashaint Mishra - Senior Data Engineer"
+                  alt="Prashaint Mishra - Senior Data Engineer and Solution Architect"
                   className="w-full h-full object-cover"
                 />
 

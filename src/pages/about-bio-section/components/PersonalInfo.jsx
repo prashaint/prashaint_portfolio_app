@@ -6,11 +6,11 @@ import { MotionReveal, MotionStagger, MotionStaggerItem } from '../../../compone
 const PersonalInfo = () => {
   const personalData = {
     name: "Prashaint Mishra",
-    title: "Senior Data Engineer, Barclays",
+    title: "Senior Data Engineer and Solution Architect, Barclays",
     location: "Pune, MH, India",
     email: "prashaint.kumar.mishra@gmail.com",
     phone: "+91 8484093319",
-    bio: `I'm Senior Data Engineer with over 15+ years of experience. I have designed, developed and maintained complex data pipelines for ML projects. My journey began with a MCA degree from BIT Mesra Ranchi, where I discovered my love for both coding and Data Engineering.\n\nI specialize in PySpark, Python, and modern Data Engineering technologies, with a keen eye for creating complex and scalable data pipelines...`,
+    bio: `I'm Senior Data Engineer and Solution Architect with over 15+ years of experience. I have designed, developed and maintained complex data pipelines for ML projects. My journey began with a MCA degree from BIT Mesra Ranchi, where I discovered my love for both coding and Data Engineering.\n\nI specialize in PySpark, Python, and modern Data Engineering technologies, with a keen eye for creating complex and scalable data pipelines...`,
     profileImage: "assets/images/prashaint.jpg",
     resumeUrl: "/assets/resume/Prashaint_Kumar_Mishra_Oct26.pdf"
   };
@@ -92,7 +92,7 @@ const PersonalInfo = () => {
             <div className="grid grid-cols-2 gap-4 pt-6 border-t border-border">
               <MotionStaggerItem>
                 <div className="text-center p-4 bg-muted rounded-lg">
-                  <div className="text-2xl font-bold text-primary font-sans">14+</div>
+                  <div className="text-2xl font-bold text-primary font-sans">15+</div>
                   <div className="text-sm text-muted-foreground font-claude">Years Experience</div>
                 </div>
               </MotionStaggerItem>

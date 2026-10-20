@@ -57,7 +57,7 @@ const Logo = ({
         </span>
         {showTagline && (
           <span className={`font-body text-muted-foreground ${config.taglineSize}`}>
-            Senior Data Engineer
+            Senior Data Engineer and Solution Architect
           </span>
         )}
       </div>
