@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from '../../components/ui/Header';
@@ -35,6 +35,15 @@ const MUSIC_DATA = {
         { title: 'Evening Renditions', mood: '🌙 Contemplative', count: '6 videos' },
         { title: 'Folk Melodies', mood: '🌿 Earthy', count: '5 videos' },
     ],
+    shorts: [
+        { id: '4fDFe4U-RaY', title: 'Happy Birthday', tags: '#flute #happybirthday' },
+        { id: 'pyNPcxVBi0c', title: 'Pyramid Alankar', tags: '#flute #music' },
+        { id: 'mZoVjPo-7e4', title: 'Hare Rama Hare Krishna', tags: '#harekrishna' },
+        { id: 'wFE3EbR2LPg', title: 'Raag Bhupali – First Composition', tags: '#flute #music' },
+        { id: 'ihMRicKH3H8', title: 'Malgudi Days', tags: '#flute #music' },
+        { id: '-pCSPFRL-xc', title: 'Pyramid Alankaar Practice Session', tags: '#flute #flutemusic' },
+        { id: 'AbeOBMY7NHo', title: 'Skip Alankaar @120BPM', tags: '#flute #flutemusic' },
+    ],
 };
 
 const ARTS_DATA = {
@@ -55,12 +64,27 @@ const ARTS_DATA = {
         { emoji: '🏙️', title: 'Urban Sketching', desc: 'Street scenes and architecture' },
     ],
     gallery: [
-        { color: 'from-violet-500 to-purple-700', label: 'Sinhagad Fort Sketch', medium: 'Pencil' },
-        { color: 'from-orange-400 to-rose-600', label: 'Sunset Study', medium: 'Digital' },
-        { color: 'from-emerald-400 to-teal-600', label: 'Monsoon Greens', medium: 'Watercolour' },
-        { color: 'from-sky-400 to-blue-600', label: 'Valley Mist', medium: 'Photography' },
-        { color: 'from-amber-400 to-yellow-600', label: 'Morning Light', medium: 'Digital' },
-        { color: 'from-pink-400 to-fuchsia-600', label: 'Portrait Study', medium: 'Pencil' },
+        {
+            image: '/assets/arts/mandala_01.jpg',
+            label: 'Lotus Star Mandala',
+            medium: 'Marker & Pencil',
+            description: 'A vibrant geometric mandala with a central lotus bloom radiating outward into chevron-patterned star points. Bold primaries meet delicate petal gradients.',
+            accent: '#6c72f6',
+        },
+        {
+            image: '/assets/arts/mandala_02.jpg',
+            label: 'Floral Bloom Mandala',
+            medium: 'Marker & Ink',
+            description: 'A lush botanical mandala bursting with layered petals in warm oranges and cool teals. The striped leaf motifs create mesmerizing depth and movement.',
+            accent: '#10b981',
+        },
+        {
+            image: '/assets/arts/mandala_03.jpg',
+            label: 'Peacock Garden Mandala',
+            medium: 'Marker & Ink',
+            description: 'An intricate, densely layered mandala inspired by peacock feathers and garden foliage. Rich jewel tones with a radiant pink-red center blossom.',
+            accent: '#f97316',
+        },
     ],
 };
 
@@ -146,6 +170,114 @@ const MusicTab = () => (
             </div>
         </MotionReveal>
 
+        {/* YouTube Shorts */}
+        <MotionReveal direction="up">
+            <div className="flex items-center justify-between mb-6">
+                <h3 className="text-xl font-bold text-foreground flex items-center gap-2">
+                    <svg width="22" height="22" viewBox="0 0 28 28" fill="none" className="text-red-500">
+                        <rect width="28" height="28" rx="6" fill="currentColor"/>
+                        <polygon points="11,8 11,20 21,14" fill="white"/>
+                    </svg>
+                    YouTube Shorts
+                </h3>
+                <a
+                    href={`${MUSIC_DATA.youtubeChannel.url}/shorts`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-red-500 hover:text-red-400 font-medium flex items-center gap-1 transition-colors"
+                >
+                    View All <Icon name="ArrowRight" size={14} />
+                </a>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                {MUSIC_DATA.shorts.map((short, i) => (
+                    <motion.a
+                        key={short.id}
+                        href={`https://www.youtube.com/shorts/${short.id}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative rounded-2xl overflow-hidden cursor-pointer block"
+                        style={{
+                            aspectRatio: '9/16',
+                            boxShadow: '0 4px 24px rgba(0,0,0,0.25)',
+                            border: '1px solid rgba(255,255,255,0.06)',
+                        }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: i * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
+                        whileHover={{ y: -6, boxShadow: '0 16px 48px rgba(255,0,0,0.2)' }}
+                    >
+                        {/* Thumbnail */}
+                        <img
+                            src={`https://i.ytimg.com/vi/${short.id}/oar2.jpg`}
+                            alt={short.title}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            loading="lazy"
+                            onError={(e) => { e.target.src = `https://i.ytimg.com/vi/${short.id}/hqdefault.jpg`; }}
+                        />
+
+                        {/* Dark gradient overlay */}
+                        <div
+                            className="absolute inset-0 transition-opacity duration-500"
+                            style={{
+                                background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.3) 100%)',
+                            }}
+                        />
+
+                        {/* Centered play button */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <div
+                                className="w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg"
+                                style={{
+                                    background: 'rgba(255, 0, 0, 0.85)',
+                                    boxShadow: '0 4px 20px rgba(255, 0, 0, 0.4)',
+                                    opacity: 0.9,
+                                }}
+                            >
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                    <polygon points="6,3 6,21 20,12" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        {/* Shorts badge */}
+                        <div
+                            className="absolute top-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-lg text-white text-[10px] font-bold uppercase tracking-wider"
+                            style={{
+                                background: 'rgba(0,0,0,0.5)',
+                                backdropFilter: 'blur(8px)',
+                                border: '1px solid rgba(255,255,255,0.1)',
+                            }}
+                        >
+                            <svg width="10" height="10" viewBox="0 0 28 28" fill="none">
+                                <rect width="28" height="28" rx="6" fill="#FF0000"/>
+                                <polygon points="11,8 11,20 21,14" fill="white"/>
+                            </svg>
+                            Short
+                        </div>
+
+                        {/* Bottom title bar */}
+                        <div className="absolute bottom-0 left-0 right-0 p-3">
+                            <div
+                                className="rounded-lg px-3 py-2"
+                                style={{
+                                    background: 'rgba(0, 0, 0, 0.45)',
+                                    backdropFilter: 'blur(12px)',
+                                    WebkitBackdropFilter: 'blur(12px)',
+                                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                                }}
+                            >
+                                <div className="text-white font-semibold text-xs leading-snug line-clamp-2">{short.title}</div>
+                                <div className="text-white/40 text-[10px] mt-0.5">{short.tags}</div>
+                            </div>
+                        </div>
+                    </motion.a>
+                ))}
+            </div>
+        </MotionReveal>
+
         {/* Highlights grid */}
         <MotionReveal direction="up">
             <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
@@ -209,7 +341,15 @@ const MusicTab = () => (
 /* ─────────────────────────────────────────────
    ARTS TAB CONTENT
 ───────────────────────────────────────────── */
-const ArtsTab = () => (
+const ArtsTab = () => {
+    const [lightbox, setLightbox] = useState(null);
+
+    const openLightbox = useCallback((index) => setLightbox(index), []);
+    const closeLightbox = useCallback(() => setLightbox(null), []);
+    const nextImage = useCallback(() => setLightbox((prev) => (prev + 1) % ARTS_DATA.gallery.length), []);
+    const prevImage = useCallback(() => setLightbox((prev) => (prev - 1 + ARTS_DATA.gallery.length) % ARTS_DATA.gallery.length), []);
+
+    return (
     <div className="space-y-16">
         {/* Hero banner */}
         <MotionReveal direction="up">
@@ -300,40 +440,177 @@ const ArtsTab = () => (
             </div>
         </MotionReveal>
 
-        {/* Gallery mosaic (placeholder colour blocks) */}
+        {/* ── Mandala Art Gallery ── */}
         <MotionReveal direction="up">
-            <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
-                <Icon name="Grid" size={22} className="text-primary" /> Gallery Highlights
+            <h3 className="text-xl font-bold text-foreground mb-2 flex items-center gap-2">
+                <Icon name="Grid" size={22} className="text-primary" /> Mandala Art Gallery
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <p className="text-muted-foreground text-sm mb-8">Hand-colored mandala artworks — tap any piece to view full-size</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {ARTS_DATA.gallery.map((g, i) => (
                     <motion.div
                         key={g.label}
-                        className={`relative rounded-2xl overflow-hidden bg-gradient-to-br ${g.color} group cursor-pointer`}
-                        style={{ aspectRatio: i % 3 === 1 ? '1/1.3' : '1/1' }}
-                        whileHover={{ scale: 1.03 }}
-                        transition={{ duration: 0.3 }}
+                        className="group relative rounded-2xl overflow-hidden cursor-pointer"
+                        style={{
+                            boxShadow: `0 4px 30px ${g.accent}22`,
+                            border: `1px solid ${g.accent}30`,
+                        }}
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: i * 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+                        whileHover={{ y: -8, boxShadow: `0 20px 60px ${g.accent}35` }}
+                        onClick={() => openLightbox(i)}
                     >
-                        {/* placeholder art */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="text-5xl opacity-30">🖼️</span>
+                        {/* Image */}
+                        <div className="aspect-[3/4] overflow-hidden">
+                            <motion.img
+                                src={g.image}
+                                alt={g.label}
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                                whileHover={{ scale: 1.08 }}
+                                transition={{ duration: 0.6, ease: 'easeOut' }}
+                            />
                         </div>
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
-                        <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                            <div className="text-white font-semibold text-sm">{g.label}</div>
-                            <div className="text-white/70 text-xs">{g.medium}</div>
+
+                        {/* Gradient overlay on hover */}
+                        <div
+                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                            style={{
+                                background: `linear-gradient(to top, ${g.accent}dd 0%, ${g.accent}55 35%, transparent 60%)`,
+                            }}
+                        />
+
+                        {/* Glassmorphic info card at bottom */}
+                        <div
+                            className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
+                        >
+                            <div
+                                className="rounded-xl p-4"
+                                style={{
+                                    background: 'rgba(0, 0, 0, 0.45)',
+                                    backdropFilter: 'blur(16px)',
+                                    WebkitBackdropFilter: 'blur(16px)',
+                                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                                }}
+                            >
+                                <div className="text-white font-bold text-base mb-1">{g.label}</div>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <span
+                                        className="inline-block w-2 h-2 rounded-full"
+                                        style={{ background: g.accent }}
+                                    />
+                                    <span className="text-white/70 text-xs font-medium uppercase tracking-wider">{g.medium}</span>
+                                </div>
+                                <p className="text-white/60 text-xs leading-relaxed line-clamp-2">{g.description}</p>
+                            </div>
+                        </div>
+
+                        {/* Top-right expand icon */}
+                        <div
+                            className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100"
+                            style={{
+                                background: 'rgba(0, 0, 0, 0.4)',
+                                backdropFilter: 'blur(8px)',
+                                border: '1px solid rgba(255, 255, 255, 0.15)',
+                            }}
+                        >
+                            <Icon name="Maximize2" size={14} className="text-white" />
                         </div>
                     </motion.div>
                 ))}
             </div>
-            <p className="text-center text-muted-foreground text-sm mt-4">
+
+            <p className="text-center text-muted-foreground text-sm mt-6">
                 🎨 More works shared on Instagram &nbsp;
                 <a href="https://www.instagram.com/prashaint/?hl=en" target="_blank" rel="noopener noreferrer"
                     className="text-primary hover:underline font-medium">@prashaint</a>
             </p>
         </MotionReveal>
+
+        {/* ── Lightbox Modal ── */}
+        <AnimatePresence>
+            {lightbox !== null && (
+                <motion.div
+                    className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-8"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                >
+                    {/* Backdrop */}
+                    <div
+                        className="absolute inset-0 cursor-pointer"
+                        style={{ background: 'rgba(0, 0, 0, 0.85)', backdropFilter: 'blur(20px)' }}
+                        onClick={closeLightbox}
+                    />
+
+                    {/* Close button */}
+                    <button
+                        onClick={closeLightbox}
+                        className="absolute top-4 right-4 md:top-6 md:right-6 z-10 w-11 h-11 rounded-full flex items-center justify-center text-white/80 hover:text-white transition-colors"
+                        style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.15)' }}
+                    >
+                        <Icon name="X" size={20} />
+                    </button>
+
+                    {/* Navigation arrows */}
+                    <button
+                        onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                        className="absolute left-2 md:left-6 z-10 w-11 h-11 rounded-full flex items-center justify-center text-white/80 hover:text-white transition-colors"
+                        style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.15)' }}
+                    >
+                        <Icon name="ChevronLeft" size={22} />
+                    </button>
+                    <button
+                        onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                        className="absolute right-2 md:right-6 z-10 w-11 h-11 rounded-full flex items-center justify-center text-white/80 hover:text-white transition-colors"
+                        style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.15)' }}
+                    >
+                        <Icon name="ChevronRight" size={22} />
+                    </button>
+
+                    {/* Image + info */}
+                    <motion.div
+                        key={lightbox}
+                        className="relative z-10 flex flex-col items-center max-w-3xl w-full max-h-[90vh]"
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.9, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+                    >
+                        <div className="rounded-2xl overflow-hidden shadow-2xl w-full" style={{ maxHeight: '70vh' }}>
+                            <img
+                                src={ARTS_DATA.gallery[lightbox].image}
+                                alt={ARTS_DATA.gallery[lightbox].label}
+                                className="w-full h-full object-contain"
+                                style={{ maxHeight: '70vh' }}
+                            />
+                        </div>
+                        <div
+                            className="mt-4 rounded-xl p-4 md:p-5 w-full max-w-lg text-center"
+                            style={{
+                                background: 'rgba(255, 255, 255, 0.06)',
+                                backdropFilter: 'blur(16px)',
+                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                            }}
+                        >
+                            <h4 className="text-white font-bold text-lg mb-1">{ARTS_DATA.gallery[lightbox].label}</h4>
+                            <div className="flex items-center justify-center gap-2 mb-2">
+                                <span className="inline-block w-2 h-2 rounded-full" style={{ background: ARTS_DATA.gallery[lightbox].accent }} />
+                                <span className="text-white/60 text-xs font-medium uppercase tracking-wider">{ARTS_DATA.gallery[lightbox].medium}</span>
+                            </div>
+                            <p className="text-white/50 text-sm leading-relaxed">{ARTS_DATA.gallery[lightbox].description}</p>
+                        </div>
+                    </motion.div>
+                </motion.div>
+            )}
+        </AnimatePresence>
     </div>
-);
+    );
+};
 
 /* ─────────────────────────────────────────────
    PAGE
